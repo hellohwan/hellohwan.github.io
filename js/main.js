@@ -365,6 +365,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(renderTime, 1000);
     }
 
+<<<<<<< HEAD
     // ── Weather Clock Widget ────────────────────────────────────────────────
     const widgetTime     = document.getElementById('widget-time');
     const widgetAmpm     = document.getElementById('widget-ampm');
@@ -524,6 +525,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+=======
+>>>>>>> e740409 (perubahan 10 juni)
     // Initialize Lenis
     if (typeof Lenis !== 'undefined') {
         const lenis = new Lenis();
