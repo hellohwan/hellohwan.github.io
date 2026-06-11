@@ -10,20 +10,10 @@
     --transition: all 0.3s ease;
 }
 
-/* Lenis Smooth Scrolling */
 /* Lenis Smooth Scrolling & Scroll Snapping */
 html.lenis, html.lenis body {
   height: auto;
-<<<<<<< HEAD
   scroll-snap-type: none; /* Disable native snapping to let Lenis handle it smoothly */
-=======
-  scroll-snap-type: y proximity;
-}
-
-section, .hero-netpoint, footer {
-  scroll-snap-align: start;
-  scroll-margin-top: 0px;
->>>>>>> e740409 (perubahan 10 juni)
 }
 
 .lenis.lenis-smooth {
