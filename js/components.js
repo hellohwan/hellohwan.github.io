@@ -32,14 +32,8 @@ class GlobalNavbar extends HTMLElement {
             <header class="${isDetail ? 'docs-header' : 'header-wrapper'}">
                 <div class="top-banner-marquee">
                     <div class="marquee-content">
-                        <span>LinkedIn</span> <span class="smiley">☺</span>
-                        <span>Facebook</span> <span class="smiley">☺</span>
-                        <span>+628777 666 0258</span> <span class="smiley">☺</span>
-                        <span>dindahwan@gmail.com</span> <span class="smiley">☺</span>
-                        <span>LinkedIn</span> <span class="smiley">☺</span>
-                        <span>Facebook</span> <span class="smiley">☺</span>
-                        <span>+628777 666 0258</span> <span class="smiley">☺</span>
-                        <span>dindahwan@gmail.com</span> <span class="smiley">☺</span>
+                        <span>It’s not just about design — it’s about showing who you really are. Stay bold, stay confident, and let your creativity be the main character. 🎾</span>
+                        <span>It’s not just about design — it’s about showing who you really are. Stay bold, stay confident, and let your creativity be the main character. 🎾</span>
                     </div>
                 </div>
                 <nav class="navbar awwwards-nav ${isDetail ? 'top-nav-bar' : ''}">
