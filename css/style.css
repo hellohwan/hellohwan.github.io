@@ -1111,17 +1111,32 @@ body.light-theme .np-info-btn:hover {
     position: relative;
     flex-shrink: 0;
     width: 90%;
-    margin: 0 auto;
+    max-width: 1400px;
+    margin: 0 auto 15px auto;
     display: flex;
     justify-content: space-between;
-    border-top: 1px solid var(--ticker-border);
-    padding: 9px 0;
+    padding: 12px 24px;
     font-size: 0.76rem;
     color: var(--hero-text-desc);
     z-index: 5;
     letter-spacing: 1px;
     text-transform: uppercase;
-    transition: border-top 0.3s ease, color 0.3s ease;
+
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+
+    transition: all 0.3s ease;
+}
+
+body.light-theme .netpoint-footer-bar {
+    background: rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(35, 49, 62, 0.12);
+    color: #233129;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
 }
 
 /* Home Hero Ticker */
