@@ -816,3 +816,11 @@ body.light-theme .about-ticker-container .aceup-ticker-wrap {
     border-top: none !important;
     border-bottom: none !important;
 }
+
+/* Work Collaboration Header Styles */
+.collab-subtitle {
+    color: rgba(255, 255, 255, 0.4);
+}
+body.light-theme .collab-subtitle {
+    color: rgba(10, 60, 60, 0.6) !important;
+}

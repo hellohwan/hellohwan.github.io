@@ -40,9 +40,9 @@
 
         /* Story Card design */
         .exp-card.story-card {
-            flex: 0 0 374px !important; /* Set width to 374px */
-            width: 374px !important;
-            height: 437px !important; /* Set height to 437px */
+            flex: 0 0 280px !important; /* Portrait width matching Headspace */
+            width: 280px !important;
+            height: 380px !important; /* Portrait height matching Headspace */
             border-radius: 20px !important;
             position: relative !important;
             overflow: hidden !important;
@@ -617,6 +617,14 @@
                     border: 1px solid rgba(255, 255, 255, 0.15);
                     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
                     aspect-ratio: 1 / 1;
+                    display: flex;
+                    gap: 8px;
+                    padding: 8px;
+                    background: rgba(5, 8, 16, 0.5);
+                    box-sizing: border-box;
+                    position: relative;
+                    mask-image: linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent);
+                    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent);
                 }
                 .hero-concept-img {
                     width: 100%;
@@ -624,9 +632,87 @@
                     object-fit: cover;
                     display: block;
                 }
+                
+                /* Mockup Column & Card Wall Styles */
+                .mockup-column {
+                    display: flex;
+                    flex-direction: column;
+                    width: 33.33%;
+                    flex-shrink: 0;
+                    gap: 8px;
+                }
+                .mockup-column-up-1 {
+                    animation: marquee-up-wall 18s linear infinite;
+                }
+                .mockup-column-down {
+                    animation: marquee-down-wall 20s linear infinite;
+                }
+                .mockup-column-up-2 {
+                    animation: marquee-up-wall 15s linear infinite;
+                }
+                @keyframes marquee-up-wall {
+                    0% { transform: translateY(0); }
+                    100% { transform: translateY(-50%); }
+                }
+                @keyframes marquee-down-wall {
+                    0% { transform: translateY(-50%); }
+                    100% { transform: translateY(0); }
+                }
+                .mockup-card {
+                    position: relative;
+                    width: 100%;
+                    border-radius: 12px;
+                    overflow: hidden;
+                    background-size: cover;
+                    background-position: center;
+                    background-color: #1a1e29;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                    border: 1px solid rgba(255,255,255,0.06);
+                    flex-shrink: 0;
+                }
+                .mockup-card-h-sm { height: 95px; }
+                .mockup-card-h-md { height: 125px; }
+                .mockup-card-h-lg { height: 145px; }
+                .mockup-card-overlay {
+                    position: absolute;
+                    inset: 0;
+                    background: linear-gradient(to bottom, transparent 30%, rgba(0, 0, 0, 0.85) 100%);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    padding: 8px;
+                    box-sizing: border-box;
+                    text-align: left;
+                }
+                .mockup-card-title {
+                    font-size: 0.65rem !important;
+                    font-weight: 700 !important;
+                    color: #ffffff !important;
+                    margin: 0 !important;
+                    line-height: 1.2 !important;
+                }
+                .mockup-card-subtitle {
+                    font-size: 0.48rem !important;
+                    color: rgba(255, 255, 255, 0.6) !important;
+                    margin: 2px 0 0 0 !important;
+                }
+                .mockup-card-badge {
+                    position: absolute;
+                    top: 6px;
+                    left: 6px;
+                    background: rgba(255,255,255,0.9);
+                    color: #050810;
+                    padding: 2px 6px;
+                    border-radius: 50px;
+                    font-size: 0.45rem !important;
+                    font-weight: 800 !important;
+                    text-transform: uppercase;
+                }
+                
                 body.light-theme .hero-image-wrapper {
                     border-color: rgba(0, 0, 0, 0.1);
                     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+                    background: rgba(255, 255, 255, 0.8);
                 }
 
                 /* Left Side */
@@ -1190,32 +1276,38 @@
 
                         <!-- Blue Badges -->
                         <div class="sticker-badge b1">
-                            <svg class="pixel-icon" width="16" height="16" viewBox="0 0 8 8" fill="currentColor">
-                                <path d="M2 1h4v1H2zm-1 2h6v1H1zm0 2h6v1H1zm1 2h4v1H2z" />
-                                <circle cx="3" cy="3" r="0.5" fill="#000" />
+                            <svg class="headspace-badge-icon" width="16" height="16" viewBox="0 0 24 24" style="margin-right: 6px; flex-shrink: 0;">
+                                <circle cx="12" cy="12" r="10" fill="#ffca28"/>
+                                <path d="M9 11 Q 10.5 12.5 12 11" stroke="#263238" stroke-width="2" fill="none" stroke-linecap="round"/>
+                                <path d="M14 11 Q 15.5 12.5 17 11" stroke="#263238" stroke-width="2" fill="none" stroke-linecap="round"/>
+                                <path d="M10 15 Q 12 18 14 15" stroke="#263238" stroke-width="2.5" fill="none" stroke-linecap="round"/>
                             </svg>
                             UI/UX
                         </div>
                         <div class="sticker-badge b2">
-                            <svg class="pixel-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                                <!-- Top bar -->
-                                <path d="M0 0h16v3H0zM2 1h1v1H2zm2 0h1v1H4zm2 0h1v1H6z" fill-opacity="0.8" />
-                                <!-- Window Frame / Borders -->
-                                <path d="M0 3h1v13H0zm15 3h1v13h-1zM0 15h16v1H0z" />
-                                <!-- Prompt: >- -->
-                                <path d="M3 6h2v1H3zm1 1h2v1H4zm-1 1h2v1H3zm4 0h4v1H7z" />
+                            <svg class="headspace-badge-icon" width="16" height="16" viewBox="0 0 24 24" style="margin-right: 6px; flex-shrink: 0;">
+                                <circle cx="12" cy="12" r="10" fill="#ab47bc"/>
+                                <path d="M8.5 12 Q 10 10.5 11.5 12" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round"/>
+                                <path d="M14.5 12 Q 16 10.5 17.5 12" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round"/>
+                                <path d="M10 16 Q 12 18 14 16" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
                             </svg>
                             PROGRAMMER
                         </div>
                         <div class="sticker-badge b3">
-                            <svg class="pixel-icon" width="16" height="16" viewBox="0 0 8 8" fill="currentColor">
-                                <path d="M1 2h3v4H1V2zm4 1h2v2H5V3zm-1 3v1h1V6H4z" />
+                            <svg class="headspace-badge-icon" width="16" height="16" viewBox="0 0 24 24" style="margin-right: 6px; flex-shrink: 0;">
+                                <path d="M7 16 A 4.5 4.5 0 0 1 8.5 8 A 6 6 0 0 1 17.5 8 A 4.5 4.5 0 0 1 19 16 Z" fill="#29b6f6"/>
+                                <path d="M10 11.5 Q 11 12.5 12 11.5" stroke="#263238" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                                <path d="M14 11.5 Q 15 12.5 16 11.5" stroke="#263238" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                                <path d="M11 14 Q 12.5 15.5 14 14" stroke="#263238" stroke-width="2" fill="none" stroke-linecap="round"/>
                             </svg>
                             MARKETING
                         </div>
                         <div class="sticker-badge b4">
-                            <svg class="pixel-icon" width="16" height="16" viewBox="0 0 8 8" fill="currentColor">
-                                <path d="M3 0h2v1H3V0zm-1 1h4v2H2V1zm1 3h2v4H3V4z" />
+                            <svg class="headspace-badge-icon" width="16" height="16" viewBox="0 0 24 24" style="margin-right: 6px; flex-shrink: 0;">
+                                <circle cx="12" cy="12" r="10" fill="#00e676"/>
+                                <path d="M9 11 Q 10.5 12.5 12 11" stroke="#263238" stroke-width="2" fill="none" stroke-linecap="round"/>
+                                <circle cx="15.5" cy="11" r="1.5" fill="#263238"/>
+                                <path d="M10 15 Q 12 17.5 14 15" stroke="#263238" stroke-width="2.2" fill="none" stroke-linecap="round"/>
                             </svg>
                             JAKARTA
                         </div>
@@ -1239,7 +1331,149 @@
                     <p class="hero-desc-p" data-i18n="res_about_p1">👋 Halo! Saya seorang desainer yang bisa coding — tenaga kreatif hibrida dengan pengalaman hampir satu dekade dalam menciptakan pengalaman digital yang elegan dan bermakna.</p>
                     
                     <div class="hero-image-wrapper">
-                        <img src="assets/keyboard_concept.png" alt="Keyboard Concept Illustration" class="hero-concept-img">
+                        <!-- Column 1 (Scroll Up) -->
+                        <div class="mockup-column mockup-column-up-1">
+                            <!-- Block 1 -->
+                            <div class="mockup-card mockup-card-h-md" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=60');">
+                                <span class="mockup-card-badge">Stress</span>
+                                <div class="mockup-card-overlay">
+                                    <h5 class="mockup-card-title">Overcome Anxiety</h5>
+                                    <p class="mockup-card-subtitle">Dr. Julie Smith</p>
+                                </div>
+                            </div>
+                            <div class="mockup-card mockup-card-h-sm" style="background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=200&auto=format&fit=crop&q=60');">
+                                <span class="mockup-card-badge">Relax</span>
+                                <div class="mockup-card-overlay">
+                                    <h5 class="mockup-card-title">Relax Mind</h5>
+                                    <p class="mockup-card-subtitle">Jeff Warren</p>
+                                </div>
+                            </div>
+                            <div class="mockup-card mockup-card-h-lg" style="background-image: url('https://images.unsplash.com/photo-1512438248247-f0f2a5a8b7f0?w=200&auto=format&fit=crop&q=60');">
+                                <span class="mockup-card-badge">Body</span>
+                                <div class="mockup-card-overlay">
+                                    <h5 class="mockup-card-title">Ground Body</h5>
+                                    <p class="mockup-card-subtitle">Jay Shetty</p>
+                                </div>
+                            </div>
+                            <!-- Block 2 (Duplicate for loop) -->
+                            <div class="mockup-card mockup-card-h-md" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=60');">
+                                <span class="mockup-card-badge">Stress</span>
+                                <div class="mockup-card-overlay">
+                                    <h5 class="mockup-card-title">Overcome Anxiety</h5>
+                                    <p class="mockup-card-subtitle">Dr. Julie Smith</p>
+                                </div>
+                            </div>
+                            <div class="mockup-card mockup-card-h-sm" style="background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=200&auto=format&fit=crop&q=60');">
+                                <span class="mockup-card-badge">Relax</span>
+                                <div class="mockup-card-overlay">
+                                    <h5 class="mockup-card-title">Relax Mind</h5>
+                                    <p class="mockup-card-subtitle">Jeff Warren</p>
+                                </div>
+                            </div>
+                            <div class="mockup-card mockup-card-h-lg" style="background-image: url('https://images.unsplash.com/photo-1512438248247-f0f2a5a8b7f0?w=200&auto=format&fit=crop&q=60');">
+                                <span class="mockup-card-badge">Body</span>
+                                <div class="mockup-card-overlay">
+                                    <h5 class="mockup-card-title">Ground Body</h5>
+                                    <p class="mockup-card-subtitle">Jay Shetty</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Column 2 (Scroll Down) -->
+                        <div class="mockup-column mockup-column-down">
+                            <!-- Block 1 -->
+                            <div class="mockup-card mockup-card-h-lg" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=60');">
+                                <span class="mockup-card-badge">Focus</span>
+                                <div class="mockup-card-overlay">
+                                    <h5 class="mockup-card-title">Overwhelm</h5>
+                                    <p class="mockup-card-subtitle">Chibs Okereke</p>
+                                </div>
+                            </div>
+                            <div class="mockup-card mockup-card-h-md" style="background-image: url('https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&auto=format&fit=crop&q=60');">
+                                <span class="mockup-card-badge">Move</span>
+                                <div class="mockup-card-overlay">
+                                    <h5 class="mockup-card-title">Daily Move</h5>
+                                    <p class="mockup-card-subtitle">Calm Session</p>
+                                </div>
+                            </div>
+                            <div class="mockup-card mockup-card-h-sm" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=60');">
+                                <span class="mockup-card-badge">Heart</span>
+                                <div class="mockup-card-overlay">
+                                    <h5 class="mockup-card-title">Less Heavy</h5>
+                                    <p class="mockup-card-subtitle">Tamara Levitt</p>
+                                </div>
+                            </div>
+                            <!-- Block 2 (Duplicate for loop) -->
+                            <div class="mockup-card mockup-card-h-lg" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=60');">
+                                <span class="mockup-card-badge">Focus</span>
+                                <div class="mockup-card-overlay">
+                                    <h5 class="mockup-card-title">Overwhelm</h5>
+                                    <p class="mockup-card-subtitle">Chibs Okereke</p>
+                                </div>
+                            </div>
+                            <div class="mockup-card mockup-card-h-md" style="background-image: url('https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&auto=format&fit=crop&q=60');">
+                                <span class="mockup-card-badge">Move</span>
+                                <div class="mockup-card-overlay">
+                                    <h5 class="mockup-card-title">Daily Move</h5>
+                                    <p class="mockup-card-subtitle">Calm Session</p>
+                                </div>
+                            </div>
+                            <div class="mockup-card mockup-card-h-sm" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=60');">
+                                <span class="mockup-card-badge">Heart</span>
+                                <div class="mockup-card-overlay">
+                                    <h5 class="mockup-card-title">Less Heavy</h5>
+                                    <p class="mockup-card-subtitle">Tamara Levitt</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Column 3 (Scroll Up) -->
+                        <div class="mockup-column mockup-column-up-2">
+                            <!-- Block 1 -->
+                            <div class="mockup-card mockup-card-h-sm" style="background-image: url('https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=200&auto=format&fit=crop&q=60');">
+                                <span class="mockup-card-badge">Tools</span>
+                                <div class="mockup-card-overlay">
+                                    <h5 class="mockup-card-title">Mindfulness</h5>
+                                    <p class="mockup-card-subtitle">Dr. Vivek Murthy</p>
+                                </div>
+                            </div>
+                            <div class="mockup-card mockup-card-h-lg" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=200&auto=format&fit=crop&q=60');">
+                                <span class="mockup-card-badge">ADHD</span>
+                                <div class="mockup-card-overlay">
+                                    <h5 class="mockup-card-title">ADHD Support</h5>
+                                    <p class="mockup-card-subtitle">Calm Series</p>
+                                </div>
+                            </div>
+                            <div class="mockup-card mockup-card-h-md" style="background-image: url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=200&auto=format&fit=crop&q=60');">
+                                <span class="mockup-card-badge">Sleep</span>
+                                <div class="mockup-card-overlay">
+                                    <h5 class="mockup-card-title">Deep Sleep</h5>
+                                    <p class="mockup-card-subtitle">Sleep Tones</p>
+                                </div>
+                            </div>
+                            <!-- Block 2 (Duplicate for loop) -->
+                            <div class="mockup-card mockup-card-h-sm" style="background-image: url('https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=200&auto=format&fit=crop&q=60');">
+                                <span class="mockup-card-badge">Tools</span>
+                                <div class="mockup-card-overlay">
+                                    <h5 class="mockup-card-title">Mindfulness</h5>
+                                    <p class="mockup-card-subtitle">Dr. Vivek Murthy</p>
+                                </div>
+                            </div>
+                            <div class="mockup-card mockup-card-h-lg" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=200&auto=format&fit=crop&q=60');">
+                                <span class="mockup-card-badge">ADHD</span>
+                                <div class="mockup-card-overlay">
+                                    <h5 class="mockup-card-title">ADHD Support</h5>
+                                    <p class="mockup-card-subtitle">Calm Series</p>
+                                </div>
+                            </div>
+                            <div class="mockup-card mockup-card-h-md" style="background-image: url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=200&auto=format&fit=crop&q=60');">
+                                <span class="mockup-card-badge">Sleep</span>
+                                <div class="mockup-card-overlay">
+                                    <h5 class="mockup-card-title">Deep Sleep</h5>
+                                    <p class="mockup-card-subtitle">Sleep Tones</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="hero-actions-card">
@@ -2951,6 +3185,42 @@
             <!-- Dark Overlay -->
             <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(5,8,16,0.2) 0%, rgba(5,8,16,0.1) 100%); z-index: 0;"></div>
             
+            <!-- Floating logos (restricted to the right column to avoid overlapping text) -->
+            <div class="floating-tool adobe ai float-anim-1" style="top: 10%; left: 62%;">Ai</div>
+            <div class="floating-tool adobe ps float-anim-2" style="top: 18%; left: 85%;">Ps</div>
+            <div class="floating-tool float-anim-3" style="top: 32%; left: 68%; background: transparent; border: none; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;">
+                <img src="assets/xd-sticker.png" alt="Xd" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <div class="floating-tool float-anim-4" style="top: 42%; left: 88%; color: #007acc;">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z"/>
+                </svg>
+            </div>
+            <div class="floating-tool float-anim-2" style="top: 48%; left: 90%; background: transparent; border: none; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;">
+                <img src="assets/code-sticker.png" alt="Code" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <div class="floating-tool float-anim-5" style="top: 58%; left: 64%; background: transparent; border: none; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;">
+                <img src="assets/figma-sticker.png" alt="Figma" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <div class="floating-tool float-anim-6" style="top: 68%; left: 82%; background: transparent; border: none; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;">
+                <img src="assets/html-sticker.png" alt="HTML" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <div class="floating-tool float-anim-7" style="top: 82%; left: 60%; background: transparent; border: none; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;">
+                <img src="assets/css3-shield-sticker.png" alt="CSS3" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <div class="floating-tool float-anim-1" style="top: 48%; left: 78%; background: transparent; border: none; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;">
+                <img src="assets/css-sticker.png" alt="CSS" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <div class="floating-tool float-anim-3" style="top: 75%; left: 66%; background: transparent; border: none; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;">
+                <img src="assets/mysql-sticker.png" alt="MySQL" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <div class="floating-tool float-anim-8" style="top: 88%; left: 78%; background: transparent; border: none; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;">
+                <img src="assets/wordpress-sticker.png" alt="Wordpress" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <div class="floating-tool float-anim-4" style="top: 62%; left: 90%; background: transparent; border: none; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;">
+                <img src="assets/laptop-sticker.png" alt="Analytics" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            
             <style>
                 .skill-tag {
                     display: inline-block;
@@ -3011,9 +3281,89 @@
                     width: 20px;
                     height: 20px;
                 }
+                
+                /* Floating Tool Styles */
+                .floating-tool {
+                    position: absolute;
+                    width: 50px;
+                    height: 50px;
+                    background: rgba(255, 255, 255, 0.05);
+                    border: 1px solid rgba(255, 255, 255, 0.12);
+                    border-radius: 14px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 1;
+                    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+                    backdrop-filter: blur(4px);
+                    -webkit-backdrop-filter: blur(4px);
+                    transition: transform 0.3s ease, border-color 0.3s ease;
+                }
+                .floating-tool:hover {
+                    border-color: rgba(255, 255, 255, 0.3);
+                    transform: scale(1.1) rotate(5deg) !important;
+                    background: rgba(255, 255, 255, 0.1);
+                    cursor: pointer;
+                    z-index: 5;
+                }
+                
+                .floating-tool.adobe {
+                    font-family: Arial, sans-serif;
+                    font-size: 1.1rem;
+                    font-weight: 800;
+                }
+                .floating-tool.adobe.ai {
+                    color: #FF9A00;
+                    border-color: rgba(255, 154, 0, 0.25);
+                    background: rgba(255, 154, 0, 0.05);
+                }
+                .floating-tool.adobe.ps {
+                    color: #00C8FF;
+                    border-color: rgba(0, 200, 255, 0.25);
+                    background: rgba(0, 200, 255, 0.05);
+                }
+                .floating-tool.adobe.xd {
+                    color: #FF26DA;
+                    border-color: rgba(255, 38, 218, 0.25);
+                    background: rgba(255, 38, 218, 0.05);
+                }
+                .floating-tool svg {
+                    width: 24px;
+                    height: 24px;
+                }
+                
+                /* Animations */
+                .float-anim-1 { animation: float-gentle-tool 6s ease-in-out infinite; }
+                .float-anim-2 { animation: float-slower-tool 8s ease-in-out infinite; }
+                .float-anim-3 { animation: float-faster-tool 5s ease-in-out infinite; }
+                .float-anim-4 { animation: float-gentle-tool 7s ease-in-out infinite 1s; }
+                .float-anim-5 { animation: float-slower-tool 9s ease-in-out infinite 0.5s; }
+                .float-anim-6 { animation: float-faster-tool 5.5s ease-in-out infinite 1.5s; }
+                .float-anim-7 { animation: float-gentle-tool 7.5s ease-in-out infinite 0.8s; }
+                .float-anim-8 { animation: float-slower-tool 8.5s ease-in-out infinite 1.2s; }
+                
+                @keyframes float-gentle-tool {
+                    0%, 100% { transform: translateY(0) rotate(0deg); }
+                    50% { transform: translateY(-12px) rotate(2deg); }
+                }
+                @keyframes float-slower-tool {
+                    0%, 100% { transform: translateY(0) rotate(0deg); }
+                    50% { transform: translateY(-18px) rotate(-2deg); }
+                }
+                @keyframes float-faster-tool {
+                    0%, 100% { transform: translateY(0) rotate(0deg); }
+                    50% { transform: translateY(-8px) rotate(3deg); }
+                }
+                
+                /* Hide on mobile to keep clean readability */
+                @media (max-width: 768px) {
+                    .floating-tool, .hs-char {
+                        display: none !important;
+                    }
+                }
             </style>
 
-            <div style="position: relative; z-index: 1; display: grid; grid-template-columns: 1.4fr 1fr; gap: 4rem; align-items: start;">
+            <div style="position: relative; z-index: 2; display: grid; grid-template-columns: 1.4fr 1fr; gap: 4rem; align-items: start;">
                 
                 <!-- Left: Huge Text and Description -->
                 <div>
@@ -3051,7 +3401,7 @@
                 </div>
 
                 <!-- Right: what i am used -->
-                <div style="padding-top: 1rem;">
+                <div style="padding-top: 1rem; display: none;">
                     <h4 style="font-size: 0.8rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin: 0 0 1.5rem 0;">what iam used</h4>
                     
                     <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem;">
@@ -3106,10 +3456,93 @@
         </section>
 
         <!-- Experience Section -->
-        <section class="experience-section">
-            <h2 class="huge-title" style="font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 900; line-height: 0.85; margin: 0 0 2rem 0; color: #ffffff; letter-spacing: -2px; text-transform: uppercase;">
-                            WORK COLLABORATION <span style="font-size: 0.9rem; font-family: monospace; color: rgba(255,255,255,0.3); vertical-align: super;">/02</span>
-                        </h2>
+        <section class="experience-section" style="position: relative; overflow: visible;">
+            <div class="collab-header-wrap" style="position: relative; width: 100%; text-align: center; margin-bottom: 4rem; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: visible; padding: 1.5rem 0;">
+                
+                <!-- Floating Headspace Characters -->
+                <!-- Character 1: Blue Cloud -->
+                <div class="hs-char hs-char-1 float-anim-1" style="position: absolute; top: -20px; left: 18%; width: 76px; height: 76px; z-index: 1;">
+                    <svg viewBox="0 0 100 100" style="width: 100%; height: 100%;">
+                        <circle cx="50" cy="50" r="40" fill="#f8bbd0" opacity="0.45"/>
+                        <!-- Cloud shape -->
+                        <path d="M30 62 A 12 12 0 0 1 35 38 A 17 17 0 0 1 65 38 A 12 12 0 0 1 70 62 Z" fill="#29b6f6"/>
+                        <!-- Closed Eyes -->
+                        <path d="M42 48 Q 44 50 46 48" stroke="#000000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                        <path d="M52 48 Q 54 50 56 48" stroke="#000000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                        <!-- Smile -->
+                        <path d="M46 54 Q 49 57 52 54" stroke="#000000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                    </svg>
+                </div>
+
+                <!-- Character 2: Orange/Yellow -->
+                <div class="hs-char hs-char-2 float-anim-2" style="position: absolute; bottom: -20px; left: 26%; width: 72px; height: 72px; z-index: 1;">
+                    <svg viewBox="0 0 100 100" style="width: 100%; height: 100%;">
+                        <!-- Face orange circle -->
+                        <circle cx="50" cy="55" r="32" fill="#ff7043"/>
+                        <!-- Yellow hair -->
+                        <path d="M18 55 A 32 32 0 0 1 82 55 Z" fill="#ffca28"/>
+                        <!-- Closed Eyes -->
+                        <path d="M41 58 Q 43 60 45 58" stroke="#000000" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                        <path d="M53 58 Q 55 60 57 58" stroke="#000000" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                        <!-- Smile -->
+                        <path d="M45 65 Q 49 69 53 65" stroke="#000000" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                    </svg>
+                </div>
+
+                <!-- Character 3: Purple/Green -->
+                <div class="hs-char hs-char-3 float-anim-5" style="position: absolute; top: -30px; right: 18%; width: 72px; height: 72px; z-index: 1;">
+                    <svg viewBox="0 0 100 100" style="width: 100%; height: 100%;">
+                        <!-- Purple face -->
+                        <circle cx="50" cy="50" r="32" fill="#ab47bc"/>
+                        <!-- Green hair slice -->
+                        <path d="M50 18 A 32 32 0 0 1 82 50 L 50 50 Z" fill="#4caf50"/>
+                        <!-- Closed Eyes -->
+                        <path d="M39 52 Q 41 54 43 52" stroke="#000000" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                        <path d="M51 57 Q 53 59 55 57" stroke="#000000" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                        <!-- Smile -->
+                        <path d="M41 62 Q 44 65 47 62" stroke="#000000" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                    </svg>
+                </div>
+
+                <!-- Character 4: Green/Pink -->
+                <div class="hs-char hs-char-4 float-anim-8" style="position: absolute; bottom: -15px; right: 26%; width: 68px; height: 68px; z-index: 1;">
+                    <svg viewBox="0 0 100 100" style="width: 100%; height: 100%;">
+                        <!-- Pink background circle -->
+                        <circle cx="50" cy="50" r="34" fill="#f48fb1" opacity="0.6"/>
+                        <!-- Green face -->
+                        <circle cx="50" cy="54" r="24" fill="#00c853"/>
+                        <!-- Pink hair/hat -->
+                        <path d="M26 54 A 24 24 0 0 1 74 54 Z" fill="#ec407a"/>
+                        <!-- Closed Eyes -->
+                        <path d="M42 55 Q 44 57 46 55" stroke="#000000" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        <path d="M52 55 Q 54 57 56 55" stroke="#000000" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        <!-- Smile -->
+                        <path d="M46 61 Q 48 64 50 61" stroke="#000000" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    </svg>
+                </div>
+
+                <!-- Star Sparkle 1: Yellow -->
+                <div class="hs-char float-anim-3" style="position: absolute; top: 10px; left: 40%; width: 18px; height: 18px; z-index: 1;">
+                    <svg viewBox="0 0 24 24" fill="#ffca28">
+                        <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4Z"/>
+                    </svg>
+                </div>
+
+                <!-- Star Sparkle 2: Pink -->
+                <div class="hs-char float-anim-4" style="position: absolute; bottom: 15px; right: 40%; width: 14px; height: 14px; z-index: 1;">
+                    <svg viewBox="0 0 24 24" fill="#f48fb1">
+                        <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4Z"/>
+                    </svg>
+                </div>
+
+                <!-- Main Centered Heading -->
+                <h2 class="huge-title" style="font-size: clamp(2.6rem, 5vw, 4.2rem); font-weight: 900; line-height: 1.0; margin: 0 0 0.8rem 0; letter-spacing: -2px; text-transform: uppercase; z-index: 2; position: relative;">
+                    WORK COLLABORATION
+                </h2>
+                <div class="collab-subtitle" style="font-family: monospace; font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; z-index: 2; position: relative; margin-top: 0.2rem;">
+                    / EXPERIENCE PLAYLIST
+                </div>
+            </div>
             <div class="experience-wrapper">
                 <!-- Navigation Buttons -->
                 <button class="story-nav-btn prev" aria-label="Scroll left">
