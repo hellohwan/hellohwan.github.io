@@ -276,8 +276,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Trigger on window load (all resources done)
     window.addEventListener('load', hideLoader);
 
-    // Hard fallback — force-hide after 3.5s no matter what
-    setTimeout(hideLoader, 3500);
+    // Hard fallback — force-hide after 6s no matter what
+    setTimeout(hideLoader, 6000);
 
     // Custom Tennis Cursor Logic
     if (window.innerWidth > 768) {

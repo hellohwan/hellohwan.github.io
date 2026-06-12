@@ -574,11 +574,11 @@
                 }
                 .sticker-smiley {
                     position: absolute;
-                    top: 0px;
-                    left: -40px;
-                    color: #009e49;
+                    top: -20px;
+                    left: -50px;
                     transform: rotate(-10deg);
                     display: inline-block;
+                    z-index: 3;
                 }
                 .sticker-badge {
                     background-color: #0022ff; /* Bold solid blue */
@@ -594,26 +594,53 @@
                     border-radius: 4px;
                     box-shadow: 0 6px 15px rgba(0,0,0,0.2);
                     z-index: 2;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 8px;
+                    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s ease, box-shadow 0.3s ease;
+                }
+                .sticker-badge .pixel-icon {
+                    flex-shrink: 0;
+                    image-rendering: pixelated;
+                    image-rendering: crisp-edges;
+                }
+                .sticker-badge:hover {
+                    background-color: #e6fa50; /* Changes to neon yellow on hover */
+                    color: #000000 !important;
+                    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+                    cursor: pointer;
                 }
                 .sticker-badge.b1 {
                     top: 45px;
                     right: -10px;
                     transform: rotate(5deg);
                 }
+                .sticker-badge.b1:hover {
+                    transform: scale(1.15) rotate(0deg);
+                }
                 .sticker-badge.b2 {
                     top: 110px;
                     left: -35px;
                     transform: rotate(-6deg);
+                }
+                .sticker-badge.b2:hover {
+                    transform: scale(1.15) rotate(0deg);
                 }
                 .sticker-badge.b3 {
                     bottom: 95px;
                     right: -30px;
                     transform: rotate(4deg);
                 }
+                .sticker-badge.b3:hover {
+                    transform: scale(1.15) rotate(0deg);
+                }
                 .sticker-badge.b4 {
                     bottom: -15px;
                     left: 45%;
                     transform: translateX(-50%) rotate(-3deg);
+                }
+                .sticker-badge.b4:hover {
+                    transform: translateX(-50%) scale(1.15) rotate(0deg);
                 }
                 
                 .hero-stats-row {
@@ -1036,14 +1063,9 @@
                     <p class="hero-resume-tag">Resume 2025</p>
                     <!-- Concept Sticker/Typo Layout matching Reference Image -->
                     <div class="hero-sticker-layout">
-                        <!-- Smiley face decoration -->
+                        <!-- Lottie Wink decoration -->
                         <span class="sticker-smiley">
-                            <svg width="55" height="55" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="4.5">
-                                <circle cx="30" cy="30" r="27" />
-                                <circle cx="21" cy="22" r="3.5" fill="currentColor" />
-                                <circle cx="39" cy="22" r="3.5" fill="currentColor" />
-                                <path d="M18 36 Q30 46, 42 36" stroke-linecap="round" />
-                            </svg>
+                            <lottie-player src="assets/wink.json" background="transparent" speed="1" style="width: 70px; height: 70px;" loop autoplay></lottie-player>
                         </span>
 
                         <!-- Main Big Text: Dinda Hwan -->
@@ -1052,10 +1074,36 @@
                         </h1>
 
                         <!-- Blue Badges -->
-                        <div class="sticker-badge b1">UI/UX</div>
-                        <div class="sticker-badge b2">PROGRAMMER</div>
-                        <div class="sticker-badge b3">MARKETING</div>
-                        <div class="sticker-badge b4">JAKARTA</div>
+                        <div class="sticker-badge b1">
+                            <svg class="pixel-icon" width="16" height="16" viewBox="0 0 8 8" fill="currentColor">
+                                <path d="M2 1h4v1H2zm-1 2h6v1H1zm0 2h6v1H1zm1 2h4v1H2z" />
+                                <circle cx="3" cy="3" r="0.5" fill="#000" />
+                            </svg>
+                            UI/UX
+                        </div>
+                        <div class="sticker-badge b2">
+                            <svg class="pixel-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <!-- Top bar -->
+                                <path d="M0 0h16v3H0zM2 1h1v1H2zm2 0h1v1H4zm2 0h1v1H6z" fill-opacity="0.8" />
+                                <!-- Window Frame / Borders -->
+                                <path d="M0 3h1v13H0zm15 3h1v13h-1zM0 15h16v1H0z" />
+                                <!-- Prompt: >- -->
+                                <path d="M3 6h2v1H3zm1 1h2v1H4zm-1 1h2v1H3zm4 0h4v1H7z" />
+                            </svg>
+                            PROGRAMMER
+                        </div>
+                        <div class="sticker-badge b3">
+                            <svg class="pixel-icon" width="16" height="16" viewBox="0 0 8 8" fill="currentColor">
+                                <path d="M1 2h3v4H1V2zm4 1h2v2H5V3zm-1 3v1h1V6H4z" />
+                            </svg>
+                            MARKETING
+                        </div>
+                        <div class="sticker-badge b4">
+                            <svg class="pixel-icon" width="16" height="16" viewBox="0 0 8 8" fill="currentColor">
+                                <path d="M3 0h2v1H3V0zm-1 1h4v2H2V1zm1 3h2v4H3V4z" />
+                            </svg>
+                            JAKARTA
+                        </div>
                     </div>
 
                     <!-- Statistics section -->
