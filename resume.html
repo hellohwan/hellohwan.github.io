@@ -612,107 +612,330 @@
                 .hero-image-wrapper {
                     width: 100%;
                     max-width: 450px;
-                    border-radius: 24px;
-                    overflow: hidden;
-                    border: 1px solid rgba(255, 255, 255, 0.15);
-                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-                    aspect-ratio: 1 / 1;
+                    aspect-ratio: 1.1 / 1;
+                    background: #0b0f19;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    border-radius: 16px;
+                    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
                     display: flex;
-                    gap: 8px;
-                    padding: 8px;
-                    background: rgba(5, 8, 16, 0.5);
-                    box-sizing: border-box;
+                    flex-direction: column;
+                    padding: 0;
+                    overflow: hidden;
                     position: relative;
-                    mask-image: linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent);
-                    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent);
+                    box-sizing: border-box;
                 }
-                .hero-concept-img {
+                
+                body.light-theme .hero-image-wrapper {
+                    background: #f8fafc;
+                    border-color: rgba(0, 0, 0, 0.08);
+                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+                }
+
+                .browser-header {
+                    height: 36px;
+                    background: #111827;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                    display: flex;
+                    align-items: center;
+                    padding: 0 12px;
+                    position: relative;
+                    flex-shrink: 0;
+                    box-sizing: border-box;
+                    width: 100%;
+                }
+                
+                body.light-theme .browser-header {
+                    background: #e2e8f0;
+                    border-bottom-color: rgba(0, 0, 0, 0.08);
+                }
+
+                .browser-buttons {
+                    display: flex;
+                    gap: 6px;
+                    align-items: center;
+                }
+
+                .browser-dot {
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                }
+                .dot-red { background: #ef4444; }
+                .dot-yellow { background: #eab308; }
+                .dot-green { background: #22c55e; }
+
+                .browser-address {
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 55%;
+                    height: 20px;
+                    background: rgba(255, 255, 255, 0.05);
+                    border-radius: 6px;
+                    font-size: 0.6rem;
+                    color: rgba(255, 255, 255, 0.4);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid rgba(255, 255, 255, 0.05);
+                    font-family: monospace;
+                    box-sizing: border-box;
+                }
+                
+                body.light-theme .browser-address {
+                    background: rgba(255, 255, 255, 0.8);
+                    color: rgba(0, 0, 0, 0.5);
+                    border-color: rgba(0, 0, 0, 0.06);
+                }
+
+                .browser-body {
+                    flex: 1;
+                    display: flex;
+                    overflow: hidden;
+                    background: #090d16;
+                    box-sizing: border-box;
+                    width: 100%;
+                }
+                
+                body.light-theme .browser-body {
+                    background: #f1f5f9;
+                }
+
+                /* Sidebar Mockup */
+                .mockup-sidebar {
+                    width: 85px;
+                    border-right: 1px solid rgba(255, 255, 255, 0.05);
+                    background: rgba(255, 255, 255, 0.01);
+                    display: flex;
+                    flex-direction: column;
+                    padding: 12px 6px;
+                    flex-shrink: 0;
+                    box-sizing: border-box;
+                }
+                
+                body.light-theme .mockup-sidebar {
+                    border-right-color: rgba(0, 0, 0, 0.05);
+                    background: rgba(0, 0, 0, 0.01);
+                }
+
+                .sidebar-logo {
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                    font-weight: 700;
+                    font-size: 0.65rem;
+                    color: #fff;
+                    margin-bottom: 16px;
+                    padding-left: 4px;
+                }
+                
+                body.light-theme .sidebar-logo {
+                    color: #0f172a;
+                }
+
+                .logo-icon {
+                    font-size: 0.8rem;
+                }
+
+                .sidebar-nav {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 6px;
+                }
+
+                .nav-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    padding: 6px 8px;
+                    border-radius: 6px;
+                    color: rgba(255, 255, 255, 0.5);
+                    font-size: 0.55rem;
+                    font-weight: 500;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                    box-sizing: border-box;
+                }
+                
+                body.light-theme .nav-item {
+                    color: rgba(15, 23, 42, 0.6);
+                }
+
+                .nav-item.active, .nav-item:hover {
+                    background: rgba(255, 255, 255, 0.08);
+                    color: #fff;
+                }
+                
+                body.light-theme .nav-item.active, body.light-theme .nav-item:hover {
+                    background: rgba(0, 0, 0, 0.05);
+                    color: #0f172a;
+                }
+
+                /* Main Content Mockup */
+                .mockup-main {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 12px;
+                    overflow: hidden;
+                    position: relative;
+                    box-sizing: border-box;
+                }
+
+                .main-top-bar {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 12px;
+                    flex-shrink: 0;
+                    box-sizing: border-box;
+                }
+
+                .user-welcome {
+                    display: flex;
+                    flex-direction: column;
+                    text-align: left;
+                }
+
+                .welcome-title {
+                    font-size: 0.45rem;
+                    color: rgba(255, 255, 255, 0.4);
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                }
+                
+                body.light-theme .welcome-title {
+                    color: rgba(0, 0, 0, 0.5);
+                }
+
+                .welcome-name {
+                    font-size: 0.75rem;
+                    font-weight: 700;
+                    color: #fff;
+                }
+                
+                body.light-theme .welcome-name {
+                    color: #0f172a;
+                }
+
+                .user-avatar {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                }
+
+                .user-avatar img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
-                    display: block;
                 }
-                
-                /* Mockup Column & Card Wall Styles */
-                .mockup-column {
+
+                /* Scrollable Cards Grid Container */
+                .mockup-cards-scroll {
+                    flex: 1;
+                    overflow: hidden;
+                    position: relative;
+                    box-sizing: border-box;
+                    mask-image: linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent);
+                    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent);
+                }
+
+                .mockup-scroll-track {
+                    display: flex;
+                    gap: 8px;
+                    height: 100%;
+                    box-sizing: border-box;
+                }
+
+                .mockup-scroll-column {
                     display: flex;
                     flex-direction: column;
-                    width: 33.33%;
-                    flex-shrink: 0;
                     gap: 8px;
+                    width: calc(50% - 4px);
+                    flex-shrink: 0;
+                    box-sizing: border-box;
                 }
-                .mockup-column-up-1 {
-                    animation: marquee-up-wall 18s linear infinite;
+
+                .col-up-1 {
+                    animation: appMarqueeUp 14s linear infinite;
                 }
-                .mockup-column-down {
-                    animation: marquee-down-wall 20s linear infinite;
+
+                .col-up-2 {
+                    animation: appMarqueeUp 12s linear infinite;
                 }
-                .mockup-column-up-2 {
-                    animation: marquee-up-wall 15s linear infinite;
-                }
-                @keyframes marquee-up-wall {
+
+                @keyframes appMarqueeUp {
                     0% { transform: translateY(0); }
                     100% { transform: translateY(-50%); }
                 }
-                @keyframes marquee-down-wall {
-                    0% { transform: translateY(-50%); }
-                    100% { transform: translateY(0); }
-                }
-                .mockup-card {
+
+                /* Cute Colorful App Cards */
+                .app-card {
                     position: relative;
                     width: 100%;
-                    border-radius: 12px;
+                    height: 90px;
+                    border-radius: 10px;
                     overflow: hidden;
                     background-size: cover;
                     background-position: center;
-                    background-color: #1a1e29;
-                    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-                    border: 1px solid rgba(255,255,255,0.06);
+                    background-color: #1e293b;
+                    border: 1px solid rgba(255, 255, 255, 0.05);
+                    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
                     flex-shrink: 0;
-                }
-                .mockup-card-h-sm { height: 95px; }
-                .mockup-card-h-md { height: 125px; }
-                .mockup-card-h-lg { height: 145px; }
-                .mockup-card-overlay {
-                    position: absolute;
-                    inset: 0;
-                    background: linear-gradient(to bottom, transparent 30%, rgba(0, 0, 0, 0.85) 100%);
                     display: flex;
                     flex-direction: column;
                     justify-content: flex-end;
                     padding: 8px;
                     box-sizing: border-box;
+                }
+
+                .app-card::before {
+                    content: '';
+                    position: absolute;
+                    inset: 0;
+                    background: linear-gradient(to bottom, transparent 30%, rgba(0, 0, 0, 0.8) 100%);
+                    z-index: 1;
+                }
+
+                /* Add specific styling for card with blue/purple tint like Calm */
+                .app-card.card-blue-overlay::before {
+                    background: linear-gradient(to bottom, rgba(59, 130, 246, 0.1) 20%, rgba(30, 58, 138, 0.85) 100%);
+                }
+
+                .app-card-badge {
+                    position: absolute;
+                    top: 6px;
+                    left: 6px;
+                    background: rgba(255, 255, 255, 0.85);
+                    color: #0f172a;
+                    padding: 1px 5px;
+                    border-radius: 50px;
+                    font-size: 0.4rem !important;
+                    font-weight: 700 !important;
+                    text-transform: uppercase;
+                    z-index: 2;
+                }
+
+                .app-card-info {
+                    position: relative;
+                    z-index: 2;
                     text-align: left;
                 }
-                .mockup-card-title {
-                    font-size: 0.65rem !important;
+
+                .app-card-title {
+                    font-size: 0.58rem !important;
                     font-weight: 700 !important;
                     color: #ffffff !important;
                     margin: 0 !important;
                     line-height: 1.2 !important;
                 }
-                .mockup-card-subtitle {
-                    font-size: 0.48rem !important;
-                    color: rgba(255, 255, 255, 0.6) !important;
-                    margin: 2px 0 0 0 !important;
-                }
-                .mockup-card-badge {
-                    position: absolute;
-                    top: 6px;
-                    left: 6px;
-                    background: rgba(255,255,255,0.9);
-                    color: #050810;
-                    padding: 2px 6px;
-                    border-radius: 50px;
+
+                .app-card-subtitle {
                     font-size: 0.45rem !important;
-                    font-weight: 800 !important;
-                    text-transform: uppercase;
-                }
-                
-                body.light-theme .hero-image-wrapper {
-                    border-color: rgba(0, 0, 0, 0.1);
-                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-                    background: rgba(255, 255, 255, 0.8);
+                    color: rgba(255, 255, 255, 0.6) !important;
+                    margin: 1px 0 0 0 !important;
                 }
 
                 /* Left Side */
@@ -1331,146 +1554,149 @@
                     <p class="hero-desc-p" data-i18n="res_about_p1">👋 Halo! Saya seorang desainer yang bisa coding — tenaga kreatif hibrida dengan pengalaman hampir satu dekade dalam menciptakan pengalaman digital yang elegan dan bermakna.</p>
                     
                     <div class="hero-image-wrapper">
-                        <!-- Column 1 (Scroll Up) -->
-                        <div class="mockup-column mockup-column-up-1">
-                            <!-- Block 1 -->
-                            <div class="mockup-card mockup-card-h-md" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=60');">
-                                <span class="mockup-card-badge">Stress</span>
-                                <div class="mockup-card-overlay">
-                                    <h5 class="mockup-card-title">Overcome Anxiety</h5>
-                                    <p class="mockup-card-subtitle">Dr. Julie Smith</p>
-                                </div>
+                        <!-- Browser Header -->
+                        <div class="browser-header">
+                            <div class="browser-buttons">
+                                <span class="browser-dot dot-red"></span>
+                                <span class="browser-dot dot-yellow"></span>
+                                <span class="browser-dot dot-green"></span>
                             </div>
-                            <div class="mockup-card mockup-card-h-sm" style="background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=200&auto=format&fit=crop&q=60');">
-                                <span class="mockup-card-badge">Relax</span>
-                                <div class="mockup-card-overlay">
-                                    <h5 class="mockup-card-title">Relax Mind</h5>
-                                    <p class="mockup-card-subtitle">Jeff Warren</p>
-                                </div>
-                            </div>
-                            <div class="mockup-card mockup-card-h-lg" style="background-image: url('https://images.unsplash.com/photo-1512438248247-f0f2a5a8b7f0?w=200&auto=format&fit=crop&q=60');">
-                                <span class="mockup-card-badge">Body</span>
-                                <div class="mockup-card-overlay">
-                                    <h5 class="mockup-card-title">Ground Body</h5>
-                                    <p class="mockup-card-subtitle">Jay Shetty</p>
-                                </div>
-                            </div>
-                            <!-- Block 2 (Duplicate for loop) -->
-                            <div class="mockup-card mockup-card-h-md" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=60');">
-                                <span class="mockup-card-badge">Stress</span>
-                                <div class="mockup-card-overlay">
-                                    <h5 class="mockup-card-title">Overcome Anxiety</h5>
-                                    <p class="mockup-card-subtitle">Dr. Julie Smith</p>
-                                </div>
-                            </div>
-                            <div class="mockup-card mockup-card-h-sm" style="background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=200&auto=format&fit=crop&q=60');">
-                                <span class="mockup-card-badge">Relax</span>
-                                <div class="mockup-card-overlay">
-                                    <h5 class="mockup-card-title">Relax Mind</h5>
-                                    <p class="mockup-card-subtitle">Jeff Warren</p>
-                                </div>
-                            </div>
-                            <div class="mockup-card mockup-card-h-lg" style="background-image: url('https://images.unsplash.com/photo-1512438248247-f0f2a5a8b7f0?w=200&auto=format&fit=crop&q=60');">
-                                <span class="mockup-card-badge">Body</span>
-                                <div class="mockup-card-overlay">
-                                    <h5 class="mockup-card-title">Ground Body</h5>
-                                    <p class="mockup-card-subtitle">Jay Shetty</p>
-                                </div>
-                            </div>
+                            <div class="browser-address">dinda.dev/mindfulness-app</div>
                         </div>
-
-                        <!-- Column 2 (Scroll Down) -->
-                        <div class="mockup-column mockup-column-down">
-                            <!-- Block 1 -->
-                            <div class="mockup-card mockup-card-h-lg" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=60');">
-                                <span class="mockup-card-badge">Focus</span>
-                                <div class="mockup-card-overlay">
-                                    <h5 class="mockup-card-title">Overwhelm</h5>
-                                    <p class="mockup-card-subtitle">Chibs Okereke</p>
+                        
+                        <!-- Browser Window Body -->
+                        <div class="browser-body">
+                            <!-- Sidebar -->
+                            <div class="mockup-sidebar">
+                                <div class="sidebar-logo">
+                                    <span class="logo-icon">🧘</span>
+                                    <span class="logo-text">Mindful</span>
                                 </div>
+                                <nav class="sidebar-nav">
+                                    <div class="nav-item active"><span class="nav-icon">🏠</span> <span class="nav-label">Home</span></div>
+                                    <div class="nav-item"><span class="nav-icon">🍃</span> <span class="nav-label">Meditate</span></div>
+                                    <div class="nav-item"><span class="nav-icon">🌙</span> <span class="nav-label">Sleep</span></div>
+                                    <div class="nav-item"><span class="nav-icon">🎵</span> <span class="nav-label">Focus</span></div>
+                                </nav>
                             </div>
-                            <div class="mockup-card mockup-card-h-md" style="background-image: url('https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&auto=format&fit=crop&q=60');">
-                                <span class="mockup-card-badge">Move</span>
-                                <div class="mockup-card-overlay">
-                                    <h5 class="mockup-card-title">Daily Move</h5>
-                                    <p class="mockup-card-subtitle">Calm Session</p>
+                            
+                            <!-- Main Content Area -->
+                            <div class="mockup-main">
+                                <div class="main-top-bar">
+                                    <div class="user-welcome">
+                                        <span class="welcome-title">Good Morning</span>
+                                        <span class="welcome-name">Dinda</span>
+                                    </div>
+                                    <div class="user-avatar">
+                                        <img src="assets/dinda.png" alt="Dinda" onerror="this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&auto=format&fit=crop&q=80'">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="mockup-card mockup-card-h-sm" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=60');">
-                                <span class="mockup-card-badge">Heart</span>
-                                <div class="mockup-card-overlay">
-                                    <h5 class="mockup-card-title">Less Heavy</h5>
-                                    <p class="mockup-card-subtitle">Tamara Levitt</p>
-                                </div>
-                            </div>
-                            <!-- Block 2 (Duplicate for loop) -->
-                            <div class="mockup-card mockup-card-h-lg" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=60');">
-                                <span class="mockup-card-badge">Focus</span>
-                                <div class="mockup-card-overlay">
-                                    <h5 class="mockup-card-title">Overwhelm</h5>
-                                    <p class="mockup-card-subtitle">Chibs Okereke</p>
-                                </div>
-                            </div>
-                            <div class="mockup-card mockup-card-h-md" style="background-image: url('https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&auto=format&fit=crop&q=60');">
-                                <span class="mockup-card-badge">Move</span>
-                                <div class="mockup-card-overlay">
-                                    <h5 class="mockup-card-title">Daily Move</h5>
-                                    <p class="mockup-card-subtitle">Calm Session</p>
-                                </div>
-                            </div>
-                            <div class="mockup-card mockup-card-h-sm" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=60');">
-                                <span class="mockup-card-badge">Heart</span>
-                                <div class="mockup-card-overlay">
-                                    <h5 class="mockup-card-title">Less Heavy</h5>
-                                    <p class="mockup-card-subtitle">Tamara Levitt</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Column 3 (Scroll Up) -->
-                        <div class="mockup-column mockup-column-up-2">
-                            <!-- Block 1 -->
-                            <div class="mockup-card mockup-card-h-sm" style="background-image: url('https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=200&auto=format&fit=crop&q=60');">
-                                <span class="mockup-card-badge">Tools</span>
-                                <div class="mockup-card-overlay">
-                                    <h5 class="mockup-card-title">Mindfulness</h5>
-                                    <p class="mockup-card-subtitle">Dr. Vivek Murthy</p>
-                                </div>
-                            </div>
-                            <div class="mockup-card mockup-card-h-lg" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=200&auto=format&fit=crop&q=60');">
-                                <span class="mockup-card-badge">ADHD</span>
-                                <div class="mockup-card-overlay">
-                                    <h5 class="mockup-card-title">ADHD Support</h5>
-                                    <p class="mockup-card-subtitle">Calm Series</p>
-                                </div>
-                            </div>
-                            <div class="mockup-card mockup-card-h-md" style="background-image: url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=200&auto=format&fit=crop&q=60');">
-                                <span class="mockup-card-badge">Sleep</span>
-                                <div class="mockup-card-overlay">
-                                    <h5 class="mockup-card-title">Deep Sleep</h5>
-                                    <p class="mockup-card-subtitle">Sleep Tones</p>
-                                </div>
-                            </div>
-                            <!-- Block 2 (Duplicate for loop) -->
-                            <div class="mockup-card mockup-card-h-sm" style="background-image: url('https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=200&auto=format&fit=crop&q=60');">
-                                <span class="mockup-card-badge">Tools</span>
-                                <div class="mockup-card-overlay">
-                                    <h5 class="mockup-card-title">Mindfulness</h5>
-                                    <p class="mockup-card-subtitle">Dr. Vivek Murthy</p>
-                                </div>
-                            </div>
-                            <div class="mockup-card mockup-card-h-lg" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=200&auto=format&fit=crop&q=60');">
-                                <span class="mockup-card-badge">ADHD</span>
-                                <div class="mockup-card-overlay">
-                                    <h5 class="mockup-card-title">ADHD Support</h5>
-                                    <p class="mockup-card-subtitle">Calm Series</p>
-                                </div>
-                            </div>
-                            <div class="mockup-card mockup-card-h-md" style="background-image: url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=200&auto=format&fit=crop&q=60');">
-                                <span class="mockup-card-badge">Sleep</span>
-                                <div class="mockup-card-overlay">
-                                    <h5 class="mockup-card-title">Deep Sleep</h5>
-                                    <p class="mockup-card-subtitle">Sleep Tones</p>
+                                
+                                <!-- Scrolling Cards Container -->
+                                <div class="mockup-cards-scroll">
+                                    <div class="mockup-scroll-track">
+                                        <!-- Column 1 -->
+                                        <div class="mockup-scroll-column col-up-1">
+                                            <!-- Card: Overcome Anxiety -->
+                                            <div class="app-card card-blue-overlay" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=80');">
+                                                <span class="app-card-badge">Anxiety</span>
+                                                <div class="app-card-info">
+                                                    <h5 class="app-card-title">Overcome Stress</h5>
+                                                    <p class="app-card-subtitle">Dr. Julie Smith</p>
+                                                </div>
+                                            </div>
+                                            <!-- Card: Relax Your Mind -->
+                                            <div class="app-card" style="background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=200&auto=format&fit=crop&q=80');">
+                                                <span class="app-card-badge">Relax</span>
+                                                <div class="app-card-info">
+                                                    <h5 class="app-card-title">Relax Your Mind</h5>
+                                                    <p class="app-card-subtitle">Jeff Warren</p>
+                                                </div>
+                                            </div>
+                                            <!-- Card: Ground Yourself -->
+                                            <div class="app-card" style="background-image: url('https://images.unsplash.com/photo-1512438248247-f0f2a5a8b7f0?w=200&auto=format&fit=crop&q=80');">
+                                                <span class="app-card-badge">Ground</span>
+                                                <div class="app-card-info">
+                                                    <h5 class="app-card-title">Ground Yourself</h5>
+                                                    <p class="app-card-subtitle">Jay Shetty</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Duplicates for continuous loop -->
+                                            <div class="app-card card-blue-overlay" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=80');">
+                                                <span class="app-card-badge">Anxiety</span>
+                                                <div class="app-card-info">
+                                                    <h5 class="app-card-title">Overcome Stress</h5>
+                                                    <p class="app-card-subtitle">Dr. Julie Smith</p>
+                                                </div>
+                                            </div>
+                                            <div class="app-card" style="background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=200&auto=format&fit=crop&q=80');">
+                                                <span class="app-card-badge">Relax</span>
+                                                <div class="app-card-info">
+                                                    <h5 class="app-card-title">Relax Your Mind</h5>
+                                                    <p class="app-card-subtitle">Jeff Warren</p>
+                                                </div>
+                                            </div>
+                                            <div class="app-card" style="background-image: url('https://images.unsplash.com/photo-1512438248247-f0f2a5a8b7f0?w=200&auto=format&fit=crop&q=80');">
+                                                <span class="app-card-badge">Ground</span>
+                                                <div class="app-card-info">
+                                                    <h5 class="app-card-title">Ground Yourself</h5>
+                                                    <p class="app-card-subtitle">Jay Shetty</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Column 2 -->
+                                        <div class="mockup-scroll-column col-up-2">
+                                            <!-- Card: Mindfulness Tools -->
+                                            <div class="app-card" style="background-image: url('https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=200&auto=format&fit=crop&q=80');">
+                                                <span class="app-card-badge">Tools</span>
+                                                <div class="app-card-info">
+                                                    <h5 class="app-card-title">Mindfulness Tools</h5>
+                                                    <p class="app-card-subtitle">Dr. Vivek Murthy</p>
+                                                </div>
+                                            </div>
+                                            <!-- Card: Daily Move -->
+                                            <div class="app-card" style="background-image: url('https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&auto=format&fit=crop&q=80');">
+                                                <span class="app-card-badge">Daily</span>
+                                                <div class="app-card-info">
+                                                    <h5 class="app-card-title">Daily Move</h5>
+                                                    <p class="app-card-subtitle">Calm Session</p>
+                                                </div>
+                                            </div>
+                                            <!-- Card: ADHD Support -->
+                                            <div class="app-card" style="background-image: url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=200&auto=format&fit=crop&q=80');">
+                                                <span class="app-card-badge">ADHD</span>
+                                                <div class="app-card-info">
+                                                    <h5 class="app-card-title">ADHD Support</h5>
+                                                    <p class="app-card-subtitle">Calm Series</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Duplicates for continuous loop -->
+                                            <div class="app-card" style="background-image: url('https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=200&auto=format&fit=crop&q=80');">
+                                                <span class="app-card-badge">Tools</span>
+                                                <div class="app-card-info">
+                                                    <h5 class="app-card-title">Mindfulness Tools</h5>
+                                                    <p class="app-card-subtitle">Dr. Vivek Murthy</p>
+                                                </div>
+                                            </div>
+                                            <div class="app-card" style="background-image: url('https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&auto=format&fit=crop&q=80');">
+                                                <span class="app-card-badge">Daily</span>
+                                                <div class="app-card-info">
+                                                    <h5 class="app-card-title">Daily Move</h5>
+                                                    <p class="app-card-subtitle">Calm Session</p>
+                                                </div>
+                                            </div>
+                                            <div class="app-card" style="background-image: url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=200&auto=format&fit=crop&q=80');">
+                                                <span class="app-card-badge">ADHD</span>
+                                                <div class="app-card-info">
+                                                    <h5 class="app-card-title">ADHD Support</h5>
+                                                    <p class="app-card-subtitle">Calm Series</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
