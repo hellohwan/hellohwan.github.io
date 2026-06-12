@@ -9,15 +9,35 @@ class GlobalNavbar extends HTMLElement {
         if (isResume) {
             themeToggleHTML = `
                 <button class="theme-toggle" id="theme-toggle-resume" aria-label="Toggle Dark/Light Mode" style="border-radius: 50px; width: auto; padding: 0 16px; gap: 8px;">
-                    <span class="icon-sun">☀️ Light</span>
-                    <span class="icon-moon">🌙 Dark</span>
+                    <span class="icon-sun" style="display: inline-flex; align-items: center; gap: 4px;">
+                        <picture style="width: 20px; height: 20px; display: inline-block;">
+                            <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f31e/512.webp" type="image/webp">
+                            <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f31e/512.gif" alt="🌞" width="20" height="20">
+                        </picture> Light
+                    </span>
+                    <span class="icon-moon" style="display: inline-flex; align-items: center; gap: 4px;">
+                        <picture style="width: 20px; height: 20px; display: inline-block;">
+                            <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f31b/512.webp" type="image/webp">
+                            <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f31b/512.gif" alt="🌛" width="20" height="20">
+                        </picture> Dark
+                    </span>
                 </button>
             `;
         } else {
             themeToggleHTML = `
                 <button class="theme-toggle" id="${isDetail ? 'theme-toggle-nav' : 'theme-toggle'}" aria-label="Toggle Dark/Light Mode">
-                    <span class="icon-sun">☀️</span>
-                    <span class="icon-moon">🌙</span>
+                    <span class="icon-sun" style="display: flex; align-items: center; justify-content: center;">
+                        <picture style="width: 24px; height: 24px; display: block;">
+                            <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f31e/512.webp" type="image/webp">
+                            <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f31e/512.gif" alt="🌞" width="24" height="24">
+                        </picture>
+                    </span>
+                    <span class="icon-moon" style="display: flex; align-items: center; justify-content: center;">
+                        <picture style="width: 24px; height: 24px; display: block;">
+                            <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f31b/512.webp" type="image/webp">
+                            <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f31b/512.gif" alt="🌛" width="24" height="24">
+                        </picture>
+                    </span>
                 </button>
             `;
         }
@@ -38,8 +58,11 @@ class GlobalNavbar extends HTMLElement {
                 </div>
                 <nav class="navbar awwwards-nav ${isDetail ? 'top-nav-bar' : ''}">
                     <div class="nav-left">
-                        <a href="index.html" class="logo-w">
-                            <lottie-player class="thinking-logo" src="assets/cat-loader.json" background="transparent" speed="1" loop autoplay></lottie-player>
+                        <a href="index.html" class="logo-w" style="display: flex; align-items: center; justify-content: center; width: 38px; height: 38px;">
+                            <picture style="width: 100%; height: 100%; display: block;">
+                                <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f98a/512.webp" type="image/webp">
+                                <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f98a/512.gif" alt="🦊" width="38" height="38">
+                            </picture>
                         </a>
                         <ul class="nav-links-main">
                             <li><a href="${projectHref}" data-i18n="nav_project">Project</a></li>
