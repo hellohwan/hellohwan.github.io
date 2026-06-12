@@ -528,8 +528,33 @@ body:not(.light-theme) .header-wrapper.scrolled .search-bar input::placeholder {
     border: 1px solid #ccc;
 }
 
-.lang-selector-minimal, .lang-selector-minimal button {
+.lang-selector-minimal {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-right: 20px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.lang-selector-minimal button {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: inherit;
     font-size: 14px !important;
+    font-weight: inherit;
+    transition: color 0.2s;
+    outline: none;
+    box-shadow: none !important;
+}
+
+.lang-selector-minimal button:hover, 
+.lang-selector-minimal button.active {
+    color: #ffffff;
 }
 
 .btn-outline:hover {
