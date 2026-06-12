@@ -290,18 +290,20 @@
 
         <!-- About Me Section -->
         <div class="about-ticker-container">
-            <!-- Background Video -->
+            <!-- Background Video (Commented out for custom hero background) -->
+            <!--
             <video autoplay loop muted playsinline class="hero-bg-video">
                 <source src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-sky-in-a-sunset-26070-large.mp4" type="video/mp4">
             </video>
-            <!-- Dribbble Showcase Background -->
+            -->
+            <!-- Dribbble Showcase Background (Commented out for custom hero background) -->
+            <!--
             <div class="dribbble-showcase-bg">
                 <div class="showcase-column">
                     <div class="showcase-card" style="background-image: url('assets/educaa_mockup.png');"></div>
                     <div class="showcase-card" style="background-image: url('assets/immersive_mockup.png');"></div>
                     <div class="showcase-card" style="background-image: url('assets/hero_mockup_screens.png');"></div>
                     <div class="showcase-card" style="background-image: url('assets/prev_screen_1780767147349.png');"></div>
-                    <!-- Duplicate for infinite loop -->
                     <div class="showcase-card" style="background-image: url('assets/educaa_mockup.png');"></div>
                     <div class="showcase-card" style="background-image: url('assets/immersive_mockup.png');"></div>
                     <div class="showcase-card" style="background-image: url('assets/hero_mockup_screens.png');"></div>
@@ -312,7 +314,6 @@
                     <div class="showcase-card" style="background-image: url('assets/prev_screen_1780767147349.png');"></div>
                     <div class="showcase-card" style="background-image: url('assets/educaa_mockup.png');"></div>
                     <div class="showcase-card" style="background-image: url('assets/immersive_mockup.png');"></div>
-                    <!-- Duplicate for infinite loop -->
                     <div class="showcase-card" style="background-image: url('assets/hero_mockup_screens.png');"></div>
                     <div class="showcase-card" style="background-image: url('assets/prev_screen_1780767147349.png');"></div>
                     <div class="showcase-card" style="background-image: url('assets/educaa_mockup.png');"></div>
@@ -323,49 +324,52 @@
                     <div class="showcase-card" style="background-image: url('assets/educaa_mockup.png');"></div>
                     <div class="showcase-card" style="background-image: url('assets/prev_screen_1780767147349.png');"></div>
                     <div class="showcase-card" style="background-image: url('assets/hero_mockup_screens.png');"></div>
-                    <!-- Duplicate for infinite loop -->
                     <div class="showcase-card" style="background-image: url('assets/immersive_mockup.png');"></div>
                     <div class="showcase-card" style="background-image: url('assets/educaa_mockup.png');"></div>
                     <div class="showcase-card" style="background-image: url('assets/prev_screen_1780767147349.png');"></div>
                     <div class="showcase-card" style="background-image: url('assets/hero_mockup_screens.png');"></div>
                 </div>
             </div>
+            -->
             <style>
                 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
                 .about-ticker-container {
-                    --hero-text-title: #ffffff;
-                    --hero-text-desc: rgba(255, 255, 255, 0.9);
-                    --hero-text-muted: rgba(255, 255, 255, 0.65);
-                    --hero-border: rgba(255, 255, 255, 0.2);
-                    --hero-overlay: linear-gradient(to bottom, rgba(10,30,60,0.35) 0%, rgba(10,30,60,0.85) 100%);
-                    --card-bg: rgba(255, 255, 255, 0.95);
-                    --card-text-primary: #111111;
-                    --card-text-secondary: #555555;
-                    --ticker-bg: rgba(13, 27, 42, 0.55);
-                    --ticker-border: rgba(255, 255, 255, 0.15);
-                    --ticker-text: #ffffff;
-
-                    /* CSS variables for new profile card component */
-                    --studio-accent: #c4f042;
-                    --border: rgba(255, 255, 255, 0.12);
-                    --card: rgba(13, 20, 35, 0.75);
-                    --muted: rgba(255, 255, 255, 0.08);
-                    --muted-foreground: rgba(255, 255, 255, 0.5);
-                    --foreground: #ffffff;
-
-                    /* Layout: flex-column so footer-bar + ticker stay pinned to bottom */
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    height: 100vh;
-                    width: 100%;
-                    box-sizing: border-box;
-                    position: relative;
-                    background-color: #0b0f19;
-                    overflow: hidden;
-                    /* No top padding here — content handles it via its own padding */
-                    font-family: 'Inter', sans-serif;
-                }
+                     --hero-text-title: #ffffff;
+                     --hero-text-desc: rgba(255, 255, 255, 0.9);
+                     --hero-text-muted: rgba(255, 255, 255, 0.65);
+                     --hero-border: rgba(255, 255, 255, 0.25);
+                     --hero-overlay: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.45) 100%);
+                     --card-bg: rgba(255, 255, 255, 0.95);
+                     --card-text-primary: #111111;
+                     --card-text-secondary: #555555;
+                     --ticker-bg: rgba(0, 0, 0, 0.45);
+                     --ticker-border: rgba(255, 255, 255, 0.15);
+                     --ticker-text: #ffffff;
+ 
+                     /* CSS variables for new profile card component */
+                     --studio-accent: #c4f042;
+                     --border: rgba(255, 255, 255, 0.12);
+                     --card: rgba(13, 20, 35, 0.75);
+                     --muted: rgba(255, 255, 255, 0.08);
+                     --muted-foreground: rgba(255, 255, 255, 0.5);
+                     --foreground: #ffffff;
+ 
+                     /* Layout: flex-column so footer-bar + ticker stay pinned to bottom */
+                     display: flex;
+                     flex-direction: column;
+                     justify-content: space-between;
+                     height: 100vh;
+                     width: 100%;
+                     box-sizing: border-box;
+                     position: relative;
+                     background-image: url('assets/resume_hero_bg.jpg');
+                     background-size: cover;
+                     background-position: center;
+                     background-repeat: no-repeat;
+                     overflow: hidden;
+                     /* No top padding here — content handles it via its own padding */
+                     font-family: 'Inter', sans-serif;
+                 }
 
                 /* Utility styles for Tom's card */
                 .about-hero-right .group {
@@ -466,24 +470,24 @@
                 }
 
                 body.light-theme .about-ticker-container {
-                    --hero-text-title: #233129;
-                    --hero-text-desc: #364a3e;
-                    --hero-text-muted: #6a7c70;
-                    --hero-border: rgba(35, 49, 41, 0.15);
-                    --hero-overlay: linear-gradient(to bottom, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.4) 35%, rgba(243, 245, 244, 0.2) 70%, rgba(243, 245, 244, 0.7) 100%);
+                    --hero-text-title: #ffffff;
+                    --hero-text-desc: rgba(255, 255, 255, 0.9);
+                    --hero-text-muted: rgba(255, 255, 255, 0.65);
+                    --hero-border: rgba(255, 255, 255, 0.25);
+                    --hero-overlay: linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.5) 100%);
                     --card-bg: #f0f4f2;
                     --card-text-primary: #233129;
                     --card-text-secondary: #475a4e;
-
-                    --border: rgba(35, 49, 41, 0.15);
+ 
+                    --border: rgba(255, 255, 255, 0.15);
                     --card: rgba(255, 255, 255, 0.85);
                     --muted: rgba(0, 0, 0, 0.05);
-                    --muted-foreground: rgba(35, 49, 41, 0.6);
-                    --foreground: #233129;
-                    --ticker-bg: rgba(230, 235, 232, 0.8);
-                    --ticker-border: #233129;
-                    --ticker-text: #233129;
-                    background-color: #f3f5f4;
+                    --muted-foreground: rgba(255, 255, 255, 0.6);
+                    --foreground: #ffffff;
+                    --ticker-bg: rgba(0, 0, 0, 0.55);
+                    --ticker-border: rgba(255, 255, 255, 0.2);
+                    --ticker-text: #ffffff;
+                    background-color: transparent;
                 }
 
                 /* Background Video */
