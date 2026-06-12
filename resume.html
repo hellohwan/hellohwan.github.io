@@ -345,6 +345,14 @@
                     --ticker-border: rgba(255, 255, 255, 0.15);
                     --ticker-text: #ffffff;
 
+                    /* CSS variables for new profile card component */
+                    --studio-accent: #c4f042;
+                    --border: rgba(255, 255, 255, 0.12);
+                    --card: rgba(13, 20, 35, 0.75);
+                    --muted: rgba(255, 255, 255, 0.08);
+                    --muted-foreground: rgba(255, 255, 255, 0.5);
+                    --foreground: #ffffff;
+
                     /* Layout: flex-column so footer-bar + ticker stay pinned to bottom */
                     display: flex;
                     flex-direction: column;
@@ -359,6 +367,104 @@
                     font-family: 'Inter', sans-serif;
                 }
 
+                /* Utility styles for Tom's card */
+                .about-hero-right .group {
+                    background-color: #111111;
+                    border: 1px solid #222222 !important;
+                    border-radius: 12px;
+                    width: 100%;
+                    max-width: 300px;
+                    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+                    font-family: 'Inter', sans-serif;
+                    overflow: hidden;
+                }
+                body.light-theme .about-hero-right .group {
+                    background-color: #ffffff;
+                    border: 1px solid #e2e8f0 !important;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                }
+                .about-hero-right .flex-1 p {
+                    margin: 0 !important;
+                }
+                .about-hero-right .flex-1 p:first-child {
+                    font-size: 1.15rem;
+                    font-weight: 500;
+                    letter-spacing: -0.3px;
+                    color: #ffffff;
+                }
+                body.light-theme .about-hero-right .flex-1 p:first-child {
+                    color: #000000;
+                }
+                .about-hero-right .flex-1 p:last-child {
+                    font-size: 0.62rem;
+                    font-weight: 700;
+                    letter-spacing: 1px;
+                    color: #888888;
+                    margin-top: 2px !important;
+                }
+                .about-hero-right .relative.size-11 {
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 50%;
+                    border: 1.5px solid #333333;
+                    overflow: hidden;
+                    position: relative;
+                    flex-shrink: 0;
+                }
+                body.light-theme .about-hero-right .relative.size-11 {
+                    border-color: #e2e8f0;
+                }
+                .about-hero-right .relative.size-11 img {
+                    position: absolute !important;
+                    width: 100% !important;
+                    height: 100% !important;
+                    top: 0 !important;
+                    left: 0 !important;
+                    object-fit: cover !important;
+                }
+                .about-hero-right .grid-cols-2 {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                }
+                .about-hero-right .grid-cols-2 button,
+                .about-hero-right .grid-cols-2 a {
+                    background: none;
+                    border: none;
+                    font-family: 'Inter', sans-serif;
+                    font-size: 0.72rem;
+                    font-weight: 700;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    color: #ffffff !important;
+                    padding: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 4px;
+                    text-decoration: none;
+                    transition: background-color 0.2s;
+                }
+                body.light-theme .about-hero-right .grid-cols-2 button,
+                body.light-theme .about-hero-right .grid-cols-2 a {
+                    color: #000000 !important;
+                }
+                .about-hero-right .grid-cols-2 button:hover,
+                .about-hero-right .grid-cols-2 a:hover {
+                    background-color: rgba(255, 255, 255, 0.05);
+                }
+                body.light-theme .about-hero-right .grid-cols-2 button:hover,
+                body.light-theme .about-hero-right .grid-cols-2 a:hover {
+                    background-color: rgba(0, 0, 0, 0.02);
+                }
+                .about-hero-right .border-t,
+                .about-hero-right .border-l {
+                    border-color: #222222 !important;
+                }
+                body.light-theme .about-hero-right .border-t,
+                body.light-theme .about-hero-right .border-l {
+                    border-color: #e2e8f0 !important;
+                }
+
                 body.light-theme .about-ticker-container {
                     --hero-text-title: #233129;
                     --hero-text-desc: #364a3e;
@@ -368,6 +474,12 @@
                     --card-bg: #f0f4f2;
                     --card-text-primary: #233129;
                     --card-text-secondary: #475a4e;
+
+                    --border: rgba(35, 49, 41, 0.15);
+                    --card: rgba(255, 255, 255, 0.85);
+                    --muted: rgba(0, 0, 0, 0.05);
+                    --muted-foreground: rgba(35, 49, 41, 0.6);
+                    --foreground: #233129;
                     --ticker-bg: rgba(230, 235, 232, 0.8);
                     --ticker-border: #233129;
                     --ticker-text: #233129;
@@ -1063,9 +1175,12 @@
                     <p class="hero-resume-tag">Resume 2025</p>
                     <!-- Concept Sticker/Typo Layout matching Reference Image -->
                     <div class="hero-sticker-layout">
-                        <!-- Lottie Wink decoration -->
+                        <!-- Noto Emoji Wink decoration -->
                         <span class="sticker-smiley">
-                            <lottie-player src="assets/wink.json" background="transparent" speed="1" style="width: 70px; height: 70px;" loop autoplay></lottie-player>
+                            <picture>
+                                <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f609/512.webp" type="image/webp">
+                                <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f609/512.gif" alt="😉" width="60" height="60" style="display: block;">
+                            </picture>
                         </span>
 
                         <!-- Main Big Text: Dinda Hwan -->
