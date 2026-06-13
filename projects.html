@@ -457,13 +457,13 @@
             flex-direction: column;
             text-decoration: none;
             box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease, box-shadow 0.4s ease;
         }
 
         .gallery-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.55);
         }
 
         body.light-theme .gallery-card {
@@ -473,8 +473,8 @@
         }
 
         body.light-theme .gallery-card:hover {
-            border-color: rgba(0, 0, 0, 0.15);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            border-color: rgba(0, 0, 0, 0.18);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.09);
         }
 
         .gallery-card-preview {
@@ -486,6 +486,11 @@
             position: relative;
             background-color: #18181b;
             overflow: hidden;
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .gallery-card:hover .gallery-card-preview {
+            transform: scale(1.05);
         }
 
         .gallery-card-content {
@@ -565,142 +570,306 @@
             display: none !important;
         }
 
-        /* Showcase Hero Section mimicking Mason Home design */
-        .showcase-hero-section {
-            background-image: url('assets/mockuponfield.png');
+        /* Creative Grid Hero Section */
+        .projects-glowup-hero {
+            background-color: #fdfcf9;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: #111111;
+            padding: 90px 4% 110px;
+            position: relative;
+            overflow: visible;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border-bottom: 2px solid #111111;
+            box-sizing: border-box;
+        }
+
+        /* Light/Dark theme compatibility */
+        body.light-theme .projects-glowup-hero {
+            background-color: #fdfcf9;
+        }
+
+        .hero-top-text {
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .hero-welcome-badge {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #555555;
+            display: inline-block;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .hero-glowup-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(2rem, 4.8vw, 3.4rem);
+            font-weight: 700;
+            line-height: 1.25;
+            color: #111111;
+            margin: 0 0 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .highlight-pink {
+            background: #ffb8d9;
+            padding: 0 10px;
+            border-radius: 6px;
+            display: inline-block;
+            transform: rotate(-1.5deg);
+            border: 2px solid #111111;
+            box-shadow: 2px 2px 0 #111111;
+            color: #111111;
+        }
+
+        .hero-glowup-desc {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: #444444;
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        /* Overlapping Cards Stack */
+        .works-cards-stack {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            position: relative;
+            height: 320px;
+            width: 100%;
+            max-width: 900px;
+            z-index: 4;
+        }
+
+        .stack-card {
+            position: absolute;
+            width: 165px;
+            height: 230px;
+            border-radius: 16px;
             background-size: cover;
             background-position: center;
-            color: #ffffff;
-            padding: 0;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 80vh;
-            min-height: 600px;
-            font-family: 'Inter', sans-serif;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-
-            /* CSS variables for ticker theme support */
-            --ticker-bg: rgba(13, 27, 42, 0.55);
-            --ticker-border: rgba(255, 255, 255, 0.15);
-            --ticker-text: #ffffff;
-            --ticker-sep-color: #84b026;
-        }
-
-        body.light-theme .showcase-hero-section {
-            background-image: url('assets/mockuponfield.png');
-            --ticker-bg: rgba(230, 235, 232, 0.8);
-            --ticker-border: #233129;
-            --ticker-text: #233129;
-            --ticker-sep-color: #233129;
-        }
-
-        .showcase-hero-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 100px 6% 40px 6%;
-            width: 100%;
-            box-sizing: border-box;
-            flex: 1;
-        }
-
-        .showcase-left-col {
-            max-width: 450px;
-            z-index: 5;
-            position: relative;
-            padding-bottom: 40px;
-        }
-
-        /* Top magazine branding block */
-        .magazine-brand-wrap {
-            margin-bottom: 55px;
-            font-family: var(--font-heading), sans-serif;
-        }
-
-        .magazine-brand-title {
-            font-size: 3.2rem;
-            font-weight: 900;
-            line-height: 0.8;
-            letter-spacing: -2px;
-            color: #ffffff;
-            display: block;
-            text-transform: uppercase;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .magazine-brand-sub {
-            font-size: 0.7rem;
-            font-weight: 800;
-            color: #0e3f16;
-            background: #c5f82a;
-            padding: 3px 8px;
-            display: inline-block;
-            margin-top: 5px;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-        }
-
-        /* Rotated magazine style typography */
-        .magazine-rotated-wrap {
-            transform: rotate(-26deg);
-            transform-origin: left top;
-            margin-top: 50px;
-            margin-left: 5px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .magazine-hero-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: clamp(2.8rem, 5.5vw, 4.8rem);
-            font-weight: 900;
-            color: #ffffff;
-            text-transform: lowercase;
-            line-height: 0.85;
-            letter-spacing: -3px;
-            margin: 0;
-            transition: color 0.3s;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        }
-
-        .magazine-hero-desc {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(0.9rem, 1.8vw, 1.05rem);
-            font-weight: 700;
-            line-height: 1.35;
-            color: #ffffff;
-            max-width: 290px;
-            margin: 0;
-            letter-spacing: -0.3px;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.4);
-        }
-
-        .showcase-read-more {
-            display: inline-block;
-            background: #ffffff;
-            color: #111111;
-            padding: 8px 16px;
-            font-size: 0.72rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            text-decoration: none;
-            letter-spacing: 1px;
-            width: fit-content;
-            margin-top: 5px;
-            transition: transform 0.2s, background-color 0.2s;
-            border: none;
+            border: 2px solid #111111;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, z-index 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
 
-        .showcase-read-more:hover {
-            background: #2563eb;
-            transform: translateY(-2px);
+        .card-inner-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: flex-end;
+            padding: 12px;
+            border-radius: 14px;
+        }
+
+        .card-tag {
+            color: #ffffff;
+            background: #111111;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-family: 'Courier New', Courier, monospace;
+            box-shadow: 2px 2px 0 rgba(255,255,255,0.2);
+        }
+
+        /* Card positions fanning out */
+        .card-1 { transform: rotate(-10deg) translateX(-220px); z-index: 1; }
+        .card-2 { transform: rotate(-4deg) translateX(-110px); z-index: 2; }
+        .card-3 { transform: rotate(1deg) translateY(-8px); z-index: 3; }
+        .card-4 { transform: rotate(5deg) translateX(110px); z-index: 4; }
+        .card-5 { transform: rotate(12deg) translateX(220px); z-index: 5; }
+
+        /* Card Hover */
+        .stack-card:hover {
+            transform: scale(1.12) rotate(0deg) translateY(-15px);
+            z-index: 15;
+            box-shadow: 0 16px 35px rgba(0,0,0,0.25);
+        }
+
+        /* Sticker notes */
+        .sticker-note {
+            position: absolute;
+            z-index: 6;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.7rem;
+            font-weight: 900;
+            border: 2px solid #111111;
+            padding: 8px 12px;
+            border-radius: 8px;
+            box-shadow: 3px 3px 0 #111111;
+            max-width: 140px;
+            text-align: left;
+            line-height: 1.3;
+            color: #111111;
+            transition: transform 0.2s ease;
+        }
+
+        .sticker-note:hover {
+            transform: scale(1.05) rotate(0deg);
+        }
+
+        .note-yellow {
+            background: #fef08a;
+            top: 5%;
+            left: 5%;
+            transform: rotate(-8deg);
+        }
+
+        .note-purple {
+            background: #e9d5ff;
+            bottom: 5%;
+            right: 4%;
+            transform: rotate(6deg);
+        }
+
+        .note-green {
+            background: #bbf7d0;
+            bottom: 5%;
+            left: 6%;
+            transform: rotate(-6deg);
+        }
+
+        /* Rotating sticker */
+        .rotating-sticker-container {
+            position: absolute;
+            top: 20px;
+            right: 4%;
+            width: 90px;
+            height: 90px;
+            z-index: 10;
+        }
+
+        .rotating-text-svg {
+            width: 100%;
+            height: 100%;
+            animation: rotate-clock 15s linear infinite;
+        }
+
+        .sticker-smiley {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.2rem;
+            line-height: 1;
+            user-select: none;
+        }
+
+        @keyframes rotate-clock {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Active Project Widget */
+        .active-project-widget {
+            background: #ffffff;
+            border: 2px solid #111111;
+            padding: 20px 24px;
+            border-radius: 20px;
+            box-shadow: 4px 4px 0 #111111;
+            max-width: 440px;
+            width: 90%;
+            text-align: left;
+            margin: 25px auto 40px;
+            position: relative;
+            z-index: 8;
+            box-sizing: border-box;
+        }
+
+        .widget-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .widget-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse-dot 1.5s infinite;
+        }
+
+        .widget-label {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.7rem;
+            font-weight: 900;
+            color: #666666;
+            letter-spacing: 1px;
+        }
+
+        .widget-title {
+            font-family: var(--font-heading), sans-serif;
+            font-size: 1.3rem;
+            font-weight: 900;
+            margin: 0 0 6px;
+            text-transform: uppercase;
+            color: #111111;
+            letter-spacing: -0.5px;
+        }
+
+        .widget-desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: #444444;
+            line-height: 1.4;
+            margin: 0 0 12px;
+            font-weight: 500;
+        }
+
+        .widget-btn {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.75rem;
+            font-weight: 900;
+            color: #ff79c6;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+
+        .widget-btn:hover {
+            transform: translateX(4px);
+            color: #ff55b8;
+        }
+
+        @keyframes pulse-dot {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+        /* Clean Ticker and Footer Override for light hero */
+        .projects-glowup-hero .netpoint-footer-bar {
+            color: #333333 !important;
+            border-top: 1px solid rgba(0,0,0,0.08) !important;
+            z-index: 5;
+        }
+
+        .projects-glowup-hero .home-ticker-wrap {
+            --ticker-bg: #1c1c1c;
+            --ticker-border: #111111;
+            --ticker-text: #ffffff;
+            z-index: 5;
         }
 
         /* Center Mockup - Phone Frame */
@@ -1000,45 +1169,89 @@
     <!-- Main Section -->
     <main>
         <!-- Showcase Hero Section mimicking Mason Home design -->
-        <section class="showcase-hero-section">
-            <!-- Floating Cup decoration -->
-            <div class="decor-cup floating-decor"></div>
-            
-            <!-- SVG Floor Lamp decoration -->
-            <svg class="decor-lamp floating-decor" viewBox="0 0 100 150" fill="none" stroke="#a38a6a" stroke-width="1.5">
-                <path d="M10,140 L30,140 M20,140 L20,100 C20,40 80,40 80,80 L80,90" />
-                <path d="M70,90 L90,90 L85,105 L75,105 Z" fill="#fef08a" stroke="#a38a6a" />
-                <path d="M72,110 L68,125 M80,110 L80,128 M88,110 L92,125" stroke="#fbbf24" stroke-dasharray="2 2" />
-            </svg>
+        <section class="projects-glowup-hero">
+            <!-- Rotating sticker "open for work" -->
+            <div class="rotating-sticker-container">
+                <svg class="rotating-text-svg" viewBox="0 0 100 100">
+                    <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
+                    <text font-family="Courier New" font-weight="bold" font-size="9" fill="#111">
+                        <textPath href="#circlePath">
+                            OPEN FOR WORK • AVAILABLE NOW • DESIGN & CODE •
+                        </textPath>
+                    </text>
+                </svg>
+                <div class="sticker-smiley">☺</div>
+            </div>
 
-            <div class="showcase-hero-content">
-                <!-- Left Info Panel - Magazine Cover Style -->
-                <div class="showcase-left-col">
-                    <div class="magazine-brand-wrap">
-                        <span class="magazine-brand-title">Dinda Hwan</span>
-                        <span class="magazine-brand-sub">The portfolio starts here</span>
+            <div class="hero-top-text">
+                <span class="hero-welcome-badge">WELCOME TO THE PORTFOLIO ARCHIVE</span>
+                <h1 class="hero-glowup-title">
+                    Give your ideas a major glow up. <br>
+                    Meet your new <span class="highlight-pink">creative collaborator</span>.
+                </h1>
+                <p class="hero-glowup-desc">
+                    Conceptualizing, designing, and coding high-impact interfaces across web, mobile, and SaaS platforms.
+                </p>
+            </div>
+
+            <!-- Overlapping Cards Stack -->
+            <div class="works-cards-stack">
+                <!-- Floating Stickers overlapping cards -->
+                <div class="sticker-note note-yellow">
+                    <span>Help me design a fintech dashboard</span>
+                </div>
+                <div class="sticker-note note-purple">
+                    <span>Build a responsive design system</span>
+                </div>
+                <div class="sticker-note note-green">
+                    <span>Optimize mobile user flows</span>
+                </div>
+
+                <!-- Card 1: Workspace -->
+                <div class="stack-card card-1" style="background-image: url('assets/workspace_clean.jpg')">
+                    <div class="card-inner-overlay">
+                        <span class="card-tag">Workspace</span>
                     </div>
-                    
-                    <div class="magazine-rotated-wrap">
-                        <h1 class="magazine-hero-title" id="showcase-project-title">no sweat</h1>
-                        <p class="magazine-hero-desc" id="showcase-project-desc">
-                            Andy Murray on why he'll be back to his best in 2015
-                        </p>
-                        <a href="#" class="showcase-read-more" id="showcase-read-more-btn">READ MORE ›</a>
+                </div>
+                
+                <!-- Card 2: Tennis Arena -->
+                <div class="stack-card card-2" style="background-image: url('assets/champ_large_1780765815192.png')">
+                    <div class="card-inner-overlay">
+                        <span class="card-tag">Tennis Arena</span>
                     </div>
                 </div>
 
-                <!-- Right Stats Panel -->
-                <div class="showcase-stats-col">
-                    <div class="showcase-stat-item">
-                        <span class="showcase-stat-number">8+</span>
-                        <span class="showcase-stat-label">Years Experience</span>
-                    </div>
-                    <div class="showcase-stat-item">
-                        <span class="showcase-stat-number">25+</span>
-                        <span class="showcase-stat-label">Happy Clients</span>
+                <!-- Card 3: Keyboard Concept -->
+                <div class="stack-card card-3" style="background-image: url('assets/keyboard_concept.png')">
+                    <div class="card-inner-overlay">
+                        <span class="card-tag">Keyboard UI</span>
                     </div>
                 </div>
+
+                <!-- Card 4: Educaa App -->
+                <div class="stack-card card-4" style="background-image: url('assets/educaa_portrait.png')">
+                    <div class="card-inner-overlay">
+                        <span class="card-tag">Educaa App</span>
+                    </div>
+                </div>
+
+                <!-- Card 5: Interactive UI -->
+                <div class="stack-card card-5" style="background-image: url('assets/tooltip_img.png')">
+                    <div class="card-inner-overlay">
+                        <span class="card-tag">Interactive UI</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Project Widget (Connected to Slider JS) -->
+            <div class="active-project-widget">
+                <div class="widget-header">
+                    <span class="widget-dot"></span>
+                    <span class="widget-label">ACTIVE CASE STUDY</span>
+                </div>
+                <h4 id="showcase-project-title" class="widget-title">Tennis Arena</h4>
+                <p id="showcase-project-desc" class="widget-desc">Designing the tournament system connecting professional leagues globally</p>
+                <a href="#" class="widget-btn" id="showcase-read-more-btn">Explore Case Study →</a>
             </div>
 
             <div class="netpoint-footer-bar">

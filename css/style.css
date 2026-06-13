@@ -3656,3 +3656,153 @@ body.light-theme .modern-footer {
         gap: 12px 15px;
     }
 }
+
+/* Homepage Hero Mockup Style */
+.hero-mockup-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    position: relative;
+    z-index: 5;
+    margin-top: 1rem;
+}
+
+.hero-mockup-row {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.hero-mockup-row.row-1 {
+    gap: 15px;
+}
+
+.hero-mockup-row.row-2 {
+    gap: 10px;
+}
+
+.hero-mockup-row.row-4 {
+    gap: 15px;
+}
+
+/* Sticker styling */
+.hero-sticker {
+    display: inline-block;
+    border: 2px solid #111111;
+    padding: 6px 16px;
+    font-size: clamp(0.9rem, 2.2vw, 1.35rem);
+    font-weight: 800;
+    box-shadow: 4px 4px 0 #111111;
+    text-transform: lowercase;
+}
+
+.yellow-sticker {
+    background: #fef08a; /* yellow-200 */
+    color: #111111;
+    border-radius: 40px 15px 40px 15px; /* organically shaped sticker */
+    transform: rotate(-6deg);
+    font-family: 'Outfit', sans-serif;
+}
+
+.tan-sticker {
+    background: #f5f5f4; /* stone-100 */
+    color: #111111;
+    border-radius: 12px;
+    transform: rotate(3deg);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+}
+
+/* Font styles matching mockup */
+.hero-text-outfit {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    color: #ffffff;
+    text-transform: lowercase;
+    letter-spacing: -2px;
+    line-height: 1;
+}
+
+body.light-theme .hero-text-outfit {
+    color: #111111;
+}
+
+.font-row-1 {
+    font-size: clamp(3rem, 7vw, 5.5rem);
+}
+
+.font-row-2 {
+    font-size: clamp(4rem, 10vw, 8.5rem);
+}
+
+.hero-text-playfair {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: lowercase;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+}
+
+body.light-theme .hero-text-playfair {
+    color: #111111;
+}
+
+.font-row-3 {
+    font-size: clamp(3rem, 7vw, 5.5rem);
+}
+
+/* Pink pixel cursor */
+.hero-sticker-cursor {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    color: #fbcfe8; /* pink-200 */
+    filter: drop-shadow(2px 2px 0px #111111);
+    transform: rotate(-15deg);
+    position: absolute;
+    right: -25px;
+    top: 10px;
+    animation: float-cursor 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes float-cursor {
+    0%, 100% { transform: translateY(0) rotate(-15deg); }
+    50% { transform: translateY(-6px) rotate(-10deg); }
+}
+
+/* Tennis Emoji */
+.hero-emoji-tennis {
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    display: inline-block;
+    animation: float-tennis 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes float-tennis {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(15deg); }
+}
+
+@media (max-width: 768px) {
+    .font-row-1, .font-row-3 {
+        font-size: 2.8rem;
+    }
+    .font-row-2 {
+        font-size: 3.8rem;
+    }
+    .hero-sticker {
+        padding: 4px 10px;
+        font-size: 0.85rem;
+    }
+    .hero-emoji-tennis {
+        font-size: 2.2rem;
+    }
+    .hero-sticker-cursor {
+        width: 30px;
+        height: 30px;
+        right: -10px;
+    }
+}
