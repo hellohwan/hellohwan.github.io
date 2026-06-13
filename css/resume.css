@@ -1,4 +1,6 @@
 /* Resume Page Specific Styles */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Caveat:wght@700&display=swap');
+
 :root {
     --resume-bg: #050505; /* Deep black */
     --resume-card-bg: rgba(245, 240, 240, 0.85); /* #F5F0F0 */
@@ -438,6 +440,166 @@ body.light-theme .bg-blue *, body.light-theme .bg-dark-gray * {
 .bg-dark-gray { background-color: var(--resume-card-dark); color: #fff; }
 .text-dark { color: #000; }
 .text-blue { color: var(--resume-blue) !important; }
+
+/* Styled Collab Header Grid Layout */
+.collab-modern-grid-header {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+    padding: 60px 40px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    margin-bottom: 4rem;
+    box-sizing: border-box;
+}
+
+body.light-theme .collab-modern-grid-header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.collab-grid-badge {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #888888;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.collab-grid-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2rem, 5.5vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #ffffff;
+    margin: 0 0 25px 0;
+    text-transform: lowercase;
+    letter-spacing: -1.5px;
+}
+
+body.light-theme .collab-grid-title {
+    color: #111111;
+}
+
+.highlight-blue {
+    background: #bae6fd;
+    color: #111111;
+    padding: 2px 14px;
+    border-radius: 8px;
+    display: inline-block;
+    transform: rotate(-1deg);
+    border: 2px solid #111111;
+    box-shadow: 3px 3px 0 #111111;
+}
+
+.title-subline {
+    color: #ffffff;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+body.light-theme .title-subline {
+    color: #111111;
+}
+
+.collab-grid-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+    font-weight: 600;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 750px;
+    margin-top: 10px;
+}
+
+body.light-theme .collab-grid-subtitle {
+    color: #555555;
+}
+
+/* Floating stickers */
+.collab-sticker {
+    position: absolute;
+    z-index: 6;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.18));
+    user-select: none;
+    pointer-events: none;
+    display: block;
+    will-change: transform;
+}
+
+.grid-sticker-left {
+    width: 50px;
+    height: 50px;
+    left: -20px;
+    top: 40%;
+    animation: float-left-sticker 4.5s ease-in-out infinite;
+}
+
+.grid-sticker-bubble {
+    right: 8%;
+    top: 25%;
+    background: #ffffff;
+    border: 2px solid #111111;
+    padding: 8px 16px;
+    border-radius: 20px;
+    box-shadow: 4px 4px 0 #111111;
+    animation: float-right-sticker 5s ease-in-out infinite;
+}
+
+.grid-sticker-bubble::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 30%;
+    width: 0;
+    height: 0;
+    border-width: 0 6px 8px;
+    border-style: solid;
+    border-color: #111111 transparent;
+}
+
+.emoji-bubble-content {
+    display: flex;
+    gap: 8px;
+    font-size: 1.4rem;
+    align-items: center;
+}
+
+@keyframes float-left-sticker {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+@keyframes float-right-sticker {
+    0%, 100% { transform: translateY(0) rotate(3deg); }
+    50% { transform: translateY(-12px) rotate(-3deg); }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .collab-modern-grid-header {
+        padding: 40px 20px;
+    }
+    .grid-sticker-bubble {
+        position: relative;
+        right: 0;
+        top: 0;
+        margin-top: 20px;
+        align-self: flex-start;
+    }
+    .grid-sticker-bubble::after {
+        display: none;
+    }
+}
 
 /* Past Collaborations */
 .collab-year-section {
