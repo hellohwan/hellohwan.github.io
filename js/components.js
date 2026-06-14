@@ -192,6 +192,49 @@ class GlobalFooter extends HTMLElement {
                 </div>
             </footer>
         `;
+
+        // Parallax Reveal Effect
+        setTimeout(() => {
+            const footer = this.querySelector('.modern-footer');
+            if (footer) {
+                // Set wrapper properties
+                this.style.display = 'block';
+                this.style.overflow = 'hidden';
+                
+                const updateReveal = () => {
+                    const rect = this.getBoundingClientRect();
+                    const viewportHeight = window.innerHeight;
+                    const footerHeight = footer.offsetHeight;
+                    
+                    // Disable reveal if footer is taller than viewport
+                    if (footerHeight >= viewportHeight) {
+                        footer.style.transform = 'translateY(0)';
+                        return;
+                    }
+                    
+                    if (rect.top < viewportHeight) {
+                        let translateY = viewportHeight - footerHeight - rect.top;
+                        if (translateY > 0) translateY = 0;
+                        footer.style.transform = `translateY(${translateY}px)`;
+                    }
+                };
+
+                // Use requestAnimationFrame for smoother performance during scroll
+                let ticking = false;
+                window.addEventListener('scroll', () => {
+                    if (!ticking) {
+                        window.requestAnimationFrame(() => {
+                            updateReveal();
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+                
+                window.addEventListener('resize', updateReveal);
+                updateReveal();
+            }
+        }, 100);
     }
 }
 
