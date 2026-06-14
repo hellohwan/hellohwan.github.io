@@ -6,6 +6,11 @@
     --accent-color: #FFFCEF; /* Ivory Cream */
     --text-primary: #ffffff; /* White text */
     --text-secondary: rgba(255, 252, 239, 0.8); /* Muted Ivory */
+    
+    /* New Color System Additions */
+    --color-pear: #bfe800;
+    --color-oxford-blue: #002752;
+
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Inter', sans-serif;
     --border-radius: 20px;
