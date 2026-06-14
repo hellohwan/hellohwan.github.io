@@ -182,7 +182,7 @@ const translations = {
         "footer_copyright": "&copy; 2026 Hak Cipta Dilindungi.",
 
         "res_hero_title": "Menyelesaikan Masalah Melalui Sistem dan Antarmuka yang Artistik",
-        "nav_contact": "Hubungi Saya",
+        "nav_contact": "Contact",
         "hero_title_1": "Desain Bagaikan Juara.",
         "hero_title_2": "Bermain Dengan Percaya Diri.",
         "hero_book_now": "Pesan Sekarang",

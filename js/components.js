@@ -81,7 +81,7 @@ class GlobalNavbar extends HTMLElement {
                             <span>/</span>
                             <button data-lang="zh">ZH</button>
                         </div>
-                        <a href="${contactHref}" class="${contactClass}" data-i18n="nav_contact">Hubungi Saya</a>
+                        <a href="${contactHref}" class="${contactClass}" data-i18n="nav_contact">Contact</a>
                     </div>
                 </nav>
                 ${isDetail ? childrenHTML : ''}
