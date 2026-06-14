@@ -93,48 +93,48 @@ class GlobalNavbar extends HTMLElement {
 class GlobalFooter extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-            <footer class="modern-footer">
-                <div class="footer-clients-banner">
-                    <div class="client-text">Trusted by <strong>many</strong></div>
-                    <div class="client-logos-marquee">
-                        <div class="client-logos-track">
-                            <!-- Group 1 -->
-                            <div class="client-logo">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v20M2 12h20" stroke-opacity="0.3"/></svg>
-                                Luminary
-                            </div>
-                            <div class="client-logo">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-                                45 Degrees°
-                            </div>
-                            <div class="client-logo">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="2" fill="currentColor"/><rect x="13" y="13" width="8" height="8" rx="2" fill="currentColor"/><path d="M11 11l2 2"/></svg>
-                                Codecraft_
-                            </div>
-                            <div class="client-logo">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 12c2 0 2-4 4-4s2 4 4 4 2-4 4-4 2 4 4 4"/><path d="M4 16c2 0 2-4 4-4s2 4 4 4 2-4 4-4 2 4 4 4" stroke-opacity="0.5"/><path d="M4 20c2 0 2-4 4-4s2 4 4 4 2-4 4-4 2 4 4 4" stroke-opacity="0.2"/></svg>
-                                Frequencii
-                            </div>
-                            <!-- Group 2 for infinite scroll -->
-                            <div class="client-logo">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v20M2 12h20" stroke-opacity="0.3"/></svg>
-                                Luminary
-                            </div>
-                            <div class="client-logo">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-                                45 Degrees°
-                            </div>
-                            <div class="client-logo">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="2" fill="currentColor"/><rect x="13" y="13" width="8" height="8" rx="2" fill="currentColor"/><path d="M11 11l2 2"/></svg>
-                                Codecraft_
-                            </div>
-                            <div class="client-logo">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 12c2 0 2-4 4-4s2 4 4 4 2-4 4-4 2 4 4 4"/><path d="M4 16c2 0 2-4 4-4s2 4 4 4 2-4 4-4 2 4 4 4" stroke-opacity="0.5"/><path d="M4 20c2 0 2-4 4-4s2 4 4 4 2-4 4-4 2 4 4 4" stroke-opacity="0.2"/></svg>
-                                Frequencii
-                            </div>
+            <div class="footer-clients-banner">
+                <div class="client-text">Trusted by <strong>many</strong></div>
+                <div class="client-logos-marquee">
+                    <div class="client-logos-track">
+                        <!-- Group 1 -->
+                        <div class="client-logo">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v20M2 12h20" stroke-opacity="0.3"/></svg>
+                            Luminary
+                        </div>
+                        <div class="client-logo">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                            45 Degrees°
+                        </div>
+                        <div class="client-logo">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="2" fill="currentColor"/><rect x="13" y="13" width="8" height="8" rx="2" fill="currentColor"/><path d="M11 11l2 2"/></svg>
+                            Codecraft_
+                        </div>
+                        <div class="client-logo">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 12c2 0 2-4 4-4s2 4 4 4 2-4 4-4 2 4 4 4"/><path d="M4 16c2 0 2-4 4-4s2 4 4 4 2-4 4-4 2 4 4 4" stroke-opacity="0.5"/><path d="M4 20c2 0 2-4 4-4s2 4 4 4 2-4 4-4 2 4 4 4" stroke-opacity="0.2"/></svg>
+                            Frequencii
+                        </div>
+                        <!-- Group 2 for infinite scroll -->
+                        <div class="client-logo">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v20M2 12h20" stroke-opacity="0.3"/></svg>
+                            Luminary
+                        </div>
+                        <div class="client-logo">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                            45 Degrees°
+                        </div>
+                        <div class="client-logo">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="2" fill="currentColor"/><rect x="13" y="13" width="8" height="8" rx="2" fill="currentColor"/><path d="M11 11l2 2"/></svg>
+                            Codecraft_
+                        </div>
+                        <div class="client-logo">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 12c2 0 2-4 4-4s2 4 4 4 2-4 4-4 2 4 4 4"/><path d="M4 16c2 0 2-4 4-4s2 4 4 4 2-4 4-4 2 4 4 4" stroke-opacity="0.5"/><path d="M4 20c2 0 2-4 4-4s2 4 4 4 2-4 4-4 2 4 4 4" stroke-opacity="0.2"/></svg>
+                            Frequencii
                         </div>
                     </div>
                 </div>
+            </div>
+            <footer class="modern-footer">
                 <div class="footer-social-feed">
                     <div class="feed-card" style="background-image: url('assets/workspace_clean.jpg')">
                         <div class="feed-overlay">
