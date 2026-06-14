@@ -4535,6 +4535,7 @@ body.light-theme .split-left {
 /* Default Dark Theme styles */
 .sports-bento-section {
     color: #f3f5f7;
+    background: var(--color-oxford-blue);
 }
 
 /* Light Theme styles */
