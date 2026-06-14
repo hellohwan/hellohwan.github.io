@@ -554,7 +554,7 @@ body:not(.light-theme) .header-wrapper.scrolled .search-bar input::placeholder {
     top: 30px; 
     right: 100px; 
     z-index: 1000;
-    display: flex; 
+    display: none !important; /* Temporarily hidden */
     gap: 10px; 
     font-family: 'Inter', sans-serif; 
     font-size: 0.85rem; 
