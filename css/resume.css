@@ -31,7 +31,12 @@ body.light-theme .resume-body {
 body.light-theme .fade-bg-text {
     color: #0A3C3C;
 }
-body.light-theme .what-i-do, body.light-theme .experience-section .card, body.light-theme .previous-section .card, body.light-theme .education-activities-section .card {
+body.light-theme .what-i-do, 
+body.light-theme .experience-section .card, 
+body.light-theme .previous-section .card, 
+body.light-theme .education-activities-section .card,
+body.light-theme .prev-card-small,
+body.light-theme .prev-card-tall {
     background-color: var(--resume-card-bg);
     border: 1px solid rgba(0, 0, 0, 0.05);
     color: #0A3C3C;
@@ -323,13 +328,7 @@ body.light-theme .resume-main {
     align-items: center;
 }
 
-body.light-theme .collab-mixed-title {
-    color: #111111;
-}
 
-body.light-theme .collab-mixed-title .word-outfit {
-    color: #111111;
-}
 
 .collab-mixed-title .word-outfit {
     font-family: 'Outfit', sans-serif;
@@ -358,12 +357,6 @@ body.light-theme .collab-mixed-title .word-outfit {
     vertical-align: middle;
     transform: rotate(-6deg);
     flex-shrink: 0;
-}
-
-body.light-theme .retro-keycap-sticker {
-    background: #1e1e1e;
-    border-color: #111111;
-    box-shadow: 3px 3px 0px rgba(0,0,0,0.1);
 }
 
 .retro-keycap-sticker::before {
@@ -453,9 +446,7 @@ body.light-theme .retro-keycap-sticker {
     max-width: 600px;
 }
 
-body.light-theme .collab-desc-para {
-    color: #444444;
-}
+
 
 .collab-desc-para em {
     font-family: 'Playfair Display', Georgia, serif;
@@ -464,9 +455,7 @@ body.light-theme .collab-desc-para {
     color: #ffffff;
 }
 
-body.light-theme .collab-desc-para em {
-    color: #111111;
-}
+
 
 .quote {
     font-size: 1.2rem;

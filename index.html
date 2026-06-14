@@ -6,7 +6,7 @@
     <title>My Portfolio</title>
     <link rel="icon" type="image/png" href="assets/favicon-dark.png" media="(prefers-color-scheme: dark)">
     <link rel="icon" type="image/png" href="assets/favicon-light.png" media="(prefers-color-scheme: light)">
-    <link rel="stylesheet" href="css/style.css?v=6">
+    <link rel="stylesheet" href="css/style.css?v=7">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -34,7 +34,7 @@
         body.light-theme .lang-selector-minimal button { color: rgba(0,0,0,0.5); }
         body.light-theme .lang-selector-minimal button:hover, body.light-theme .lang-selector-minimal button.active { color: #111; }
     </style>
-    <script src="js/components.js?v=4"></script>
+    <script src="js/components.js?v=11"></script>
 
     <style>
         /* Quantum Case Study Overlay */
@@ -241,7 +241,7 @@
 <body>
     <div class="page-loader" id="page-loader">
         <div class="loader-logo">
-            <lottie-player class="thinking-logo" src="assets/catastronout.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+            <lottie-player class="thinking-logo" src="assets/nyancat.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
         </div>
     </div>
     
@@ -485,8 +485,8 @@
                     </div>
                 </div>
 
-                <!-- Middle: Community Card -->
-                <div class="sbs-card sbs-community-card">
+                <!-- Right: Community Card -->
+                <div class="sbs-card sbs-community-card" style="grid-column: 3;">
                     <div class="sbs-card-watermark">PORT<br>.FOLIO</div>
                     <div class="sbs-community-content">
                         <span class="sbs-card-badge">Clients</span>
@@ -505,39 +505,7 @@
                     </div>
                 </div>
 
-                <!-- Right: Steps Card -->
-                <div class="sbs-card sbs-steps-card">
-                    <svg class="sbs-dashed-curve" viewBox="0 0 200 400" preserveAspectRatio="none">
-                        <!-- A soft curve path -->
-                        <path d="M 160 -20 Q 20 200 160 420" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4" opacity="0.2"/>
-                    </svg>
-                    
-                    <div class="sbs-step-list">
-                        <div class="sbs-step-item">
-                            <div class="sbs-step-icon">↗</div>
-                            <div class="sbs-step-text">
-                                <h4>1. DISCOVERY</h4>
-                            </div>
-                        </div>
-                        
-                        <div class="sbs-step-item active-step">
-                            <div class="sbs-step-icon">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                            </div>
-                            <div class="sbs-step-text">
-                                <h4>2. DESIGN</h4>
-                                <p>Crafting the visual identity,<br>UX strategy & interface</p>
-                            </div>
-                        </div>
-                        
-                        <div class="sbs-step-item">
-                            <div class="sbs-step-icon">↘</div>
-                            <div class="sbs-step-text">
-                                <h4>3. DELIVERY</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 
             </div>
 
@@ -894,13 +862,16 @@
 
             <!-- Left Column - Titles -->
             <div class="wf-titles-col">
-                <div class="wf-label">OUR PROCESS</div>
+                <div class="sch-pill-badge">
+                    <span class="sch-badge-num">04</span>
+                    <span class="sch-badge-text">Our process</span>
+                </div>
                 <ul class="wf-title-list" id="wf-title-list">
-                    <li class="wf-title-item active" data-desc="Understanding your goals, audience, brand essence, and unique identity.">Discovery</li>
-                    <li class="wf-title-item" data-desc="Defining direction and creative foundations that inspire results.">Strategy</li>
-                    <li class="wf-title-item" data-desc="Creating visuals that connect form, story, emotion and experience.">Design</li>
-                    <li class="wf-title-item" data-desc="Polishing every element for consistency, coherence, and lasting impact.">Refinement</li>
-                    <li class="wf-title-item" data-desc="Launching your brand with confidence, precision, and strategic focus.">Delivery</li>
+                    <li class="wf-title-item active" data-desc="Understanding your goals, audience, brand essence, and unique identity." data-img="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800">Discovery</li>
+                    <li class="wf-title-item" data-desc="Defining direction and creative foundations that inspire results." data-img="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800">Strategy</li>
+                    <li class="wf-title-item" data-desc="Creating visuals that connect form, story, emotion and experience." data-img="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=800">Design</li>
+                    <li class="wf-title-item" data-desc="Polishing every element for consistency, coherence, and lasting impact." data-img="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800">Refinement</li>
+                    <li class="wf-title-item" data-desc="Launching your brand with confidence, precision, and strategic focus." data-img="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800">Delivery</li>
                 </ul>
                 <div class="wf-progress" id="wf-progress">
                     <span class="wf-progress-dot active"></span>
@@ -927,9 +898,11 @@
         const items = document.querySelectorAll('.wf-title-item');
         const dots = document.querySelectorAll('.wf-progress-dot');
         const descEl = document.getElementById('wf-desc-text');
-        if (!wrapper || !items.length || !descEl) return;
+        const imgEl = document.querySelector('.wf-image-col img');
+        if (!wrapper || !items.length || !descEl || !imgEl) return;
 
         let currentIdx = -1;
+        imgEl.style.transition = 'opacity 0.2s ease';
 
         function setActive(idx) {
             if (idx === currentIdx) return;
@@ -942,10 +915,15 @@
             });
             descEl.style.opacity = '0';
             descEl.style.transform = 'translateY(8px)';
+            imgEl.style.opacity = '0';
             setTimeout(() => {
                 descEl.textContent = items[idx].dataset.desc;
+                if(items[idx].dataset.img) {
+                    imgEl.src = items[idx].dataset.img;
+                }
                 descEl.style.opacity = '1';
                 descEl.style.transform = 'translateY(0)';
+                imgEl.style.opacity = '1';
             }, 200);
         }
 
@@ -984,7 +962,7 @@
     <global-footer></global-footer>
 
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-    <script src="js/translations.js"></script>
+    <script src="js/translations.js?v=2"></script>
     <script src="js/main.js"></script>
 
 <script>
@@ -1041,12 +1019,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     document.addEventListener('keydown', (e) => {
-        if(e.key === 'Escape' && qModal.classList.contains('show')) {
-            closeQModal();
+        if(e.key === 'Escape') {
+            if (qModal.classList.contains('show')) closeQModal();
         }
     });
+
 });
 </script>
+
 
 </body>
 </html>

@@ -16,7 +16,7 @@ const translations = {
         "nav_home": "Home",
         "nav_project": "Project",
         "nav_karya": "Works",
-        "nav_tulisan": "My Writings",
+        "nav_tulisan": "Blog",
 
         "home_hero_sub": "Hello, I'm a Creative Professional",
         "home_hero_title": "Building solid & confident digital <em>experiences</em>.",
@@ -144,7 +144,7 @@ const translations = {
         "nav_home": "Home",
         "nav_project": "Proyek",
         "nav_karya": "Karya",
-        "nav_tulisan": "Tulisan Saya",
+        "nav_tulisan": "Blog",
 
         "home_hero_sub": "Halo, Saya seorang Profesional Kreatif",
         "home_hero_title": "Membangun <em>pengalaman</em> digital yang solid & percaya diri.",
@@ -272,7 +272,7 @@ const translations = {
         "nav_home": "首页",
         "nav_project": "项目",
         "nav_karya": "作品",
-        "nav_tulisan": "我的文章",
+        "nav_tulisan": "Blog",
 
         "home_hero_sub": "你好，我是一名创意专业人士",
         "home_hero_title": "构建坚实自信的数字<em>体验</em>。",

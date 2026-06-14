@@ -291,19 +291,21 @@ class FloatingContact extends HTMLElement {
                     <p class="floating-subtitle">Email or book a call</p>
                 </div>
                 <div class="floating-icons">
-                    <a href="mailto:hello@example.com" class="floating-icon-btn floating-email" aria-label="Email me">
+                    <a href="#side-contact" class="floating-icon-btn floating-email" id="open-contact-panel" aria-label="Email me">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                             <polyline points="22,6 12,13 2,6"></polyline>
                         </svg>
+                        <span class="btn-text">Contact</span>
                     </a>
-                    <a href="#" class="floating-icon-btn floating-calendar" aria-label="Book a call">
+                    <a href="https://cal.com/dinda-hwan-48qyl2" target="_blank" class="floating-icon-btn floating-calendar" aria-label="Book a call">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                             <line x1="16" y1="2" x2="16" y2="6"></line>
                             <line x1="8" y1="2" x2="8" y2="6"></line>
                             <line x1="3" y1="10" x2="21" y2="10"></line>
                         </svg>
+                        <span class="btn-text">Book a call</span>
                     </a>
                 </div>
             </div>
@@ -317,6 +319,21 @@ class FloatingContact extends HTMLElement {
                 btn.classList.remove('visible');
             }
         }, { passive: true });
+
+        const openBtn = this.querySelector('#open-contact-panel');
+        if (openBtn) {
+            openBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const panel = document.getElementById('side-contact-panel');
+                const overlay = document.getElementById('side-contact-overlay');
+                if (panel && overlay) {
+                    panel.classList.add('show');
+                    overlay.classList.add('show');
+                    document.body.style.overflow = 'hidden';
+                    document.documentElement.style.overflow = 'hidden';
+                }
+            });
+        }
     }
 }
 customElements.define('floating-contact', FloatingContact);
@@ -325,5 +342,129 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!document.querySelector('floating-contact')) {
         const fc = document.createElement('floating-contact');
         document.body.appendChild(fc);
+    }
+
+    if (!document.getElementById('side-contact-panel')) {
+        const contactHtml = `
+            <div class="side-panel-overlay" id="side-contact-overlay"></div>
+            <div class="side-contact-panel" id="side-contact-panel">
+                <button class="side-panel-close" id="side-contact-close" aria-label="Close panel">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+                <div class="side-panel-content">
+                    <h2>Request a quote</h2>
+                    <p class="side-panel-sub">Fill out the form below or <strong>book a call.</strong></p>
+                    
+                    <div class="side-panel-author">
+                        <img src="https://i.pravatar.cc/100?img=11" alt="Dinda Hwan">
+                        <div class="side-author-info">
+                            <strong>Dinda Hwan</strong>
+                            <span>dindahwan@gmail.com</span>
+                        </div>
+                    </div>
+
+                    <form class="side-panel-form" id="wa-contact-form">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" id="wa-name" placeholder="Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="wa-email" placeholder="Email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Send a message or describe your project</label>
+                            <textarea id="wa-message" rows="5" placeholder="" required></textarea>
+                        </div>
+
+                        <button type="submit" id="wa-submit" class="side-panel-submit">Send Message</button>
+                        <p class="side-panel-footer">By submitting this form, you agree to the <strong>Privacy Policy.</strong></p>
+                    </form>
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', contactHtml);
+        
+        const contactPanel = document.getElementById('side-contact-panel');
+        const contactOverlay = document.getElementById('side-contact-overlay');
+        const contactClose = document.getElementById('side-contact-close');
+
+        const closeContactPanel = () => {
+            if (contactPanel && contactOverlay) {
+                contactPanel.classList.remove('show');
+                contactOverlay.classList.remove('show');
+                document.body.style.overflow = '';
+                document.documentElement.style.overflow = '';
+            }
+        };
+
+        if (contactClose) contactClose.addEventListener('click', closeContactPanel);
+        if (contactOverlay) contactOverlay.addEventListener('click', closeContactPanel);
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeContactPanel();
+        });
+
+        const waForm = document.getElementById('wa-contact-form');
+        const waSubmit = document.getElementById('wa-submit');
+        
+        if (waForm) {
+            waForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const name = document.getElementById('wa-name').value;
+                const email = document.getElementById('wa-email').value;
+                const message = document.getElementById('wa-message').value;
+                
+                const originalText = waSubmit.innerText;
+                waSubmit.innerText = 'Loading...';
+                waSubmit.disabled = true;
+                
+                fetch("https://formsubmit.co/ajax/dindahwan@gmail.com", {
+                    method: "POST",
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        message: message,
+                        _subject: "New Contact Message from " + name,
+                        _captcha: "false"
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    waSubmit.innerText = 'Success!';
+                    waSubmit.style.backgroundColor = '#10b981';
+                    waSubmit.style.color = '#fff';
+                    
+                    const waNumber = '6287776660258';
+                    const text = `Halo Dinda, saya baru saja mengirim email melalui website.\n\nNama: ${name}\nEmail: ${email}\nPesan:\n${message}`;
+                    const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`;
+                    
+                    setTimeout(() => {
+                        window.open(waUrl, '_blank');
+                        
+                        waForm.reset();
+                        waSubmit.innerText = originalText;
+                        waSubmit.disabled = false;
+                        waSubmit.style.backgroundColor = '';
+                        waSubmit.style.color = '';
+                        closeContactPanel();
+                    }, 1000);
+                })
+                .catch(error => {
+                    console.error(error);
+                    waSubmit.innerText = 'Error!';
+                    setTimeout(() => {
+                        waSubmit.innerText = originalText;
+                        waSubmit.disabled = false;
+                    }, 2000);
+                });
+            });
+        }
     }
 });
