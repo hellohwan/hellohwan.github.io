@@ -45,7 +45,7 @@ class GlobalNavbar extends HTMLElement {
         }
 
         const projectHref = 'projects.html';
-        const tulisanHref = needsHomePrefix ? 'index.html#' : '#';
+        const tulisanHref = 'blog.html';
         const contactHref = needsHomePrefix ? 'index.html#contact' : '#contact';
         const contactClass = (isResume || isProjects) ? 'btn-black' : 'btn-primary btn-nav';
 
