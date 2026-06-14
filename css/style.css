@@ -3505,7 +3505,7 @@ body.light-theme .client-logo:hover {
 }
 
 .footer-social-feed {
-    display: grid;
+    display: none;
     grid-template-columns: repeat(6, 1fr);
     gap: 15px;
     margin-bottom: 50px;
