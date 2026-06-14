@@ -390,7 +390,7 @@ body:not(.light-theme) .header-wrapper.scrolled {
 }
 
 body:not(.light-theme) .header-wrapper.scrolled .navbar.awwwards-nav {
-    background: rgba(122, 0, 22, 0.4); /* Translucent Rich Burgundy */
+    background: rgba(0, 62, 147, 0.4); /* Translucent Marian Blue */
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 252, 239, 0.15); /* Ivory Cream glass border */
