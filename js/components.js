@@ -136,6 +136,7 @@ class GlobalFooter extends HTMLElement {
                 <div class="footer-mid-content">
                     <div class="footer-brand-section">
                         <h2 class="footer-headline">Modern Digital Experiences Engineered For Visual Impact.</h2>
+                        <p class="footer-subtitle">Let’s collaborate and create wonderful stuff together. We are here to help you find answers to all your doubts and solve challenges that might bother you. We believe that challenges lead to the realization of something new.</p>
                         <div class="footer-social-links">
                             <a href="#" aria-label="Instagram">
                                 <svg class="social-svg" viewBox="0 0 24 24" fill="currentColor">
@@ -187,10 +188,8 @@ class GlobalFooter extends HTMLElement {
                         <a href="#">PRIVACY POLICY</a>
                         <a href="#">TERMS & CONDITIONS</a>
                         <a href="#">BRANDING BY DINDA</a>
-                        <a href="#">SITE BY ANTIGRAVITY</a>
                     </div>
                 </div>
-                <button class="cookie-pref-btn">Cookie Preferences</button>
             </footer>
         `;
     }

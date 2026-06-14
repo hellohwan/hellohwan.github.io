@@ -66,7 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
         .resume-header-grid > div, .info-block, .what-i-do,
         .experience-section h3, .exp-card, 
         .collab-item, .mini-exp-card, .premium-card,
-        .axa-image-card, .axa-about-container > div,
+        .split-content, .split-join-btn,
+        .sbs-typo-block, .sbs-card, .sbs-mid-nav, .sbs-hero-img-wrapper,
+        .sch-left, .sch-right,
         .glass-hero-content, .glass-card, .glass-mid-text, .glass-scroll-indicator,
         .brutal-typo, .brutal-cards, .intro-hybrid-section
     `);
@@ -536,6 +538,60 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // ── 8. Schedule Accordion Image Sync ──────────────────────────────
+    const scheduleItems = document.querySelectorAll('.sch-accordion-item');
+    const mainImgWrapper = document.querySelector('.sch-main-img-wrapper');
+
+    if (scheduleItems.length > 0 && mainImgWrapper) {
+        scheduleItems.forEach(item => {
+            const summary = item.querySelector('.sch-accordion-header');
+            if (summary) {
+                summary.addEventListener('click', (e) => {
+                    if (!item.open) {
+                        scheduleItems.forEach(other => {
+                            if (other !== item && other.open) {
+                                other.open = false;
+                            }
+                        });
+                        
+                        const itemMedia = item.querySelector('.sch-acc-img-col img, .sch-acc-img-col video');
+                        const currentMainMedia = mainImgWrapper.querySelector('.sch-main-img');
+                        
+                        if (itemMedia && currentMainMedia) {
+                            currentMainMedia.style.opacity = 0;
+                            setTimeout(() => {
+                                // Instead of just swapping src, we recreate the element to support both img and video
+                                const isVideo = itemMedia.tagName.toLowerCase() === 'video';
+                                const newMedia = document.createElement(isVideo ? 'video' : 'img');
+                                
+                                newMedia.src = itemMedia.src;
+                                newMedia.className = 'sch-main-img';
+                                newMedia.style.opacity = 0; // start hidden
+                                
+                                if (isVideo) {
+                                    newMedia.autoplay = true;
+                                    newMedia.loop = true;
+                                    newMedia.muted = true;
+                                    newMedia.playsInline = true;
+                                }
+
+                                mainImgWrapper.innerHTML = '';
+                                mainImgWrapper.appendChild(newMedia);
+                                
+                                // trigger reflow
+                                void newMedia.offsetWidth;
+                                newMedia.style.opacity = 1;
+
+                            }, 300);
+                        }
+                    } else {
+                        e.preventDefault();
+                    }
+                });
+            }
+        });
+    }
+
     // Initialize Lenis
     if (typeof Lenis !== 'undefined') {
         const lenis = new Lenis();
@@ -546,5 +602,119 @@ document.addEventListener('DOMContentLoaded', () => {
             requestAnimationFrame(raf);
         }
         requestAnimationFrame(raf);
+    }
+
+    // ── 9. Slideshow Push Effect (Sticky Sections) ──────────────────────
+    function getStackingSections() {
+        return Array.from(document.querySelectorAll('main > section, global-footer')).filter(sec => sec.offsetHeight > 0);
+    }
+
+    const initialStackingSections = getStackingSections();
+    if (initialStackingSections.length > 0) {
+        document.body.style.position = 'relative';
+        const mainEl = document.querySelector('main');
+        if(mainEl) {
+            mainEl.style.overflow = 'visible';
+            mainEl.style.clipPath = 'none';
+        }
+        
+        function updateStickyTops() {
+            const vh = window.innerHeight;
+            const sections = getStackingSections();
+            sections.forEach((sec, index) => {
+                sec.style.position = 'sticky';
+                sec.style.zIndex = index + 1;
+                
+                const h = sec.offsetHeight;
+                if (h > vh) {
+                    sec.style.top = `${vh - h}px`;
+                } else {
+                    sec.style.top = '0px';
+                }
+            });
+        }
+
+        // Use ResizeObserver for accurate height tracking
+        if (window.ResizeObserver) {
+            const resizeObserver = new ResizeObserver(() => {
+                updateStickyTops();
+            });
+            initialStackingSections.forEach(sec => resizeObserver.observe(sec));
+        } else {
+            window.addEventListener('resize', updateStickyTops);
+        }
+        
+        // --- Blur effect on scroll ---
+        function updateBlurEffect() {
+            const vh = window.innerHeight;
+            const sections = getStackingSections();
+            for (let i = 0; i < sections.length - 1; i++) {
+                const currentSec = sections[i];
+                const nextSec = sections[i + 1];
+                
+                const currentRect = currentSec.getBoundingClientRect();
+                const nextRect = nextSec.getBoundingClientRect();
+                
+                // Calculate strictly ON-SCREEN visual overlap
+                const visibleCurrentBottom = Math.min(vh, currentRect.bottom);
+                const visibleNextTop = Math.max(0, nextRect.top);
+                const visualOverlap = visibleCurrentBottom - visibleNextTop;
+                
+                if (visualOverlap > 2) { // 2px tolerance for subpixel rendering
+                    const overlapRatio = Math.min(1, Math.max(0, visualOverlap / vh));
+                    
+                    // Exaggerated values to make the effect super obvious and premium
+                    const blurAmount = overlapRatio * 20; 
+                    const brightness = 1 - (overlapRatio * 0.5); // Darken by 50%
+                    const scaleAmount = 1 - (overlapRatio * 0.08); // Shrink by 8%
+                    const yOffset = overlapRatio * -80; // Push up by 80px for parallax
+                    
+                    currentSec.style.filter = `blur(${blurAmount}px) brightness(${brightness})`;
+                    currentSec.style.transform = `scale(${scaleAmount}) translateY(${yOffset}px) translateZ(0)`;
+                    // Using top center keeps the top of the section attached while it shrinks
+                    currentSec.style.transformOrigin = 'top center';
+                    currentSec.style.borderRadius = `${overlapRatio * 48}px`; // Dramatic card curving
+                    currentSec.style.transition = 'none';
+                    
+                    // Optional: Make the body background black behind it so it pops
+                    document.body.style.backgroundColor = '#000000';
+                } else {
+                    currentSec.style.filter = 'none';
+                    currentSec.style.transform = 'none';
+                    currentSec.style.borderRadius = '0px';
+                }
+            }
+        }
+
+        window.addEventListener('scroll', () => {
+            requestAnimationFrame(updateBlurEffect);
+        }, { passive: true });
+
+        setTimeout(() => {
+            updateStickyTops();
+            updateBlurEffect();
+        }, 100);
+        
+        // --- Hide Navbar when reaching footer ---
+        const footerEl = document.querySelector('global-footer');
+        const headerEl = document.querySelector('.header-wrapper');
+        
+        if (footerEl && headerEl) {
+            const footerObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // If footer is visible (even a little), hide navbar
+                    if (entry.isIntersecting) {
+                        headerEl.classList.add('header-hidden');
+                    } else {
+                        headerEl.classList.remove('header-hidden');
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.05 // trigger when 5% of footer is visible
+            });
+            
+            footerObserver.observe(footerEl);
+        }
     }
 });

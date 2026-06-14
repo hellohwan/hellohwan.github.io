@@ -17,6 +17,208 @@
         .lang-selector-minimal button:hover, .lang-selector-minimal button.active { color: #fff; }
     </style>
     <script src="js/components.js"></script>
+
+    <style>
+        /* Quantum Case Study Overlay */
+        .quantum-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: var(--primary-bg, #143264);
+            z-index: 2000;
+            overflow-y: auto;
+            overflow-x: hidden;
+            display: block;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(100%);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        .quantum-modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .quantum-modal-close {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2010;
+            transition: all 0.3s;
+            line-height: 1;
+        }
+        .quantum-modal-close:hover {
+            background: rgba(0, 0, 0, 0.6);
+            transform: scale(1.1) rotate(90deg);
+        }
+
+        .quantum-modal-content {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #ffffff;
+        }
+
+        .quantum-hero-banner {
+            width: 100vw;
+            height: 70vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .quantum-article {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 5% 8rem 5%;
+            width: 100%;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .quantum-header {
+            margin-bottom: 5rem;
+            text-align: center;
+        }
+
+        .quantum-title {
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        .quantum-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+        }
+
+        .quantum-split-layout {
+            display: grid;
+            grid-template-columns: 1fr 2.5fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .quantum-sidebar {
+            position: sticky;
+            top: 4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .quantum-meta-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .quantum-meta-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+            opacity: 0.6;
+            margin: 0;
+            color: #fff;
+        }
+
+        .quantum-meta-value {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin: 0;
+            color: #fff;
+        }
+
+        .quantum-hire-btn {
+            background: #fff;
+            color: #000;
+            border: none;
+            border-radius: 40px;
+            padding: 1rem 2rem;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .quantum-hire-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .quantum-main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .quantum-text-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .quantum-section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin: 0;
+            color: #fff;
+        }
+
+        .quantum-paragraph {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+        }
+
+        .quantum-gallery-row {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .quantum-gallery-img {
+            width: 100%;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+
+        @media (max-width: 900px) {
+            .quantum-split-layout { grid-template-columns: 1fr; }
+            .quantum-sidebar { position: relative; top: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+            .quantum-sidebar-actions { grid-column: 1 / -1; }
+        }
+        @media (max-width: 600px) {
+            .quantum-sidebar { grid-template-columns: 1fr; }
+        }
+    </style>
+
 </head>
 <body>
     <div class="page-loader" id="page-loader">
@@ -232,782 +434,260 @@
             </div>
         </section>
 
-        <section class="about-champions" id="about-champions">
-            <div class="champions-top-line">
-                <div class="champions-label">
-                    <span class="circle-a">A</span>
-                    <span class="label-text">About</span>
-                </div>
-                <div class="line"></div>
-            </div>
-
-            <div class="champions-header">
-                <div class="champ-col-left">
-                    <h2>BUILDING DIGITAL CHAMPIONS ON AND OFF THE SCREEN</h2>
-                </div>
-                <div class="champ-col-mid">
-                    <p>Our design practice provides world-class UI/UX solutions designed for brands of all levels. From startups learning the basics to enterprise giants competing globally, we focus on technique, aesthetics, and user strategy.</p>
-                </div>
-                <div class="champ-col-right">
-                    <p>We combine modern design methods, performance analytics, and professional research to help every digital product reach its full potential.</p>
-                    <a href="#contact" class="champ-btn">Book a Session <span class="arrow-box">↗</span></a>
-                </div>
-            </div>
-
-            <div class="champions-content">
-                <div class="champ-img-large-wrapper">
-                    <img src="assets/champ_large_1780765815192.png" alt="Designer" class="champ-img-large">
-                    <div class="champ-stats-overlay">
-                        <div class="champ-stat-box">
-                            <h3 class="tennis-green">500+</h3>
-                            <p>Active Projects</p>
-                        </div>
-                        <div class="champ-stat-box">
-                            <h3 class="tennis-green">20+</h3>
-                            <p>Professional Awards</p>
-                        </div>
-                        <div class="champ-stat-arrow">
-                            <span>↗</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="champ-img-small-wrapper">
-                    <img src="assets/champ_small_1780765834180.png" alt="Design detail" class="champ-img-small">
-                    <div class="champ-years">
-                        <div class="years-number tennis-green">15</div>
-                        <div class="years-text">Years of<br>Excellence</div>
-                    </div>
-                    <ul class="champ-list">
-                        <li>Professional certified designer</li>
-                        <li>Modern design systems</li>
-                        <li>Personalized user experiences</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="work" class="work-section">
-            <div class="section-header">
-                <h2 class="huge-title" data-i18n="home_work_title" style="font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 900; line-height: 0.85; margin: 0 0 2rem 0; color: #ffffff; letter-spacing: -2px; text-transform: uppercase;">Karya Terpilih</h2>
-                <p data-i18n="home_work_desc">Beberapa proyek terbaik yang pernah saya kerjakan.</p>
-            </div>
-            
-            <style>
-                /* ── Karya Bento Grid Styling ── */
-                .karya-bento-grid {
-                    display: grid;
-                    grid-template-columns: repeat(3, 1fr);
-                    gap: 24px;
-                    margin-top: 3rem;
-                    font-family: 'Inter', sans-serif;
-                }
-
-                .karya-col {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 24px;
-                    height: 100%;
-                }
-
-                .karya-card {
-                    border-radius: 32px;
-                    padding: 2.5rem;
-                    box-sizing: border-box;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    min-height: auto;
-                    height: 100%;
-                    transition: transform 0.3s ease, box-shadow 0.3s ease;
-                    text-align: left;
-                }
-
-                .karya-card:hover {
-                    transform: translateY(-5px);
-                    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
-                }
-
-                /* Colors */
-                .card-dark-blue {
-                    background-color: #090b3e;
-                }
-                .card-dark-blue,
-                .card-dark-blue .karya-title,
-                .card-dark-blue .karya-desc {
-                    color: #ffffff !important;
-                }
-
-                .card-medium-blue {
-                    background-color: #1a4fdb;
-                }
-                .card-medium-blue,
-                .card-medium-blue .karya-title,
-                .card-medium-blue .karya-desc {
-                    color: #ffffff !important;
-                }
-
-                .card-light {
-                    background-color: #f7f8fa;
-                    color: #111111;
-                    border: 1px solid #f1f3f5;
-                }
-
-                .card-tall {
-                    min-height: auto;
-                    height: 100%;
-                    justify-content: flex-start;
-                    gap: 2rem;
-                }
-
-                /* Typography */
-                .karya-title {
-                    font-size: 1.85rem;
-                    font-weight: 700;
-                    line-height: 1.25;
-                    margin: 0 0 1rem 0;
-                    letter-spacing: -0.5px;
-                }
-
-                .karya-title.dark-text {
-                    color: #0c0d12;
-                }
-
-                .karya-desc {
-                    font-size: 0.95rem;
-                    line-height: 1.5;
-                    opacity: 0.8;
-                    margin: 0 0 2rem 0;
-                }
-
-                .karya-desc.dark-text {
-                    color: #4b5563;
-                    opacity: 0.9;
-                }
-
-                /* Buttons */
-                .karya-btn-lime {
-                    background-color: #d9f99d;
-                    color: #1a2e05;
-                    text-decoration: none;
-                    font-weight: 600;
-                    padding: 12px 24px;
-                    border-radius: 50px;
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    width: fit-content;
-                    gap: 8px;
-                    font-size: 0.9rem;
-                    transition: opacity 0.2s ease;
-                }
-                .karya-btn-lime:hover {
-                    opacity: 0.9;
-                }
-
-                .karya-btn-white {
-                    background-color: #ffffff;
-                    color: #1f2937;
-                    text-decoration: none;
-                    font-weight: 600;
-                    padding: 12px 24px;
-                    border-radius: 50px;
-                    display: inline-flex;
-                    align-items: center;
-                    width: fit-content;
-                    gap: 8px;
-                    font-size: 0.9rem;
-                    border: 1px solid #e5e7eb;
-                    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-                    transition: all 0.2s ease;
-                    margin-top: auto;
-                }
-                .karya-btn-white:hover {
-                    background-color: #f9fafb;
-                    border-color: #d1d5db;
-                }
-
-                /* Avatar Group */
-                .avatar-group {
-                    display: flex;
-                    align-items: center;
-                    margin-bottom: 1.5rem;
-                }
-                .avatar {
-                    width: 44px;
-                    height: 44px;
-                    border-radius: 50%;
-                    border: 3px solid #1a4fdb;
-                    margin-left: -12px;
-                }
-                .avatar:first-child {
-                    margin-left: 0;
-                }
-                .avatar-more {
-                    width: 44px;
-                    height: 44px;
-                    border-radius: 50%;
-                    background-color: #d9f99d;
-                    color: #1a2e05;
-                    font-size: 0.8rem;
-                    font-weight: 700;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    border: 3px solid #1a4fdb;
-                    margin-left: -12px;
-                }
-
-                /* Brands Preview Box */
-                .brands-preview-box {
-                    background-color: #ffffff;
-                    border-radius: 24px;
-                    padding: 1.5rem;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 1rem;
-                    border: 1px solid #eaeaea;
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-                    width: 100%;
-                    box-sizing: border-box;
-                }
-
-                .floating-brand-icons {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 12px;
-                }
-
-                .brand-bubble {
-                    width: 48px;
-                    height: 48px;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    font-weight: 700;
-                    color: #ffffff;
-                    font-size: 1.1rem;
-                    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-                }
-
-                .icon-x { background-color: #0b0f19; font-family: serif; font-style: italic; }
-                .icon-green { background-color: #d9f99d; color: #1a2e05; font-size: 1.3rem; }
-                .icon-google { background-color: #f1f3f4; color: #4285F4; border: 1px solid #e0e0e0; }
-                .icon-fb { background-color: #1877f2; }
-                .icon-in { background-color: #0077b5; font-size: 0.95rem; }
-
-                .brands-sub {
-                    font-size: 0.8rem;
-                    color: #6b7280;
-                    font-weight: 600;
-                    letter-spacing: -0.1px;
-                }
-
-                /* Growth Stats */
-                .karya-content-stats {
-                    display: flex;
-                    flex-direction: column;
-                    height: 100%;
-                    width: 100%;
-                }
-
-                .stat-item {
-                    margin-bottom: 2rem;
-                }
-
-                .stat-label {
-                    display: block;
-                    font-size: 0.85rem;
-                    color: #6b7280;
-                    font-weight: 500;
-                    margin-bottom: 0.5rem;
-                    line-height: 1.4;
-                }
-
-                .stat-number {
-                    font-size: 3.5rem;
-                    font-weight: 800;
-                    color: #0c0d12;
-                    letter-spacing: -2px;
-                    line-height: 1;
-                }
-
-                @media (max-width: 1024px) {
-                    .karya-bento-grid {
-                        grid-template-columns: 1fr;
-                    }
-                    .card-tall {
-                        min-height: auto;
-                    }
-                }
-            </style>
-
-            <div class="karya-bento-grid">
-                <!-- Column 1 -->
-                <div class="karya-col col-stacked">
-                    <!-- Top Card (Dark Blue) - Mobile Application -->
-                    <div class="karya-card card-dark-blue">
-                        <h3 class="karya-title" data-i18n="karya_mobile_title">Mobile Application</h3>
-                        <p class="karya-desc" data-i18n="karya_mobile_desc">Creating immersive, high-performance Android & iOS applications with seamless UI/UX design.</p>
-                        <a href="projects.html" class="karya-btn-lime" data-i18n="karya_view_btn">View Projects <span class="arrow">&rsaquo;</span></a>
-                    </div>
-                    <!-- Bottom Card (Medium Blue) - Instagram Konten -->
-                    <div class="karya-card card-medium-blue">
-                        <div class="avatar-group">
-                            <img class="avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="avatar" />
-                            <img class="avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="avatar" />
-                            <img class="avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80" alt="avatar" />
-                            <img class="avatar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80" alt="avatar" />
-                            <span class="avatar-more">+200</span>
-                        </div>
-                        <h3 class="karya-title" data-i18n="karya_insta_title">Instagram Konten</h3>
-                    </div>
-                </div>
- 
-                <!-- Column 2 (Brands) - Website -->
-                <div class="karya-col col-brands">
-                    <div class="karya-card card-tall card-light">
-                        <!-- Floating brands top block - Tech stacks -->
-                        <div class="brands-preview-box">
-                            <div class="floating-brand-icons">
-                                <span class="brand-bubble icon-x" style="background-color: #38bdf8;">F</span> <!-- Figma -->
-                                <span class="brand-bubble icon-green" style="background-color: #4353ff;">W</span> <!-- Webflow -->
-                                <span class="brand-bubble icon-google" style="background-color: #61dafb; color: #20232a;">R</span> <!-- React -->
-                                <span class="brand-bubble icon-fb" style="background-color: #21759b;">Wp</span> <!-- WordPress -->
-                                <span class="brand-bubble icon-in" style="background-color: #f7df1e; color: #323330;">JS</span> <!-- JavaScript -->
-                            </div>
-                            <span class="brands-sub" data-i18n="karya_stack_label">Tech Stack & Development</span>
+        <!-- Sports Bento Section -->
+        <section class="sports-bento-section">
+            <div class="sbs-top-grid">
+                
+                <!-- Left: Huge Typography -->
+                <div class="sbs-typo-block">
+                    <div class="sbs-typo-container">
+                        <span class="sbs-float-badge f-badge-1">MULTIPLE<br>INDUSTRIES</span>
+                        <span class="sbs-float-badge f-badge-2">DEDICATED<br>CRAFT</span>
+                        <span class="sbs-float-badge f-badge-3">AWARD<br>WINNING</span>
+                        <span class="sbs-float-badge f-badge-4">FOCUSED ON<br>USER EXPERIENCE</span>
+                        
+                        <div class="sbs-huge-text">
+                            <div class="sbs-line-1"><span class="sbs-number">5+</span> <span class="sbs-word">YEARS</span></div>
+                            <div class="sbs-line-2">CRAFTING</div>
+                            <div class="sbs-line-3">DIGITAL<span class="sbs-slash">/</span></div>
+                            <div class="sbs-line-4 highlight-pink">EXPERIENCES</div>
                         </div>
                         
-                        <div class="karya-content">
-                            <h3 class="karya-title dark-text" data-i18n="karya_web_title">Website</h3>
-                            <p class="karya-desc dark-text" data-i18n="karya_web_desc">Building fast, responsive, and SEO-optimized web experiences customized for modern brands.</p>
-                            <a href="projects.html" class="karya-btn-white" data-i18n="karya_view_btn">View Projects <span class="arrow">&rsaquo;</span></a>
+                        <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?w=150&q=80&auto=format&fit=crop" alt="Floating Shape" class="sbs-float-icon">
+                    </div>
+                    
+                    <div class="sbs-actions">
+                        <a href="#" class="sbs-btn-solid">View Work <span class="sbs-arrow">↗</span></a>
+                        <a href="#" class="sbs-btn-ghost">
+                            <span class="sbs-play-icon">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                            </span> 
+                            Read About Me
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Middle: Community Card -->
+                <div class="sbs-card sbs-community-card">
+                    <div class="sbs-card-watermark">PORT<br>.FOLIO</div>
+                    <div class="sbs-community-content">
+                        <span class="sbs-card-badge">Clients</span>
+                        <div class="sbs-community-bottom">
+                            <div class="sbs-community-stats">
+                                <h3>50+</h3>
+                                <p>Satisfied clients & partners</p>
+                            </div>
+                            <div class="sbs-avatars">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=60" alt="User">
+                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&auto=format&fit=crop&q=60" alt="User">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=60" alt="User">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=60" alt="User">
+                            </div>
                         </div>
                     </div>
                 </div>
- 
-                <!-- Column 3 (Growth stats) - Branding -->
-                <div class="karya-col col-growth">
-                    <div class="karya-card card-tall card-light">
-                        <div class="karya-content-stats">
-                            <h3 class="karya-title dark-text" data-i18n="karya_brand_title">Branding</h3>
-                            
-                            <div class="stat-item">
-                                <span class="stat-label" data-i18n="karya_brand_label1">Visual Identity Projects</span>
-                                <span class="stat-number">50+</span>
+
+                <!-- Right: Steps Card -->
+                <div class="sbs-card sbs-steps-card">
+                    <svg class="sbs-dashed-curve" viewBox="0 0 200 400" preserveAspectRatio="none">
+                        <!-- A soft curve path -->
+                        <path d="M 160 -20 Q 20 200 160 420" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4" opacity="0.2"/>
+                    </svg>
+                    
+                    <div class="sbs-step-list">
+                        <div class="sbs-step-item">
+                            <div class="sbs-step-icon">↗</div>
+                            <div class="sbs-step-text">
+                                <h4>1. DISCOVERY</h4>
                             </div>
-                            
-                            <div class="stat-item">
-                                <span class="stat-label" data-i18n="karya_brand_label2">Brand Guidelines Designed</span>
-                                <span class="stat-number">20+</span>
-                            </div>
-                            
-                            <a href="projects.html" class="karya-btn-white" data-i18n="karya_view_btn">View Projects <span class="arrow">&rsaquo;</span></a>
                         </div>
+                        
+                        <div class="sbs-step-item active-step">
+                            <div class="sbs-step-icon">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            </div>
+                            <div class="sbs-step-text">
+                                <h4>2. DESIGN</h4>
+                                <p>Crafting the visual identity,<br>UX strategy & interface</p>
+                            </div>
+                        </div>
+                        
+                        <div class="sbs-step-item">
+                            <div class="sbs-step-icon">↘</div>
+                            <div class="sbs-step-text">
+                                <h4>3. DELIVERY</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- Middle Navigation / Countdown -->
+            <div class="sbs-mid-nav">
+                <div class="sbs-nav-arrows">
+                    <button aria-label="Previous">&lt;</button>
+                    <button aria-label="Next">&gt;</button>
+                </div>
+                <div class="sbs-nav-links">
+                    <a href="#">Case Studies</a>
+                    <a href="#">Resume</a>
+                </div>
+                <div class="sbs-countdown">
+                    <strong>Available</strong> for new projects
+                </div>
+            </div>
+
+            <!-- Bottom Video -->
+            <div class="sbs-hero-img-wrapper">
+                <video src="assets/video1.mp4" class="sbs-hero-image" autoplay loop muted playsinline></video>
+            </div>
+        </section>
+
+
+
+        
+
+        
+        <section id="work" class="schedule-section">
+            <div class="sch-container">
+                <!-- Left Side -->
+                <div class="sch-left">
+                    <div class="sch-pill-badge">
+                        <span class="sch-badge-num">03</span>
+                        <span class="sch-badge-text">What i create</span>
+                    </div>
+                    <h2 class="sch-title">
+                        Transforming ideas into meaningful digital experiences across multiple mediums.
+                    </h2>
+                    <p class="sch-desc">
+                        I design and develop digital experiences that bring ideas to life, blending creativity and technology to craft brands, products, and interfaces that are intuitive, inspiring, and built to last, with a focus on creating meaningful connections between people and design.
+                    </p>
+                    <div class="sch-main-img-wrapper">
+                        <video src="assets/video1.mp4" class="sch-main-img" autoplay loop muted playsinline></video>
+                    </div>
+                </div>
+
+                <!-- Right Side -->
+                <div class="sch-right">
+                    
+                    <div class="sch-accordion-list">
+                        
+                        <!-- Item 1 (Expanded) -->
+                        <details class="sch-accordion-item" name="schedule" open>
+                            <summary class="sch-accordion-header">
+                                <span class="sch-acc-num">01.</span>
+                                <span class="sch-acc-title">UI/UX Design</span>
+                                <span class="sch-acc-icon">›</span>
+                            </summary>
+                            <div class="sch-accordion-content">
+                                <div class="sch-acc-text-col">
+                                    <p>Crafting intuitive and aesthetically pleasing digital interfaces. I focus on user-centric design principles to ensure every interaction feels natural, engaging, and perfectly aligned with your brand identity.</p>
+                                    <a href="#" class="sch-acc-btn" data-title="UI/UX Design" data-subtitle="Crafting intuitive and aesthetically pleasing digital interfaces" data-role="Lead UI/UX Designer" data-timeline="Ongoing" data-desc="Crafting intuitive and aesthetically pleasing digital interfaces. I focus on user-centric design principles to ensure every interaction feels natural, engaging, and perfectly aligned with your brand identity." data-image="assets/tennis_hero_bg.png" data-thumbs="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80,https://images.unsplash.com/photo-1542744094-24638ea0b5b3?w=800&q=80">View Details</a>
+                                </div>
+                                <div class="sch-acc-img-col">
+                                    <video src="assets/video1.mp4" autoplay loop muted playsinline></video>
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Item 2 -->
+                        <details class="sch-accordion-item" name="schedule">
+                            <summary class="sch-accordion-header">
+                                <span class="sch-acc-num">02.</span>
+                                <span class="sch-acc-title">Web Development</span>
+                                <span class="sch-acc-icon">›</span>
+                            </summary>
+                            <div class="sch-accordion-content">
+                                <div class="sch-acc-text-col">
+                                    <p>Building lightning-fast, responsive, and robust websites from the ground up. Utilizing the latest web technologies to deliver scalable solutions that perform flawlessly across all devices and browsers.</p>
+                                    <a href="#" class="sch-acc-btn" data-title="Web Development" data-subtitle="Building lightning-fast, responsive, and robust websites" data-role="Frontend Developer" data-timeline="2023 - Present" data-desc="Building lightning-fast, responsive, and robust websites from the ground up. Utilizing the latest web technologies to deliver scalable solutions that perform flawlessly across all devices and browsers." data-image="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80" data-thumbs="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&q=80">View Details</a>
+                                </div>
+                                <div class="sch-acc-img-col">
+                                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=400&auto=format&fit=crop" alt="Web Development">
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Item 3 -->
+                        <details class="sch-accordion-item" name="schedule">
+                            <summary class="sch-accordion-header">
+                                <span class="sch-acc-num">03.</span>
+                                <span class="sch-acc-title">Instagram Content</span>
+                                <span class="sch-acc-icon">›</span>
+                            </summary>
+                            <div class="sch-accordion-content">
+                                <div class="sch-acc-text-col">
+                                    <p>Designing thumb-stopping social media graphics and visual strategies. From cohesive feed aesthetics to engaging stories and reels covers that capture attention and drive audience interaction.</p>
+                                    <a href="#" class="sch-acc-btn" data-title="Instagram Content" data-subtitle="Designing thumb-stopping social media graphics" data-role="Content Strategist" data-timeline="2021 - 2023" data-desc="Designing thumb-stopping social media graphics and visual strategies. From cohesive feed aesthetics to engaging stories and reels covers that capture attention and drive audience interaction." data-image="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=80" data-thumbs="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&q=80">View Details</a>
+                                </div>
+                                <div class="sch-acc-img-col">
+                                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=400&auto=format&fit=crop" alt="Instagram Content">
+                                </div>
+                            </div>
+                        </details>
+
+                        <!-- Item 4 -->
+                        <details class="sch-accordion-item" name="schedule">
+                            <summary class="sch-accordion-header">
+                                <span class="sch-acc-num">04.</span>
+                                <span class="sch-acc-title">Wordpress Development</span>
+                                <span class="sch-acc-icon">›</span>
+                            </summary>
+                            <div class="sch-accordion-content">
+                                <div class="sch-acc-text-col">
+                                    <p>Creating highly customizable, SEO-optimized, and easily manageable WordPress sites. Tailored to your specific business needs with secure plugins, custom themes, and a focus on lead generation.</p>
+                                    <a href="#" class="sch-acc-btn" data-title="Wordpress Development" data-subtitle="Creating highly customizable, SEO-optimized sites" data-role="WordPress Developer" data-timeline="2020 - 2022" data-desc="Creating highly customizable, SEO-optimized, and easily manageable WordPress sites. Tailored to your specific business needs with secure plugins, custom themes, and a focus on lead generation." data-image="https://images.unsplash.com/photo-1547394765-185e1e68f34e?w=1200&q=80" data-thumbs="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80">View Details</a>
+                                </div>
+                                <div class="sch-acc-img-col">
+                                    <img src="https://images.unsplash.com/photo-1547394765-185e1e68f34e?q=80&w=400&auto=format&fit=crop" alt="Wordpress Development">
+                                </div>
+                            </div>
+                        </details>
+
+                    </div>
+
+                    <!-- Bottom Floating Join Button -->
+                    <div class="sch-join-wrapper">
+                        <a href="#" class="sch-join-btn">
+                            <span>Join us</span>
+                            <span class="sch-join-arrow">↗</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="axa-about-section">
-            <style>
-                .axa-about-section {
-                    background-color: #0b0b0b;
-                    position: relative;
-                    overflow: hidden;
-                    padding: 8rem 2rem;
-                    color: #fff;
-                }
-                /* Decorative faint circles for background */
-                .axa-bg-circle-1 {
-                    position: absolute; top: -150px; left: -100px; width: 600px; height: 600px;
-                    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 70%);
-                    border-radius: 50%; z-index: 0; pointer-events: none;
-                }
-                .axa-bg-circle-2 {
-                    position: absolute; bottom: -200px; right: 20%; width: 700px; height: 700px;
-                    background: radial-gradient(circle, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 70%);
-                    border-radius: 50%; z-index: 0; pointer-events: none;
-                }
-                .axa-bg-circle-3 {
-                    position: absolute; top: 10%; right: -50px; width: 400px; height: 400px;
-                    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 70%);
-                    border-radius: 50%; z-index: 0; pointer-events: none;
-                }
-                
-                .axa-about-container {
-                    max-width: 1200px;
-                    margin: 0 auto;
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    gap: 4rem;
-                    position: relative;
-                    z-index: 1;
-                    align-items: center;
-                }
 
-                .axa-about-badge {
-                    display: inline-block;
-                    padding: 0.6rem 1.5rem;
-                    border: 1px solid rgba(255,255,255,0.4);
-                    border-radius: 30px;
-                    font-size: 0.9rem;
-                    margin-bottom: 2rem;
-                    font-weight: 400;
-                    letter-spacing: 0.5px;
-                }
-
-                .axa-about-title {
-                    font-family: var(--font-heading);
-                    font-size: clamp(2.8rem, 4vw, 4rem);
-                    line-height: 1.1;
-                    margin-bottom: 1.5rem;
-                    font-weight: 500;
-                }
-                
-                .axa-about-title i {
-                    color: var(--resume-accent, #c6f134);
-                    font-weight: 400;
-                    font-style: italic;
-                }
-
-                .axa-about-desc {
-                    font-size: 1.1rem;
-                    line-height: 1.6;
-                    color: rgba(255,255,255,0.8);
-                    max-width: 450px;
-                }
-
-                .axa-cards-wrapper {
-                    display: flex;
-                    gap: 1.5rem;
-                    justify-content: flex-end;
-                }
-
-                .axa-image-card {
-                    position: relative;
-                    width: 280px;
-                    height: 360px;
-                    border-radius: 20px;
-                    overflow: hidden;
-                    background-size: cover;
-                    background-position: center;
-                    cursor: pointer;
-                    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-                }
-
-                .axa-image-card:hover {
-                    transform: translateY(-8px);
-                    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-                }
-
-                /* ── Glassmorphism Info Card ── */
-                .np-info-card {
-                    width: 100%;
-                    /* Translucent — intentionally low opacity so hero BG bleeds through */
-                    background: rgba(8, 10, 18, 0.28);
-                    backdrop-filter: blur(36px) saturate(200%) brightness(1.05);
-                    -webkit-backdrop-filter: blur(36px) saturate(200%) brightness(1.05);
-                    border: 1px solid rgba(255, 255, 255, 0.22);
-                    border-radius: 18px;
-                    padding: 0.85rem 1rem 0.9rem;
-                    box-shadow:
-                        0 1.5px 0 rgba(255,255,255,0.18) inset,
-                        0 -1px 0 rgba(0,0,0,0.2) inset,
-                        0 12px 36px rgba(0, 0, 0, 0.55),
-                        0 0 0 1px rgba(255,255,255,0.06);
-                    display: flex;
-                    flex-direction: column;
-                    gap: 0.55rem;
-                    position: relative;
-                    overflow: hidden;
-                }
-
-                /* Lime top glow line */
-                .np-info-card::before {
-                    content: '';
-                    position: absolute;
-                    top: 0; left: 10%; right: 10%;
-                    height: 1px;
-                    background: linear-gradient(90deg, transparent, rgba(196, 240, 66, 0.95), transparent);
-                    z-index: 1;
-                }
-
-                /* Subtle inner gradient shimmer */
-                .np-info-card::after {
-                    content: '';
-                    position: absolute;
-                    inset: 0;
-                    background: linear-gradient(135deg,
-                        rgba(255,255,255,0.06) 0%,
-                        rgba(255,255,255,0.01) 50%,
-                        rgba(196,240,66,0.03) 100%);
-                    pointer-events: none;
-                    border-radius: inherit;
-                }
-
-                /* Top row: badge left, avatar right */
-                .np-info-top {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    position: relative;
-                    z-index: 2;
-                }
-
-                /* "Info" pill badge */
-                .np-info-badge {
-                    display: inline-flex;
-                    align-items: center;
-                    background: rgba(255, 255, 255, 0.1);
-                    border: 1px solid rgba(255, 255, 255, 0.22);
-                    color: rgba(255,255,255,0.9);
-                    font-size: 0.62rem;
-                    font-weight: 700;
-                    letter-spacing: 0.8px;
-                    padding: 3px 11px;
-                    border-radius: 50px;
-                    text-transform: uppercase;
-                    backdrop-filter: blur(8px);
-                }
-
-                /* Circular profile photo */
-                .np-info-avatar {
-                    width: 36px;
-                    height: 36px;
-                    border-radius: 50%;
-                    object-fit: cover;
-                    border: 1.5px solid rgba(196, 240, 66, 0.7);
-                    box-shadow:
-                        0 0 0 3px rgba(196, 240, 66, 0.12),
-                        0 2px 8px rgba(0,0,0,0.4);
-                    flex-shrink: 0;
-                }
-
-                /* Bio description */
-                .np-info-text {
-                    font-size: 0.8rem;
-                    line-height: 1.5;
-                    color: rgba(255, 255, 255, 0.82);
-                    margin: 0;
-                    font-weight: 400;
-                    position: relative;
-                    z-index: 2;
-                }
-
-                /* CTA button — dark pill */
-                .np-info-btn {
-                    display: block;
-                    text-align: center;
-                    background: rgba(5, 8, 14, 0.75);
-                    border: 1px solid rgba(255,255,255,0.14);
-                    color: #c4f042;
-                    font-size: 0.74rem;
-                    font-weight: 700;
-                    padding: 7px 16px;
-                    border-radius: 50px;
-                    text-decoration: none;
-                    letter-spacing: 0.4px;
-                    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-                    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
-                    backdrop-filter: blur(8px);
-                    position: relative;
-                    z-index: 2;
-                }
-                .np-info-btn:hover {
-                    background: rgba(18, 26, 42, 0.85);
-                    color: #d6f554;
-                    transform: translateY(-2px);
-                    box-shadow: 0 6px 18px rgba(0,0,0,0.5), 0 0 8px rgba(196,240,66,0.15);
-                }
-
-                /* Light theme — show a frosted white glass instead */
-                body.light-theme .np-info-card {
-                    background: rgba(255, 255, 255, 0.28);
-                    border-color: rgba(255,255,255,0.5);
-                    box-shadow:
-                        0 1.5px 0 rgba(255,255,255,0.7) inset,
-                        0 12px 32px rgba(0,0,0,0.18),
-                        0 0 0 1px rgba(255,255,255,0.15);
-                }
-                body.light-theme .np-info-badge {
-                    background: rgba(10,60,60,0.1);
-                    border-color: rgba(10,60,60,0.22);
-                    color: #0a3c3c;
-                }
-                body.light-theme .np-info-text {
-                    color: rgba(10, 40, 40, 0.9);
-                }
-                body.light-theme .np-info-btn {
-                    background: rgba(10, 30, 30, 0.7);
-                    border-color: rgba(10,60,60,0.3);
-                    color: #84b026;
-                }
-                body.light-theme .np-info-btn:hover {
-                    background: rgba(15, 40, 40, 0.8);
-                }
-
-                .axa-card-overlay {
-                    position: absolute;
-                    inset: 0;
-                    background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.8) 100%);
-                    pointer-events: none;
-                    z-index: 1;
-                }
-
-                .axa-card-title {
-                    position: absolute;
-                    top: 1.5rem;
-                    left: 1.5rem;
-                    color: #fff;
-                    font-family: 'Inter', sans-serif;
-                    font-size: 1.4rem;
-                    line-height: 1.2;
-                    font-weight: 500;
-                    z-index: 2;
-                }
-
-                .axa-card-btn {
-                    position: absolute;
-                    bottom: 1.5rem;
-                    right: 1.5rem;
-                    background: #111;
-                    color: #fff;
-                    padding: 0.5rem 1rem;
-                    border-radius: 30px;
-                    font-size: 0.8rem;
-                    font-weight: 500;
-                    display: flex;
-                    align-items: center;
-                    gap: 0.4rem;
-                    transition: background 0.3s ease, color 0.3s ease;
-                    border: 1px solid rgba(255,255,255,0.1);
-                    z-index: 2;
-                }
-
-                .axa-image-card:hover .axa-card-btn {
-                    background: rgba(255,255,255,0.1);
-                }
-
-                @media (max-width: 900px) {
-                    .axa-about-container {
-                        grid-template-columns: 1fr;
-                        gap: 3rem;
-                    }
-                    .axa-cards-wrapper {
-                        justify-content: flex-start;
-                        flex-wrap: wrap;
-                    }
-                    .axa-image-card {
-                        width: calc(50% - 0.75rem);
-                    }
-                }
-                @media (max-width: 500px) {
-                    .axa-image-card {
-                        width: 100%;
-                    }
-                }
-            </style>
+        <section id="about" class="axa-about-section" style="display: none;">
 
             <div class="axa-bg-circle-1"></div>
             <div class="axa-bg-circle-2"></div>
             <div class="axa-bg-circle-3"></div>
 
-            <div class="axa-about-container">
-                <!-- Left Side Content -->
-                <div class="reveal">
-                    <div class="axa-about-badge" data-i18n="home_about_pill">
-                        Tentang Saya
+                        <div class="split-showcase-section">
+                <!-- Left Half: Copywriting -->
+                <div class="split-half split-left">
+                    <div class="split-content reveal">
+                        <div class="split-badge" data-i18n="home_about_pill">
+                            Tentang Saya
+                        </div>
+                        <h2 class="split-title">
+                            Dipercaya oleh <br> <i data-i18n="home_about_klien">Klien</i> & Kolaborator
+                        </h2>
+                        <p class="split-desc" data-i18n="home_about_desc">
+                            Saya adalah seorang desainer dan pengembang dengan pengalaman bertahun-tahun dalam menciptakan solusi digital. Pendekatan saya menggabungkan strategi cerdas dengan desain yang indah.
+                        </p>
                     </div>
-                    <h2 class="huge-title" style="font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 900; line-height: 0.85; margin: 0 0 2rem 0; color: #ffffff; letter-spacing: -2px; text-transform: uppercase;">
-                        Dipercaya oleh <br> <i data-i18n="home_about_klien">Klien</i> & Kolaborator
-                    </h2>
-                    <p class="axa-about-desc" data-i18n="home_about_desc">
-                        Saya adalah seorang desainer dan pengembang dengan pengalaman bertahun-tahun dalam menciptakan solusi digital. Pendekatan saya menggabungkan strategi cerdas dengan desain yang indah.
-                    </p>
                 </div>
 
-                <!-- Right Side Cards -->
-                <div class="axa-cards-wrapper">
-                    <!-- Card 1 -->
-                    <div class="axa-image-card reveal" style="background-image: url('assets/educaa_portrait.png'); transition-delay: 100ms;">
-                        <div class="axa-card-overlay"></div>
-                        <h3 class="axa-card-title">4.9/5 <br> <span style="font-size: 1.1rem; font-weight: 400; opacity: 0.9;" data-i18n="home_about_sat">Kepuasan</span></h3>
-                        <div class="axa-card-btn">View details &rarr;</div>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="axa-image-card reveal" style="background-image: url('assets/tennis_hero_bg.png'); transition-delay: 200ms;">
-                        <div class="axa-card-overlay"></div>
-                        <h3 class="axa-card-title">50+ <br> <span style="font-size: 1.1rem; font-weight: 400; opacity: 0.9;" data-i18n="home_about_proj">Proyek Selesai</span></h3>
-                        <div class="axa-card-btn">View details &rarr;</div>
-                    </div>
+                <!-- Right Half: Image with Floating Button -->
+                <div class="split-half split-right" style="background-image: url('assets/tennis_hero_bg.png');">
+                    <a href="mailto:hello@example.com" class="split-join-btn reveal">Join Community &raquo;</a>
                 </div>
             </div>
         </section>
 
-        <section class="blog-section reveal" id="insights">
-            <div class="blog-header">
-                <div class="blog-header-left">
-                    <h2 class="huge-title">INSIGHTS & IDEAS</h2>
-                </div>
-                <div class="blog-header-right">
-                    <span class="blog-arrow">↗</span>
-                    <p class="blog-intro-desc">Thoughts, strategies, and practical insights on design, technology, and digital growth written from real project experience.</p>
-                </div>
-            </div>
-            
-            <div class="blog-grid">
-                <!-- Card 1 -->
-                <article class="blog-card">
-                    <div class="blog-card-img-wrap">
-                        <img src="assets/blog_desert.png" alt="UX Principles That Convert">
-                    </div>
-                    <div class="blog-card-content">
-                        <h3>UX Principles That Convert</h3>
-                        <div class="blog-meta">
-                            <span class="blog-tag">Design</span>
-                            <span class="blog-dot">•</span>
-                            <span class="blog-date">Apr 19, 2026</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Card 2 -->
-                <article class="blog-card">
-                    <div class="blog-card-img-wrap">
-                        <img src="assets/blog_corgis.png" alt="Brand Identity Beyond the Logo">
-                    </div>
-                    <div class="blog-card-content">
-                        <h3>Brand Identity Beyond the Logo</h3>
-                        <div class="blog-meta">
-                            <span class="blog-tag">Design</span>
-                            <span class="blog-dot">•</span>
-                            <span class="blog-date">Apr 19, 2026</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Card 3 -->
-                <article class="blog-card">
-                    <div class="blog-card-img-wrap">
-                        <img src="assets/blog_heatmap.png" alt="Conversion Optimization for Websites">
-                    </div>
-                    <div class="blog-card-content">
-                        <h3>Conversion Optimization for Websites</h3>
-                        <div class="blog-meta">
-                            <span class="blog-tag">Design</span>
-                            <span class="blog-dot">•</span>
-                            <span class="blog-date">Apr 19, 2026</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
 
         <!--
         <section id="contact" class="contact-section">
@@ -1018,12 +698,113 @@
             </div>
         </section>
         -->
-    </main>
+    
+    <!-- Quantum-style Case Study Overlay -->
+    <div class="quantum-modal-overlay" id="quantum-modal">
+        <button class="quantum-modal-close" id="quantum-modal-close" aria-label="Close case study">&times;</button>
+        <div class="quantum-modal-content">
+            <div class="quantum-hero-banner" id="q-main-img"></div>
+            <article class="quantum-article">
+                <header class="quantum-header">
+                    <h1 class="quantum-title" id="q-title">Project Title</h1>
+                    <p class="quantum-subtitle" id="q-subtitle">Project Subtitle</p>
+                </header>
+                <div class="quantum-split-layout">
+                    <aside class="quantum-sidebar">
+                        <div class="quantum-meta-group">
+                            <h4 class="quantum-meta-label">Role</h4>
+                            <p class="quantum-meta-value" id="q-meta-role">Lead Designer</p>
+                        </div>
+                        <div class="quantum-meta-group">
+                            <h4 class="quantum-meta-label">Timeline</h4>
+                            <p class="quantum-meta-value" id="q-meta-timeline">2023</p>
+                        </div>
+                        <div class="quantum-sidebar-actions">
+                            <button class="quantum-hire-btn" id="q-contact-btn">
+                                <span>Hire Now</span> &rarr;
+                            </button>
+                        </div>
+                    </aside>
+                    <div class="quantum-main-content">
+                        <section class="quantum-text-section">
+                            <h2 class="quantum-section-title">The Challenge</h2>
+                            <p class="quantum-paragraph" id="q-desc">Details...</p>
+                        </section>
+                        <div class="quantum-gallery-row" id="q-gallery"></div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+</main>
 
     <global-footer></global-footer>
 
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
     <script src="js/translations.js"></script>
     <script src="js/main.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const qModal = document.getElementById('quantum-modal');
+    if(!qModal) return;
+    const qClose = document.getElementById('quantum-modal-close');
+    const qTitle = document.getElementById('q-title');
+    const qSubtitle = document.getElementById('q-subtitle');
+    const qRole = document.getElementById('q-meta-role');
+    const qTimeline = document.getElementById('q-meta-timeline');
+    const qDesc = document.getElementById('q-desc');
+    const qImg = document.getElementById('q-main-img');
+    const qGallery = document.getElementById('q-gallery');
+    const qContactBtn = document.getElementById('q-contact-btn');
+
+    document.querySelectorAll('.sch-acc-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            qTitle.textContent = btn.getAttribute('data-title') || 'Project Title';
+            qSubtitle.textContent = btn.getAttribute('data-subtitle') || 'A digital experience';
+            qRole.textContent = btn.getAttribute('data-role') || 'UI/UX Designer';
+            qTimeline.textContent = btn.getAttribute('data-timeline') || 'Present';
+            qDesc.innerHTML = btn.getAttribute('data-desc') || 'Project details...';
+            qImg.style.backgroundImage = `url('${btn.getAttribute('data-image') || 'assets/tennis_hero_bg.png'}')`;
+            
+            qGallery.innerHTML = '';
+            const thumbs = btn.getAttribute('data-thumbs');
+            if(thumbs) {
+                thumbs.split(',').forEach(src => {
+                    if(src.trim()) {
+                        const img = document.createElement('img');
+                        img.className = 'quantum-gallery-img';
+                        img.src = src.trim();
+                        qGallery.appendChild(img);
+                    }
+                });
+            }
+            
+            qModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    const closeQModal = () => {
+        qModal.classList.remove('show');
+        document.body.style.overflow = '';
+    };
+
+    if(qClose) qClose.addEventListener('click', closeQModal);
+    if(qContactBtn) qContactBtn.addEventListener('click', () => {
+        closeQModal();
+        window.location.href = '#contact';
+    });
+    
+    document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape' && qModal.classList.contains('show')) {
+            closeQModal();
+        }
+    });
+});
+</script>
+
 </body>
 </html>

@@ -319,9 +319,14 @@ body.light-theme .collab-mixed-title {
     color: #111111;
 }
 
+body.light-theme .collab-mixed-title .word-outfit {
+    color: #111111;
+}
+
 .collab-mixed-title .word-outfit {
     font-family: 'Outfit', sans-serif;
     font-weight: 800;
+    color: #ffffff;
     margin-right: 12px;
 }
 
@@ -627,7 +632,7 @@ body.light-theme .collab-modern-grid-header {
 .collab-header-content-wrapper {
     position: relative;
     display: inline-block;
-    padding-right: 120px; /* Space for the blue tag on desktop */
+    /* padding-right: 120px; Space for the blue tag on desktop */
 }
 
 .collab-grid-title {
@@ -798,6 +803,8 @@ body.light-theme .collab-grid-title {
     color: #ffffff;
     display: inline-block;
     margin-top: 10px;
+    font-family: 'VT323', monospace;
+    font-size: 1.4rem;
 }
 
 body.light-theme .title-subline {

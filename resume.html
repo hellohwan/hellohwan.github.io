@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/resume.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Outfit:wght@400;500;600;700;800&family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
@@ -358,7 +358,7 @@
                      display: flex;
                      flex-direction: column;
                      justify-content: space-between;
-                     height: 80vh;
+                     height: 90vh;
                      min-height: 600px;
                      width: 100%;
                      box-sizing: border-box;
@@ -1007,8 +1007,8 @@
                     z-index: 3;
                 }
                 .sticker-badge {
-                    background-color: #0022ff; /* Bold solid blue */
-                    color: #ffffff !important;
+                    background-color: #ffb8d9; /* Pink solid background */
+                    color: #111111 !important;
                     font-family: var(--font-heading);
                     font-weight: 900;
                     font-size: 1.05rem;
@@ -1436,7 +1436,7 @@
                 @media (max-width: 1024px) {
                     .about-ticker-container {
                         height: auto;
-                        min-height: 80vh;
+                        min-height: 90vh;
                         padding-top: 0;
                         display: flex;
                         flex-direction: column;
@@ -2437,531 +2437,223 @@
                   }
 
                   /* Dribbble-style Modal Overlay */
-                  .dribbble-modal-overlay {
+                  /* Quantum Case Study Overlay */
+                  .quantum-modal-overlay {
                       position: fixed;
                       top: 0; left: 0; right: 0; bottom: 0;
-                      background: rgba(10, 15, 25, 0.7);
-                      backdrop-filter: blur(15px);
-                      -webkit-backdrop-filter: blur(15px);
+                      background: var(--primary-bg); /* Opaque background */
                       z-index: 2000;
                       overflow-y: auto;
-                      display: flex;
-                      justify-content: center;
-                      align-items: flex-start;
-                      padding: 60px 20px;
+                      overflow-x: hidden;
+                      display: block;
                       opacity: 0;
                       visibility: hidden;
-                      transition: opacity 0.4s ease, visibility 0.4s ease;
+                      transform: translateY(100%);
+                      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, visibility 0.4s ease;
                   }
 
-                  .dribbble-modal-overlay.show {
+                  .quantum-modal-overlay.show {
                       opacity: 1;
                       visibility: visible;
+                      transform: translateY(0);
                   }
 
-                  /* Glassmorphism card */
-                  .dribbble-modal-card {
-                      background: rgba(255, 255, 255, 0.7);
-                      backdrop-filter: blur(30px);
-                      -webkit-backdrop-filter: blur(30px);
-                      color: #0A3C3C;
-                      border-radius: 28px;
-                      width: 100%;
-                      max-width: 1200px;
-                      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
-                      border: 1px solid rgba(255, 255, 255, 0.4);
-                      position: relative;
-                      display: flex;
-                      flex-direction: column;
-                      padding: 40px;
-                      box-sizing: border-box;
-                      transform: translateY(40px) scale(0.96);
-                      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-                      font-family: 'Inter', sans-serif;
-                      gap: 30px;
-                  }
-
-                  /* Dark Mode Overrides for Dribbble Modal */
-                  body:not(.light-theme) .dribbble-modal-card {
-                      background: rgba(10, 25, 25, 0.75);
-                      color: #ffffff;
-                      border: 1px solid rgba(230, 250, 80, 0.2);
-                      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 40px rgba(230, 250, 80, 0.05);
-                  }
-
-                  .dribbble-modal-overlay.show .dribbble-modal-card {
-                      transform: translateY(0) scale(1);
-                  }
-
-                  .dribbble-modal-close {
-                      position: absolute;
-                      top: 25px;
-                      right: 25px;
-                      font-size: 2.2rem;
-                      border: none;
-                      background: none;
-                      cursor: pointer;
-                      color: inherit;
-                      opacity: 0.6;
-                      transition: all 0.2s;
-                      line-height: 1;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      width: 44px;
-                      height: 44px;
+                  .quantum-modal-close {
+                      position: fixed;
+                      top: 30px;
+                      right: 30px;
+                      width: 50px;
+                      height: 50px;
                       border-radius: 50%;
-                  }
-                  .dribbble-modal-close:hover {
-                      opacity: 1;
-                      color: #ff3b30;
-                      transform: rotate(90deg);
-                      background: rgba(0, 0, 0, 0.05);
-                  }
-                  body:not(.light-theme) .dribbble-modal-close:hover {
-                      background: rgba(255, 255, 255, 0.08);
-                  }
-
-                  /* Modal Header Styles */
-                  .modal-header-section {
-                      display: flex;
-                      flex-direction: column;
-                      gap: 12px;
-                      width: 100%;
-                      border-bottom: 1px solid rgba(10, 60, 60, 0.08);
-                      padding-bottom: 24px;
-                  }
-                  body:not(.light-theme) .modal-header-section {
-                      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                  }
-
-                  .modal-header-title {
-                      font-size: 2.2rem;
-                      font-weight: 800;
-                      margin: 0;
-                      letter-spacing: -0.5px;
-                      line-height: 1.2;
-                  }
-
-                  .modal-creator-badge {
-                      display: flex;
-                      align-items: center;
-                      gap: 12px;
-                  }
-
-                  .creator-avatar {
-                      width: 40px;
-                      height: 40px;
-                      border-radius: 50%;
-                      object-fit: cover;
-                  }
-
-                  .creator-info {
-                      display: flex;
-                      align-items: center;
-                      line-height: 1.2;
-                  }
-
-                  .creator-name {
-                       font-weight: 700;
-                       font-size: 0.95rem;
-                       display: inline-flex;
-                       align-items: center;
-                       gap: 6px;
-                  }
-
-                  .creator-badge-pro {
-                      background: #0A3C3C;
-                      color: #ffffff;
-                      font-size: 0.65rem;
-                      font-weight: 800;
-                      padding: 2px 6px;
-                      border-radius: 4px;
-                      text-transform: uppercase;
-                  }
-                  body:not(.light-theme) .creator-badge-pro {
-                      background: #E6FA50;
-                      color: #000000;
-                  }
-
-                  /* Modal Grid Styles */
-                  .modal-main-grid {
-                      display: grid;
-                      grid-template-columns: 2fr 1fr;
-                      gap: 40px;
-                      width: 100%;
-                  }
-
-                  .modal-content-left {
-                      display: flex;
-                      flex-direction: column;
-                      gap: 24px;
-                  }
-
-                  .modal-main-image-wrapper {
-                      width: 100%;
-                      border-radius: 16px;
-                      overflow: hidden;
-                      aspect-ratio: 16 / 10;
-                      background-size: cover;
-                      background-position: center;
-                      border: 1px solid rgba(10, 60, 60, 0.08);
-                      transition: background-image 0.3s ease;
-                  }
-                  body:not(.light-theme) .modal-main-image-wrapper {
-                      border: 1px solid rgba(255, 255, 255, 0.1);
-                  }
-
-                  .modal-thumbnails-row {
-                      display: flex;
-                      gap: 12px;
-                      width: 100%;
-                  }
-
-                  .modal-thumb-img {
-                      flex: 1;
-                      aspect-ratio: 4 / 3;
-                      border-radius: 12px;
-                      background-size: cover;
-                      background-position: center;
-                      cursor: pointer;
-                      border: 2px solid transparent;
-                      transition: border-color 0.2s, transform 0.2s;
-                      opacity: 0.7;
-                  }
-
-                  .modal-thumb-img:hover, .modal-thumb-img.active {
-                      border-color: #E6FA50;
-                      transform: scale(1.02);
-                      opacity: 1;
-                  }
-                  body.light-theme .modal-thumb-img:hover, body.light-theme .modal-thumb-img.active {
-                      border-color: #0A3C3C;
-                  }
-
-                  /* Modal Sidebar Styles */
-                  .modal-content-right {
-                      display: flex;
-                      flex-direction: column;
-                      gap: 24px;
-                  }
-
-                  .modal-sidebar-card {
-                      border: 1px solid rgba(10, 60, 60, 0.08);
-                      border-radius: 20px;
-                      padding: 24px;
-                      background: rgba(255, 255, 255, 0.4);
+                      background: rgba(0, 0, 0, 0.3);
                       backdrop-filter: blur(10px);
-                      -webkit-backdrop-filter: blur(10px);
-                      display: flex;
-                      flex-direction: column;
-                      gap: 18px;
-                  }
-                  body:not(.light-theme) .modal-sidebar-card {
-                      border: 1px solid rgba(255, 255, 255, 0.1);
-                      background: rgba(255, 255, 255, 0.02);
-                  }
-
-                  .sidebar-price-row {
-                      display: flex;
-                      align-items: center;
-                      justify-content: space-between;
-                      width: 100%;
-                  }
-
-                  .sidebar-large-val {
-                      font-size: 1.8rem;
-                      font-weight: 900;
-                      letter-spacing: -0.5px;
-                  }
-
-                  .sidebar-small-lbl-pill {
-                      font-size: 0.65rem;
-                      font-weight: 800;
-                      text-transform: uppercase;
-                      padding: 4px 10px;
-                      border-radius: 30px;
-                      background: #0A3C3C;
-                      color: #ffffff;
-                      display: inline-flex;
-                      align-items: center;
-                      gap: 4px;
-                      letter-spacing: 0.5px;
-                  }
-                  body:not(.light-theme) .sidebar-small-lbl-pill {
-                      background: #E6FA50;
-                      color: #000000;
-                  }
-
-                  .sidebar-sub-lbl {
-                      font-size: 0.8rem;
-                      opacity: 0.75;
-                      margin-top: -8px;
-                      font-weight: 500;
-                  }
-
-                  .sidebar-milestones-list {
-                      display: flex;
-                      flex-direction: column;
-                      gap: 10px;
-                      border-top: 1px solid rgba(10, 60, 60, 0.08);
-                      border-bottom: 1px solid rgba(10, 60, 60, 0.08);
-                      padding: 16px 0;
-                  }
-                  body:not(.light-theme) .sidebar-milestones-list {
-                      border-top: 1px solid rgba(255, 255, 255, 0.1);
-                      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                  }
-
-                  .sidebar-milestone-item {
-                      display: flex;
-                      align-items: center;
-                      gap: 12px;
-                      padding: 10px;
-                      background: rgba(10, 60, 60, 0.03);
-                      border-radius: 12px;
-                      border: 1px solid rgba(10, 60, 60, 0.04);
-                  }
-                  body:not(.light-theme) .sidebar-milestone-item {
-                      background: rgba(255, 255, 255, 0.01);
-                      border: 1px solid rgba(255, 255, 255, 0.03);
-                  }
-
-                  .milestone-number-badge {
-                      width: 22px;
-                      height: 22px;
-                      border-radius: 50%;
-                      background: #0A3C3C;
-                      color: #ffffff;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      font-size: 0.7rem;
-                      font-weight: 800;
-                      flex-shrink: 0;
-                  }
-                  body:not(.light-theme) .milestone-number-badge {
-                      background: rgba(255, 255, 255, 0.15);
-                      color: #ffffff;
-                  }
-
-                  .milestone-text {
-                      display: flex;
-                      flex-direction: column;
-                      flex: 1;
-                      gap: 1px;
-                      min-width: 0;
-                  }
-
-                  .milestone-title {
-                      font-size: 0.8rem;
-                      font-weight: 700;
-                      white-space: nowrap;
-                      overflow: hidden;
-                      text-overflow: ellipsis;
-                  }
-
-                  .milestone-desc {
-                      font-size: 0.65rem;
-                      opacity: 0.6;
-                      white-space: nowrap;
-                      overflow: hidden;
-                      text-overflow: ellipsis;
-                  }
-
-                  .milestone-val {
-                      font-size: 0.75rem;
-                      font-weight: 700;
-                      color: #527506;
-                  }
-                  body:not(.light-theme) .milestone-val {
-                      color: #E6FA50;
-                  }
-
-                  .sidebar-meta-list {
-                      display: flex;
-                      flex-direction: column;
-                      gap: 8px;
-                  }
-
-                  .sidebar-meta-item {
-                      display: flex;
-                      justify-content: space-between;
-                      font-size: 0.8rem;
-                      gap: 10px;
-                  }
-
-                  .sidebar-meta-item span:first-child {
-                      opacity: 0.7;
-                      font-weight: 500;
-                  }
-
-                  .sidebar-meta-item span:last-child {
-                      font-weight: 700;
-                      text-align: right;
-                  }
-
-                  .sidebar-buttons-row {
-                      display: flex;
-                      flex-direction: column;
-                      gap: 10px;
-                      margin-top: 5px;
-                  }
-
-                  .modal-hire-btn {
-                      background: #ea4c89;
-                      color: #ffffff;
-                      border: none;
-                      border-radius: 30px;
-                      padding: 12px 24px;
-                      font-weight: 700;
-                      font-size: 0.9rem;
-                      cursor: pointer;
-                      text-align: center;
-                      transition: transform 0.2s, background-color 0.2s;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      gap: 8px;
-                      width: 100%;
-                      box-shadow: 0 4px 12px rgba(234, 76, 137, 0.3);
-                  }
-
-                  .modal-hire-btn:hover {
-                      transform: translateY(-2px);
-                      background: #f06292;
-                      box-shadow: 0 6px 16px rgba(234, 76, 137, 0.4);
-                  }
-
-                  .modal-secondary-btn {
-                      background: transparent;
-                      color: inherit;
-                      border: 1px solid rgba(10, 60, 60, 0.15);
-                      border-radius: 30px;
-                      padding: 12px 24px;
-                      font-weight: 700;
-                      font-size: 0.9rem;
-                      cursor: pointer;
-                      text-align: center;
-                      transition: all 0.2s;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      gap: 6px;
-                      width: 100%;
-                  }
-                  body:not(.light-theme) .modal-secondary-btn {
+                      color: #fff;
                       border: 1px solid rgba(255, 255, 255, 0.2);
-                  }
-
-                  .modal-secondary-btn:hover {
-                      background: rgba(10, 60, 60, 0.05);
-                      transform: translateY(-1px);
-                  }
-                  body:not(.light-theme) .modal-secondary-btn:hover {
-                      background: rgba(255, 255, 255, 0.05);
-                  }
-
-                  .sidebar-chat-icon {
-                      width: 14px;
-                      height: 14px;
-                  }
-
-                  .modal-creator-profile-card {
-                      border: 1px solid rgba(10, 60, 60, 0.08);
-                      border-radius: 20px;
-                      padding: 16px 20px;
+                      font-size: 2rem;
                       display: flex;
                       align-items: center;
-                      gap: 16px;
-                      background: rgba(255, 255, 255, 0.4);
-                      backdrop-filter: blur(10px);
-                      -webkit-backdrop-filter: blur(10px);
+                      justify-content: center;
+                      cursor: pointer;
+                      z-index: 2010;
+                      transition: all 0.3s;
+                      line-height: 1;
                   }
-                  body:not(.light-theme) .modal-creator-profile-card {
-                      border: 1px solid rgba(255, 255, 255, 0.1);
-                      background: rgba(255, 255, 255, 0.02);
-                  }
-
-                  .creator-profile-avatar {
-                      width: 44px;
-                      height: 44px;
-                      border-radius: 50%;
-                      object-fit: cover;
-                      border: 1px solid rgba(10, 60, 60, 0.1);
-                  }
-                  body:not(.light-theme) .creator-profile-avatar {
-                      border: 1px solid rgba(255, 255, 255, 0.15);
+                  .quantum-modal-close:hover {
+                      background: rgba(0, 0, 0, 0.6);
+                      transform: scale(1.1) rotate(90deg);
                   }
 
-                  .creator-profile-details {
-                      display: flex;
-                      flex-direction: column;
-                      gap: 3px;
-                      min-width: 0;
-                  }
-
-                  .creator-profile-name-row {
-                      display: flex;
-                      align-items: center;
-                      gap: 6px;
-                  }
-
-                  .creator-profile-name {
-                      font-weight: 800;
-                      font-size: 0.9rem;
-                      white-space: nowrap;
-                      overflow: hidden;
-                      text-overflow: ellipsis;
-                  }
-
-                  .creator-profile-meta {
-                      font-size: 0.72rem;
-                      opacity: 0.7;
-                      white-space: nowrap;
-                      overflow: hidden;
-                      text-overflow: ellipsis;
-                  }
-
-                  /* Modal Description Section */
-                  .modal-description-section {
-                      display: flex;
-                      flex-direction: column;
-                      gap: 16px;
+                  .quantum-modal-content {
                       width: 100%;
-                      border-top: 1px solid rgba(10, 60, 60, 0.08);
-                      padding-top: 24px;
-                  }
-                  body:not(.light-theme) .modal-description-section {
-                      border-top: 1px solid rgba(255, 255, 255, 0.1);
+                      min-height: 100vh;
+                      display: flex;
+                      flex-direction: column;
                   }
 
-                  .modal-description-title {
-                      font-size: 1.4rem;
-                      font-weight: 800;
+                  /* Hero Image */
+                  .quantum-hero-banner {
+                      width: 100vw;
+                      height: 70vh;
+                      background-size: cover;
+                      background-position: center;
+                      background-repeat: no-repeat;
+                      position: relative;
+                  }
+
+                  /* Article Container */
+                  .quantum-article {
+                      max-width: 1200px;
+                      margin: 0 auto;
+                      padding: 5rem 5% 8rem 5%;
+                      width: 100%;
+                      font-family: 'Inter', sans-serif;
+                  }
+
+                  /* Header Typography */
+                  .quantum-header {
+                      margin-bottom: 5rem;
+                      text-align: center;
+                  }
+
+                  .quantum-title {
+                      font-size: clamp(3rem, 6vw, 5.5rem);
+                      font-weight: 900;
+                      letter-spacing: -0.04em;
+                      line-height: 1.1;
+                      margin-bottom: 1.5rem;
+                      font-family: var(--font-heading);
+                  }
+
+                  .quantum-subtitle {
+                      font-size: 1.5rem;
+                      color: var(--text-secondary);
+                      font-weight: 500;
+                  }
+
+                  /* 2-Column Split */
+                  .quantum-split-layout {
+                      display: grid;
+                      grid-template-columns: 1fr 2.5fr;
+                      gap: 4rem;
+                      align-items: start;
+                  }
+
+                  /* Sticky Sidebar */
+                  .quantum-sidebar {
+                      position: sticky;
+                      top: 4rem;
+                      display: flex;
+                      flex-direction: column;
+                      gap: 2.5rem;
+                  }
+
+                  .quantum-meta-group {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 0.5rem;
+                      padding-bottom: 1.5rem;
+                      border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+                  }
+
+                  .quantum-meta-label {
+                      font-size: 0.8rem;
+                      text-transform: uppercase;
+                      letter-spacing: 0.05em;
+                      font-weight: 700;
+                      opacity: 0.6;
                       margin: 0;
                   }
 
-                  .modal-description-text {
+                  .quantum-meta-value {
+                      font-size: 1.1rem;
+                      font-weight: 500;
+                      margin: 0;
+                  }
+
+                  .quantum-sidebar-actions {
+                      margin-top: 1rem;
+                  }
+
+                  .quantum-hire-btn {
+                      background: var(--accent-color);
+                      color: #000;
+                      border: none;
+                      border-radius: 40px;
+                      padding: 1rem 2rem;
+                      font-weight: 700;
                       font-size: 1rem;
-                      line-height: 1.6;
-                      opacity: 0.85;
+                      cursor: pointer;
+                      width: 100%;
+                      transition: transform 0.3s, background-color 0.3s;
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                  }
+                  .quantum-hire-btn:hover {
+                      transform: translateY(-3px);
+                      filter: brightness(1.1);
+                  }
+
+                  /* Main Content Area */
+                  .quantum-main-content {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 4rem;
+                  }
+
+                  .quantum-text-section {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 1.5rem;
+                  }
+
+                  .quantum-section-title {
+                      font-size: 2rem;
+                      font-weight: 800;
+                      letter-spacing: -0.02em;
                       margin: 0;
                   }
 
-                  /* Responsive modal grid */
+                  .quantum-paragraph {
+                      font-size: 1.25rem;
+                      line-height: 1.8;
+                      color: var(--text-secondary);
+                      margin: 0;
+                  }
+
+                  /* Galleries */
+                  .quantum-gallery-row {
+                      display: flex;
+                      flex-direction: column;
+                      gap: 2rem;
+                      margin-top: 2rem;
+                  }
+
+                  .quantum-gallery-img {
+                      width: 100%;
+                      border-radius: 20px;
+                      object-fit: cover;
+                      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+                  }
+
                   @media (max-width: 900px) {
-                      .modal-main-grid {
+                      .quantum-split-layout {
                           grid-template-columns: 1fr;
-                          gap: 30px;
                       }
-                      .dribbble-modal-card {
-                          padding: 25px;
-                          margin-top: 20px;
-                          margin-bottom: 20px;
+                      .quantum-sidebar {
+                          position: relative;
+                          top: 0;
+                          display: grid;
+                          grid-template-columns: 1fr 1fr;
+                          gap: 1.5rem;
                       }
-                      .modal-header-title {
-                          font-size: 1.7rem;
+                      .quantum-sidebar-actions {
+                          grid-column: 1 / -1;
+                      }
+                  }
+                  @media (max-width: 600px) {
+                      .quantum-sidebar {
+                          grid-template-columns: 1fr;
                       }
                   }
               </style>
@@ -3112,97 +2804,79 @@
                 </p>
             </div>
 
-            <!-- Dribbble-style Modal Overlay -->
-            <div class="dribbble-modal-overlay" id="dribbble-modal">
-                <div class="dribbble-modal-card">
-                    <button class="dribbble-modal-close" id="dribbble-modal-close" aria-label="Close modal">&times;</button>
-                    
-                    <div class="modal-header-section">
-                        <h2 class="modal-header-title" id="modal-title">Healthcare Website UI UX Design</h2>
-                        <div class="modal-creator-badge">
-                            <img src="assets/champ_small_1780765834180.png" class="creator-avatar" alt="Avatar">
-                            <div class="creator-info">
-                                <span class="creator-name">W. Designer & Developer <span class="creator-badge-pro">PRO</span></span>
-                            </div>
-                        </div>
+            <!-- Quantum-style Case Study Overlay -->
+            <div class="quantum-modal-overlay" id="dribbble-modal">
+                <button class="quantum-modal-close" id="dribbble-modal-close" aria-label="Close case study">&times;</button>
+                
+                <div class="quantum-modal-content">
+                    <!-- Hero Image Banner -->
+                    <div class="quantum-hero-banner" id="modal-main-img">
+                        <!-- Image injected via JS -->
                     </div>
 
-                    <div class="modal-main-grid">
-                        <div class="modal-content-left">
-                            <div class="modal-main-image-wrapper" id="modal-main-img"></div>
-                            <div class="modal-thumbnails-row" id="modal-thumbs-row"></div>
-                        </div>
-                        
-                        <div class="modal-content-right">
-                            <!-- Quick Hire style Sidebar Card -->
-                            <div class="modal-sidebar-card">
-                                <div class="sidebar-price-row">
-                                    <span class="sidebar-large-val" id="modal-highlight-value">GPA 3.82</span>
-                                    <span class="sidebar-small-lbl-pill" id="modal-highlight-label">Dual Degree</span>
+                    <!-- Main Article Body -->
+                    <article class="quantum-article">
+                        <header class="quantum-header">
+                            <h1 class="quantum-title" id="modal-title">Project Title</h1>
+                            <p class="quantum-subtitle" id="modal-highlight-value">Project Subtitle / Overview</p>
+                        </header>
+
+                        <div class="quantum-split-layout">
+                            <!-- Left Sticky Sidebar (Metadata) -->
+                            <aside class="quantum-sidebar">
+                                <div class="quantum-meta-group">
+                                    <h4 class="quantum-meta-label" data-i18n="modal_category_lbl">Category</h4>
+                                    <p class="quantum-meta-value" id="modal-meta-val-1">Pendidikan</p>
                                 </div>
-                                <div class="sidebar-sub-lbl" data-i18n="modal_phases_lbl">This milestone contains 2 completed phases</div>
-                                
-                                <div class="sidebar-milestones-list">
-                                    <!-- Milestone Phase 1 -->
-                                    <div class="sidebar-milestone-item">
-                                        <div class="milestone-number-badge">1</div>
-                                        <div class="milestone-text">
-                                            <span class="milestone-title" id="modal-milestone-title-1">Accounting (S.E)</span>
-                                            <span class="milestone-desc" id="modal-milestone-desc-1">Business & Finance focus</span>
-                                        </div>
-                                        <div class="milestone-val" id="modal-milestone-val-1">Completed</div>
-                                    </div>
-                                    <!-- Milestone Phase 2 -->
-                                    <div class="sidebar-milestone-item">
-                                        <div class="milestone-number-badge">2</div>
-                                        <div class="milestone-text">
-                                            <span class="milestone-title" id="modal-milestone-title-2">Information System (S.Kom)</span>
-                                            <span class="milestone-desc" id="modal-milestone-desc-2">Systems Analysis & Architecture</span>
-                                        </div>
-                                        <div class="milestone-val" id="modal-milestone-val-2">Completed</div>
-                                    </div>
+                                <div class="quantum-meta-group">
+                                    <h4 class="quantum-meta-label" data-i18n="modal_institution_lbl">Institution</h4>
+                                    <p class="quantum-meta-value" id="modal-meta-val-2">Binus University</p>
+                                </div>
+                                <div class="quantum-meta-group">
+                                    <h4 class="quantum-meta-label">Role</h4>
+                                    <p class="quantum-meta-value" id="modal-highlight-label">Dual Degree</p>
+                                </div>
+                                <div class="quantum-meta-group">
+                                    <h4 class="quantum-meta-label">Timeline</h4>
+                                    <p class="quantum-meta-value" id="modal-milestone-val-1">Completed</p>
                                 </div>
 
-                                <div class="sidebar-meta-list">
-                                    <div class="sidebar-meta-item">
-                                        <span id="modal-meta-label-1" data-i18n="modal_category_lbl">Category</span>
-                                        <span id="modal-meta-val-1">Pendidikan</span>
-                                    </div>
-                                    <div class="sidebar-meta-item">
-                                        <span id="modal-meta-label-2" data-i18n="modal_institution_lbl">Institution</span>
-                                        <span id="modal-meta-val-2">Binus University</span>
-                                    </div>
-                                </div>
-
-                                <div class="sidebar-buttons-row">
-                                    <button class="modal-hire-btn" id="modal-contact-btn">
+                                <div class="quantum-sidebar-actions">
+                                    <button class="quantum-hire-btn" id="modal-contact-btn">
                                         <span data-i18n="modal_hire_btn">Hire Now</span> &rarr;
                                     </button>
-                                    <button class="modal-secondary-btn" id="modal-inquire-btn">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sidebar-chat-icon"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                                        <span data-i18n="modal_request_btn">Request Info</span>
-                                    </button>
                                 </div>
-                            </div>
+                            </aside>
 
-                            <!-- Creator Profile Card -->
-                            <div class="modal-creator-profile-card">
-                                <img src="assets/champ_small_1780765834180.png" class="creator-profile-avatar" alt="Profile">
-                                <div class="creator-profile-details">
-                                    <div class="creator-profile-name-row">
-                                        <span class="creator-profile-name">W. Designer & Developer</span>
-                                        <span class="creator-badge-pro">PRO</span>
-                                    </div>
-                                    <span class="creator-profile-meta">Jakarta, Indonesia &bull; Active Now &bull; 4 Milestones</span>
+                            <!-- Right Main Content -->
+                            <div class="quantum-main-content">
+                                <section class="quantum-text-section">
+                                    <h2 class="quantum-section-title" data-i18n="modal_about_title">The Challenge</h2>
+                                    <p class="quantum-paragraph" id="modal-desc">
+                                        Detailed descriptions go here... This area will hold the main narrative of the experience. 
+                                    </p>
+                                </section>
+
+                                <!-- Phase 1 -->
+                                <section class="quantum-text-section">
+                                    <h2 class="quantum-section-title" id="modal-milestone-title-1">Phase 1</h2>
+                                    <p class="quantum-paragraph" id="modal-milestone-desc-1">Details about phase 1.</p>
+                                </section>
+
+                                <!-- Phase 2 -->
+                                <section class="quantum-text-section">
+                                    <h2 class="quantum-section-title" id="modal-milestone-title-2">Phase 2</h2>
+                                    <p class="quantum-paragraph" id="modal-milestone-desc-2">Details about phase 2.</p>
+                                </section>
+                                
+                                <div class="quantum-gallery-row" id="modal-thumbs-row">
+                                    <!-- Additional images injected here -->
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="modal-description-section">
-                        <h3 class="modal-description-title" data-i18n="modal_about_title">About this Milestone</h3>
-                        <p class="modal-description-text" id="modal-desc">Detailed descriptions go here...</p>
-                    </div>
+                    </article>
+                </div>
+            </div>
                             <!-- Live Filter and Arrow Interactions Script -->
             <script>
                 document.addEventListener('DOMContentLoaded', () => {
@@ -3237,7 +2911,6 @@
                     const modalThumbsRow = document.getElementById('modal-thumbs-row');
                     const modalDesc = document.getElementById('modal-desc');
                     const modalContactBtn = document.getElementById('modal-contact-btn');
-                    const modalInquireBtn = document.getElementById('modal-inquire-btn');
 
                     // Dynamic Milestone Fields
                     const modalHighlightVal = document.getElementById('modal-highlight-value');
@@ -3296,22 +2969,19 @@
                         // Main Image
                         modalMainImg.style.backgroundImage = `url('${mainImage}')`;
 
-                        // Thumbnails
+                        // Galleries (Quantum Style)
                         modalThumbsRow.innerHTML = '';
-                        // Always include main image as the first thumbnail
-                        const allThumbs = [mainImage, ...thumbsStr.split(',')];
-                        
-                        allThumbs.forEach((thumbPath, i) => {
-                            const thumbDiv = document.createElement('div');
-                            thumbDiv.className = `modal-thumb-img ${i === 0 ? 'active' : ''}`;
-                            thumbDiv.style.backgroundImage = `url('${thumbPath.trim()}')`;
-                            thumbDiv.addEventListener('click', () => {
-                                document.querySelectorAll('.modal-thumb-img').forEach(t => t.classList.remove('active'));
-                                thumbDiv.classList.add('active');
-                                modalMainImg.style.backgroundImage = `url('${thumbPath.trim()}')`;
+                        if(thumbsStr) {
+                            const allThumbs = thumbsStr.split(',');
+                            allThumbs.forEach((thumbPath) => {
+                                if(thumbPath.trim() !== '') {
+                                    const img = document.createElement('img');
+                                    img.className = 'quantum-gallery-img';
+                                    img.src = thumbPath.trim();
+                                    modalThumbsRow.appendChild(img);
+                                }
                             });
-                            modalThumbsRow.appendChild(thumbDiv);
-                        });
+                        }
 
                         // Show modal
                         modal.classList.add('show');
@@ -3355,16 +3025,10 @@
                     // Action buttons (Hire Now / Request Info) close modal and scroll to contact
                     const scrollToContact = () => {
                         closeModal();
-                        const contactSection = document.getElementById('contact');
-                        if (contactSection) {
-                            contactSection.scrollIntoView({ behavior: 'smooth' });
-                        } else {
-                            window.location.href = 'index.html#contact';
-                        }
+                        window.location.href = "index.html#contact";
                     };
 
                     if (modalContactBtn) modalContactBtn.addEventListener('click', scrollToContact);
-                    if (modalInquireBtn) modalInquireBtn.addEventListener('click', scrollToContact);
 
                     // Navigation arrows cycle modal if open, or highlight cards if closed
                     const nextBtn = document.getElementById('edu-arrow-next');

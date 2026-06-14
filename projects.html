@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+
+
         /* Portfolio Project Gallery CSS Styles */
         body.projects-body {
             background-color: #000000;
@@ -448,44 +450,31 @@
             }
         }
 
-        .gallery-card {
-            background: #09090b;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            overflow: hidden;
+                .gallery-card {
             display: flex;
             flex-direction: column;
             text-decoration: none;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+            gap: 10px;
+            transition: opacity 0.3s ease;
         }
 
         .gallery-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 12px 35px rgba(0,0,0,0.55);
+            opacity: 0.95;
         }
 
-        body.light-theme .gallery-card {
-            background: #ffffff;
-            border-color: rgba(0, 0, 0, 0.06);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-        }
-
-        body.light-theme .gallery-card:hover {
-            border-color: rgba(0, 0, 0, 0.18);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.09);
+        .gallery-card-img-wrapper {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #18181b;
         }
 
         .gallery-card-preview {
             width: 100%;
-            aspect-ratio: 1 / 1;
+            aspect-ratio: 4 / 3;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            position: relative;
-            background-color: #18181b;
-            overflow: hidden;
             transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
@@ -493,41 +482,63 @@
             transform: scale(1.05);
         }
 
-        .gallery-card-content {
-            padding: 16px;
+        .gallery-card-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-sizing: border-box;
-            background: #0a0a0c;
+            width: 100%;
         }
 
-        body.light-theme .gallery-card-content {
-            background: #ffffff;
-            border-top: 1px solid rgba(0, 0, 0, 0.03);
-        }
-
-        .gallery-card-text {
+        .meta-left {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
-        .gallery-card-avatar {
-            width: 18px;
-            height: 18px;
+        .meta-avatar {
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             object-fit: cover;
         }
 
-        .gallery-card-title {
-            font-size: 0.8rem;
+        .meta-name {
+            font-size: 0.85rem;
             font-weight: 600;
             color: #ffffff;
         }
 
-        body.light-theme .gallery-card-title {
+        body.light-theme .meta-name {
             color: #111111;
+        }
+
+        .meta-pro-badge {
+            background-color: #1a56db;
+            color: white;
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 2px;
+        }
+
+        .meta-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #a1a1aa;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        body.light-theme .meta-right {
+            color: #71717a;
+        }
+
+        .meta-stat {
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
 
         /* Footer load more button */
@@ -570,28 +581,66 @@
             display: none !important;
         }
 
-        /* Creative Grid Hero Section */
         .projects-glowup-hero {
-            background-color: #fdfcf9;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
-            background-size: 20px 20px;
-            color: #111111;
-            padding: 90px 4% 110px;
+            background-color: #0a0a0a;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: center;
+            color: #ffffff;
+            padding: 90px 0 0;
             position: relative;
-            overflow: visible;
-            min-height: 80vh;
+            overflow: hidden;
+            min-height: 90vh;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: space-between;
             text-align: center;
-            border-bottom: 2px solid #111111;
+            border-bottom: none;
             box-sizing: border-box;
+
+            /* Ticker & Footer Variables for dark theme */
+            --hero-text-title: #ffffff;
+            --hero-text-desc: rgba(255, 255, 255, 0.9);
+            --ticker-bg: rgba(13, 27, 42, 0.55);
+            --ticker-border: rgba(255, 255, 255, 0.15);
+            --ticker-text: #ffffff;
+            --ticker-sep-color: #84b026;
+        }
+
+        .projects-glowup-hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            /* background: linear-gradient(to bottom, rgba(10,30,60,0.3) 0%, rgba(10,30,60,0.7) 100%); */
+            z-index: 1;
+        }
+        
+        .projects-glowup-hero > * {
+            z-index: 2;
+        }
+
+        .glowup-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 0 4%;
+            box-sizing: border-box;
+            position: relative;
         }
 
         /* Light/Dark theme compatibility */
         body.light-theme .projects-glowup-hero {
-            background-color: #fdfcf9;
+            background-color: #ffffff;
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
         }
 
         .hero-top-text {
@@ -612,7 +661,7 @@
         }
 
         .hero-glowup-title {
-            font-family: 'Playfair Display', Georgia, serif;
+            font-family: 'Outfit', sans-serif;
             font-size: clamp(2rem, 4.8vw, 3.4rem);
             font-weight: 700;
             line-height: 1.25;
@@ -666,6 +715,7 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
             transition: transform 0.3s ease, z-index 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
+            overflow: hidden;
         }
 
         .card-inner-overlay {
@@ -690,16 +740,15 @@
             box-shadow: 2px 2px 0 rgba(255,255,255,0.2);
         }
 
-        /* Card positions fanning out */
-        .card-1 { transform: rotate(-10deg) translateX(-220px); z-index: 1; }
-        .card-2 { transform: rotate(-4deg) translateX(-110px); z-index: 2; }
-        .card-3 { transform: rotate(1deg) translateY(-8px); z-index: 3; }
-        .card-4 { transform: rotate(5deg) translateX(110px); z-index: 4; }
-        .card-5 { transform: rotate(12deg) translateX(220px); z-index: 5; }
+        /* Card positions straight */
+        .card-1 { transform: translateX(-220px); z-index: 1; }
+        .card-2 { transform: translateX(-110px); z-index: 2; }
+        .card-3 { transform: translateX(0); z-index: 3; }
+        .card-4 { transform: translateX(110px); z-index: 4; }
+        .card-5 { transform: translateX(220px); z-index: 5; }
 
         /* Card Hover */
         .stack-card:hover {
-            transform: scale(1.12) rotate(0deg) translateY(-15px);
             z-index: 15;
             box-shadow: 0 16px 35px rgba(0,0,0,0.25);
         }
@@ -780,6 +829,7 @@
 
         /* Active Project Widget */
         .active-project-widget {
+            display: none !important;
             background: #ffffff;
             border: 2px solid #111111;
             padding: 20px 24px;
@@ -1159,6 +1209,117 @@
             margin-top: 8px;
             text-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
+        /* Category Row Styles */
+        .category-section-wrapper {
+            margin-bottom: 40px;
+        }
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .category-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+        }
+        body.light-theme .category-title {
+            color: #111111;
+        }
+        .category-nav-btns {
+            display: flex;
+            gap: 10px;
+        }
+        .cat-nav-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 1.2rem;
+        }
+        .cat-nav-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .cat-nav-btn.btn-active {
+            background: #ffffff;
+            color: #111111;
+        }
+        body.light-theme .cat-nav-btn {
+            background: #f1f1f1;
+            color: #111111;
+        }
+        body.light-theme .cat-nav-btn:hover {
+            background: #e1e1e1;
+        }
+        body.light-theme .cat-nav-btn.btn-active {
+            background: #111111;
+            color: #ffffff;
+        }
+
+        .category-scroll-container {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            scroll-behavior: smooth;
+        }
+        .category-scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            min-width: 90px;
+            text-decoration: none;
+        }
+        .category-icon-box {
+            width: 86px;
+            height: 86px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            transition: transform 0.2s, background 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .category-item:hover .category-icon-box {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        body.light-theme .category-icon-box {
+            background: #f7f8fa;
+            border: 1px solid #eaeaea;
+        }
+        body.light-theme .category-item:hover .category-icon-box {
+            background: #f0f0f0;
+        }
+        .category-name {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+        }
+        body.light-theme .category-name {
+            color: #333333;
+        }
     </style>
 </head>
 <body class="projects-body">
@@ -1170,18 +1331,19 @@
     <main>
         <!-- Showcase Hero Section mimicking Mason Home design -->
         <section class="projects-glowup-hero">
-            <!-- Rotating sticker "open for work" -->
-            <div class="rotating-sticker-container">
-                <svg class="rotating-text-svg" viewBox="0 0 100 100">
-                    <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
-                    <text font-family="Courier New" font-weight="bold" font-size="9" fill="#111">
-                        <textPath href="#circlePath">
-                            OPEN FOR WORK • AVAILABLE NOW • DESIGN & CODE •
-                        </textPath>
-                    </text>
-                </svg>
-                <div class="sticker-smiley">☺</div>
-            </div>
+            <div class="glowup-content">
+                <!-- Rotating sticker "open for work" -->
+                <div class="rotating-sticker-container">
+                    <svg class="rotating-text-svg" viewBox="0 0 100 100">
+                        <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
+                        <text font-family="Courier New" font-weight="bold" font-size="9" fill="#111">
+                            <textPath href="#circlePath">
+                                OPEN FOR WORK • AVAILABLE NOW • DESIGN & CODE •
+                            </textPath>
+                        </text>
+                    </svg>
+                    <div class="sticker-smiley">☺</div>
+                </div>
 
             <div class="hero-top-text">
                 <span class="hero-welcome-badge">WELCOME TO THE PORTFOLIO ARCHIVE</span>
@@ -1208,16 +1370,19 @@
                 </div>
 
                 <!-- Card 1: Workspace -->
-                <div class="stack-card card-1" style="background-image: url('assets/workspace_clean.jpg')">
-                    <div class="card-inner-overlay">
+                <div class="stack-card card-1">
+                    <video autoplay loop muted playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
+                        <source src="assets/thumbnail ikea.mp4" type="video/mp4">
+                    </video>
+                    <div class="card-inner-overlay" style="z-index: 1;">
                         <span class="card-tag">Workspace</span>
                     </div>
                 </div>
                 
-                <!-- Card 2: Tennis Arena -->
-                <div class="stack-card card-2" style="background-image: url('assets/champ_large_1780765815192.png')">
+                <!-- Card 2: Jewelry Store -->
+                <div class="stack-card card-2" style="background-image: url('assets/jewelry_ui.png')">
                     <div class="card-inner-overlay">
-                        <span class="card-tag">Tennis Arena</span>
+                        <span class="card-tag">Maison Premiere</span>
                     </div>
                 </div>
 
@@ -1252,6 +1417,7 @@
                 <h4 id="showcase-project-title" class="widget-title">Tennis Arena</h4>
                 <p id="showcase-project-desc" class="widget-desc">Designing the tournament system connecting professional leagues globally</p>
                 <a href="#" class="widget-btn" id="showcase-read-more-btn">Explore Case Study →</a>
+            </div>
             </div>
 
             <div class="netpoint-footer-bar">
@@ -1295,96 +1461,182 @@
         <!-- More Sites/Projects Grid Section -->
         <section class="gallery-outer-wrap">
             <div class="gallery-inner-container">
-                <div class="gallery-header-row">
-                    <h4 class="gallery-heading">More sites made in Framer</h4>
-                    <a href="#" class="gallery-all-link">All new sites →</a>
+
+
+                <!-- Project Categories List -->
+                <div class="category-section-wrapper">
+                    <div class="category-header">
+                        <h4 class="category-title" data-i18n="proj_categories">Categories</h4>
+                        <div class="category-nav-btns">
+                            <button class="cat-nav-btn" aria-label="Scroll left" onclick="document.getElementById('cat-scroll').scrollBy({left: -250, behavior: 'smooth'})">←</button>
+                            <button class="cat-nav-btn btn-active" aria-label="Scroll right" onclick="document.getElementById('cat-scroll').scrollBy({left: 250, behavior: 'smooth'})">→</button>
+                        </div>
+                    </div>
+                    <div class="category-scroll-container" id="cat-scroll">
+                        <a href="#all" class="category-item">
+                            <div class="category-icon-box">♾️</div>
+                            <span class="category-name">Semua</span>
+                        </a>
+                        <a href="#mobile" class="category-item">
+                            <div class="category-icon-box">📱</div>
+                            <span class="category-name">Mobile App</span>
+                        </a>
+                        <a href="#webapp" class="category-item">
+                            <div class="category-icon-box">💻</div>
+                            <span class="category-name">Web App</span>
+                        </a>
+                        <a href="#wordpress" class="category-item">
+                            <div class="category-icon-box">📝</div>
+                            <span class="category-name">WordPress</span>
+                        </a>
+                        <a href="#instagram" class="category-item">
+                            <div class="category-icon-box">📸</div>
+                            <span class="category-name">Instagram</span>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="gallery-cards-grid">
                     <!-- Card 1: Napan -->
-                    <a href="experience-detail.html?id=axa-mandiri" class="gallery-card">
-                        <div class="gallery-card-preview" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&auto=format&fit=crop&q=80');"></div>
-                        <div class="gallery-card-content">
-                            <div class="gallery-card-text">
-                                <img src="assets/dinda.png" class="gallery-card-avatar" alt="Avatar" onerror="this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=50&auto=format&fit=crop&q=80'">
-                                <span class="gallery-card-title">Napan Dashboard</span>
+                    <a href="experience-detail.html?id=axa-mandiri" class="gallery-card" data-category="wordpress">
+                        <div class="gallery-card-img-wrapper">
+                            <div class="gallery-card-preview" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&auto=format&fit=crop&q=80');"></div>
+                        </div>
+                        <div class="gallery-card-meta">
+                            <div class="meta-left">
+                                <img src="assets/dinda.png" class="meta-avatar" alt="Avatar">
+                                <span class="meta-name">Napan Dashboard</span>
+                                <span class="meta-pro-badge">PRO</span>
+                            </div>
+                            <div class="meta-right">
+                                <span class="meta-stat">👍 163</span>
+                                <span class="meta-stat">👁️ 800</span>
                             </div>
                         </div>
                     </a>
 
-                    <!-- Card 2: Taliahhh -->
-                    <a href="experience-detail.html?id=chubb-life" class="gallery-card">
-                        <div class="gallery-card-preview" style="background-image: url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&auto=format&fit=crop&q=80');"></div>
-                        <div class="gallery-card-content">
-                            <div class="gallery-card-text">
-                                <img src="assets/dinda.png" class="gallery-card-avatar" alt="Avatar" onerror="this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=50&auto=format&fit=crop&q=80'">
-                                <span class="gallery-card-title">Taliahhh Camera</span>
+                    <!-- Card 2: Agilo Social -->
+                    <a href="experience-detail.html?id=chubb-life" class="gallery-card" data-category="webapp">
+                        <div class="gallery-card-img-wrapper">
+                            <div class="gallery-card-preview" style="background-image: url('assets/webapp_1.png'); background-size: cover;"></div>
+                        </div>
+                        <div class="gallery-card-meta">
+                            <div class="meta-left">
+                                <img src="assets/dinda.png" class="meta-avatar" alt="Avatar">
+                                <span class="meta-name">Agilo Social</span>
+                                
+                            </div>
+                            <div class="meta-right">
+                                <span class="meta-stat">👍 41</span>
+                                <span class="meta-stat">👁️ 2.5K</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Card 3: Mostly Sunny -->
-                    <a href="experience-detail.html?id=xl-axiata" class="gallery-card">
-                        <div class="gallery-card-preview" style="background-image: url('https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=400&auto=format&fit=crop&q=80');"></div>
-                        <div class="gallery-card-content">
-                            <div class="gallery-card-text">
-                                <img src="assets/dinda.png" class="gallery-card-avatar" alt="Avatar" onerror="this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=50&auto=format&fit=crop&q=80'">
-                                <span class="gallery-card-title">Mostly Sunny</span>
+                    <a href="experience-detail.html?id=xl-axiata" class="gallery-card" data-category="instagram">
+                        <div class="gallery-card-img-wrapper">
+                            <div class="gallery-card-preview" style="background-image: url('https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=400&auto=format&fit=crop&q=80');"></div>
+                        </div>
+                        <div class="gallery-card-meta">
+                            <div class="meta-left">
+                                <img src="assets/dinda.png" class="meta-avatar" alt="Avatar">
+                                <span class="meta-name">Mostly Sunny</span>
+                                <span class="meta-pro-badge">PRO</span>
+                            </div>
+                            <div class="meta-right">
+                                <span class="meta-stat">👍 57</span>
+                                <span class="meta-stat">👁️ 321</span>
                             </div>
                         </div>
                     </a>
 
-                    <!-- Card 4: Uthinh Pham -->
-                    <a href="experience-detail.html?id=great-giant-pineapple" class="gallery-card">
-                        <div class="gallery-card-preview" style="background-image: url('https://images.unsplash.com/photo-1542241647-9cbb2225278b?w=400&auto=format&fit=crop&q=80');"></div>
-                        <div class="gallery-card-content">
-                            <div class="gallery-card-text">
-                                <img src="assets/dinda.png" class="gallery-card-avatar" alt="Avatar" onerror="this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=50&auto=format&fit=crop&q=80'">
-                                <span class="gallery-card-title">Uthinh Pham</span>
+                    <!-- Card 4: Zentra Dashboard -->
+                    <a href="experience-detail.html?id=great-giant-pineapple" class="gallery-card" data-category="webapp">
+                        <div class="gallery-card-img-wrapper">
+                            <div class="gallery-card-preview" style="background-image: url('assets/webapp_2.png'); background-size: cover;"></div>
+                        </div>
+                        <div class="gallery-card-meta">
+                            <div class="meta-left">
+                                <img src="assets/dinda.png" class="meta-avatar" alt="Avatar">
+                                <span class="meta-name">Zentra Dashboard</span>
+                                
+                            </div>
+                            <div class="meta-right">
+                                <span class="meta-stat">👍 188</span>
+                                <span class="meta-stat">👁️ 800</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Card 5: Rare Standard -->
-                    <a href="experience-detail.html?id=cimb-niaga" class="gallery-card">
-                        <div class="gallery-card-preview" style="background-image: url('https://images.unsplash.com/photo-1561070791-26c113006238?w=400&auto=format&fit=crop&q=80');"></div>
-                        <div class="gallery-card-content">
-                            <div class="gallery-card-text">
-                                <img src="assets/dinda.png" class="gallery-card-avatar" alt="Avatar" onerror="this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=50&auto=format&fit=crop&q=80'">
-                                <span class="gallery-card-title">Rare Standard</span>
+                    <a href="experience-detail.html?id=cimb-niaga" class="gallery-card" data-category="mobile">
+                        <div class="gallery-card-img-wrapper">
+                            <div class="gallery-card-preview" style="background-image: url('https://images.unsplash.com/photo-1561070791-26c113006238?w=400&auto=format&fit=crop&q=80');"></div>
+                        </div>
+                        <div class="gallery-card-meta">
+                            <div class="meta-left">
+                                <img src="assets/dinda.png" class="meta-avatar" alt="Avatar">
+                                <span class="meta-name">Rare Standard</span>
+                                
+                            </div>
+                            <div class="meta-right">
+                                <span class="meta-stat">👍 79</span>
+                                <span class="meta-stat">👁️ 998</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Card 6: ISAKMOOSA -->
-                    <a href="experience-detail.html?id=mandiri-inhealth" class="gallery-card">
-                        <div class="gallery-card-preview" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&auto=format&fit=crop&q=80');"></div>
-                        <div class="gallery-card-content">
-                            <div class="gallery-card-text">
-                                <img src="assets/dinda.png" class="gallery-card-avatar" alt="Avatar" onerror="this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=50&auto=format&fit=crop&q=80'">
-                                <span class="gallery-card-title">ISAKMOOSA</span>
+                    <a href="experience-detail.html?id=mandiri-inhealth" class="gallery-card" data-category="mobile">
+                        <div class="gallery-card-img-wrapper">
+                            <div class="gallery-card-preview" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&auto=format&fit=crop&q=80');"></div>
+                        </div>
+                        <div class="gallery-card-meta">
+                            <div class="meta-left">
+                                <img src="assets/dinda.png" class="meta-avatar" alt="Avatar">
+                                <span class="meta-name">ISAKMOOSA</span>
+                                <span class="meta-pro-badge">PRO</span>
+                            </div>
+                            <div class="meta-right">
+                                <span class="meta-stat">👍 96</span>
+                                <span class="meta-stat">👁️ 800</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Card 7: Lucca DeMiranda -->
-                    <a href="experience-detail.html?id=chubb-life" class="gallery-card">
-                        <div class="gallery-card-preview" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&auto=format&fit=crop&q=80');"></div>
-                        <div class="gallery-card-content">
-                            <div class="gallery-card-text">
-                                <img src="assets/dinda.png" class="gallery-card-avatar" alt="Avatar" onerror="this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=50&auto=format&fit=crop&q=80'">
-                                <span class="gallery-card-title">Lucca DeMiranda</span>
+                    <a href="experience-detail.html?id=chubb-life" class="gallery-card" data-category="webapp">
+                        <div class="gallery-card-img-wrapper">
+                            <div class="gallery-card-preview" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&auto=format&fit=crop&q=80');"></div>
+                        </div>
+                        <div class="gallery-card-meta">
+                            <div class="meta-left">
+                                <img src="assets/dinda.png" class="meta-avatar" alt="Avatar">
+                                <span class="meta-name">Lucca DeMiranda</span>
+                                
+                            </div>
+                            <div class="meta-right">
+                                <span class="meta-stat">👍 54</span>
+                                <span class="meta-stat">👁️ 321</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Card 8: Whistle -->
-                    <a href="experience-detail.html?id=axa-mandiri" class="gallery-card">
-                        <div class="gallery-card-preview" style="background-image: url('https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?w=400&auto=format&fit=crop&q=80');"></div>
-                        <div class="gallery-card-content">
-                            <div class="gallery-card-text">
-                                <img src="assets/dinda.png" class="gallery-card-avatar" alt="Avatar" onerror="this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=50&auto=format&fit=crop&q=80'">
-                                <span class="gallery-card-title">Whistle Mobile</span>
+                    <a href="experience-detail.html?id=axa-mandiri" class="gallery-card" data-category="wordpress">
+                        <div class="gallery-card-img-wrapper">
+                            <div class="gallery-card-preview" style="background-image: url('https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?w=400&auto=format&fit=crop&q=80');"></div>
+                        </div>
+                        <div class="gallery-card-meta">
+                            <div class="meta-left">
+                                <img src="assets/dinda.png" class="meta-avatar" alt="Avatar">
+                                <span class="meta-name">Whistle Mobile</span>
+                                <span class="meta-pro-badge">PRO</span>
+                            </div>
+                            <div class="meta-right">
+                                <span class="meta-stat">👍 54</span>
+                                <span class="meta-stat">👁️ 1.9K</span>
                             </div>
                         </div>
                     </a>
@@ -1506,8 +1758,142 @@
                 });
             }
 
+            
+            // Category Filter Logic
+            const catItems = document.querySelectorAll('.category-item');
+            const galleryCards = document.querySelectorAll('.gallery-card');
+
+            catItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Remove active style if we want to toggle or just keep it active.
+                    // For now, let's just use it to filter
+                    
+                    const targetHash = item.getAttribute('href').substring(1); // 'all', 'mobile', etc.
+                    
+                    galleryCards.forEach(card => {
+                        if (targetHash === 'all') {
+                            card.style.display = 'flex'; // our gallery cards use flex
+                        } else {
+                            if (card.getAttribute('data-category') === targetHash) {
+                                card.style.display = 'flex';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+
             // Initial load
             updateShowcase(currentIndex);
+        });
+    </script>
+
+    <!-- Project Detail Modal (Dribbble Style) -->
+    <div id="project-detail-modal" class="detail-modal">
+        <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+        <div class="dribbble-detail-wrapper">
+            
+            <!-- Header section (Top) -->
+            <div class="dribbble-header">
+                <div class="d-header-left">
+                    <img src="assets/dinda.png" alt="Dinda Hwan" class="d-avatar">
+                    <div class="d-info">
+                        <h1 class="d-title" id="modal-dynamic-title">Project Name</h1>
+                        <div class="d-author-row">
+                            <span class="d-author-name">Dinda Hwan</span>
+                            <span class="d-role">• Product Designer</span>
+                            <button class="d-follow-text">Follow</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-header-right">
+                    <button class="d-save-btn">Save</button>
+                    <button class="d-hire-btn">Hire Me</button>
+                </div>
+            </div>
+
+            <!-- Main Content: Images -->
+            <div class="dribbble-main-content">
+                <!-- Using high-quality unsplash placeholders to simulate a long presentation -->
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&auto=format&fit=crop&q=80" alt="Presentation Slide 1">
+                <img src="https://images.unsplash.com/photo-1542241647-9cbb2225278b?w=1600&auto=format&fit=crop&q=80" alt="Presentation Slide 2">
+                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1600&auto=format&fit=crop&q=80" alt="Presentation Slide 3">
+                <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=1600&auto=format&fit=crop&q=80" alt="Presentation Slide 4">
+            </div>
+
+            <!-- Footer Section (Bottom) -->
+            <div class="dribbble-footer">
+                <div class="dribbble-stats">
+                    <div class="d-stat-box">
+                        <div class="d-stat-num">1.2k</div>
+                        <div class="d-stat-label">Likes</div>
+                    </div>
+                    <div class="d-stat-box">
+                        <div class="d-stat-num">15.4k</div>
+                        <div class="d-stat-label">Views</div>
+                    </div>
+                </div>
+
+                <div class="detail-tags" style="justify-content: center; margin-bottom: 30px;">
+                    <span class="detail-tag">UI/UX Design</span>
+                    <span class="detail-tag">Web Design</span>
+                    <span class="detail-tag">Figma</span>
+                    <span class="detail-tag">Healthcare</span>
+                </div>
+
+                <div class="dribbble-author-bottom">
+                    <img src="assets/dinda.png" alt="Dinda Hwan" class="d-avatar-large">
+                    <h3>Dinda Hwan</h3>
+                    <p>Product Designer</p>
+                    <button class="d-hire-btn-large">Hire Me</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        // Modal Logic for Project Details
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('project-detail-modal');
+            const closeBtn = document.getElementById('modal-close-btn');
+            const modalTitle = document.getElementById('modal-dynamic-title');
+            
+            // Get all gallery cards
+            const cards = document.querySelectorAll('.gallery-card');
+            
+            cards.forEach(card => {
+                card.addEventListener('click', (e) => {
+                    e.preventDefault(); // Prevent navigating to experience-detail.html
+                    
+                    // Extract project name from the card to populate the modal
+                    const nameEl = card.querySelector('.meta-name');
+                    if (nameEl) {
+                        modalTitle.textContent = nameEl.textContent;
+                    }
+                    
+                    // Show modal and lock body scroll
+                    modal.classList.add('active');
+                    document.body.classList.add('modal-open');
+                });
+            });
+
+            // Close modal functionality
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+                document.body.classList.remove('modal-open');
+            });
+
+            // Close on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                    document.body.classList.remove('modal-open');
+                }
+            });
         });
     </script>
 </body>
