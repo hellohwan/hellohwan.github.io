@@ -307,1491 +307,257 @@
     <global-navbar page="resume"></global-navbar>
 
         <!-- About Me Section -->
-        <div class="about-ticker-container">
-            <!-- Background Video (Commented out for custom hero background) -->
-            <!--
-            <video autoplay loop muted playsinline class="hero-bg-video">
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-sky-in-a-sunset-26070-large.mp4" type="video/mp4">
-            </video>
-            -->
-            <!-- Dribbble Showcase Background (Commented out for custom hero background) -->
-            <!--
-            <div class="dribbble-showcase-bg">
-                <div class="showcase-column">
-                    <div class="showcase-card" style="background-image: url('assets/educaa_mockup.png');"></div>
-                    <div class="showcase-card" style="background-image: url('assets/immersive_mockup.png');"></div>
-                    <div class="showcase-card" style="background-image: url('assets/hero_mockup_screens.png');"></div>
-                    <div class="showcase-card" style="background-image: url('assets/prev_screen_1780767147349.png');"></div>
-                    <div class="showcase-card" style="background-image: url('assets/educaa_mockup.png');"></div>
-                    <div class="showcase-card" style="background-image: url('assets/immersive_mockup.png');"></div>
-                    <div class="showcase-card" style="background-image: url('assets/hero_mockup_screens.png');"></div>
-                    <div class="showcase-card" style="background-image: url('assets/prev_screen_1780767147349.png');"></div>
+        
+        <!-- New Champions Hero Section -->
+        <div class="champions-hero-container">
+            <!-- Background Image -->
+            <div class="champions-hero-bg">
+                <div class="champions-hero-overlay"></div>
+            </div>
+
+            <div class="champions-hero-content">
+                <!-- Left side -->
+                <div class="champions-hero-left">
+                    <h1 class="champions-headline">Design Like<br>Champions</h1>
+                    <p class="champions-desc">With world-class aesthetics, cutting-edge development, and a relentless spirit, I push limits, sharpen user experiences, and ignite passion in every product.</p>
+                    <div class="champions-actions">
+                        <a href="#contact" class="champions-btn">Hire Me Today</a>
+                        <a href="#portfolio" class="champions-circle-btn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+                        </a>
+                    </div>
                 </div>
-                <div class="showcase-column">
-                    <div class="showcase-card" style="background-image: url('assets/hero_mockup_screens.png');"></div>
-                    <div class="showcase-card" style="background-image: url('assets/prev_screen_1780767147349.png');"></div>
-                    <div class="showcase-card" style="background-image: url('assets/educaa_mockup.png');"></div>
-                    <div class="showcase-card" style="background-image: url('assets/immersive_mockup.png');"></div>
-                    <div class="showcase-card" style="background-image: url('assets/hero_mockup_screens.png');"></div>
-                    <div class="showcase-card" style="background-image: url('assets/prev_screen_1780767147349.png');"></div>
-                    <div class="showcase-card" style="background-image: url('assets/educaa_mockup.png');"></div>
-                    <div class="showcase-card" style="background-image: url('assets/immersive_mockup.png');"></div>
+
+                <!-- Right side -->
+                <div class="champions-hero-right">
+                    <!-- Glass Card -->
+                    <div class="champions-glass-card">
+                        <div class="champions-card-media">
+                            <!-- A cool abstract design or video placeholder -->
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=200&auto=format&fit=crop" alt="Abstract">
+                            <div class="play-icon">▶</div>
+                        </div>
+                        <div class="champions-card-text">
+                            Dinda Offers More Than Just Code — It's An Experience.
+                        </div>
+                    </div>
                 </div>
-                <div class="showcase-column">
-                    <div class="showcase-card" style="background-image: url('assets/immersive_mockup.png');"></div>
-                    <div class="showcase-card" style="background-image: url('assets/educaa_mockup.png');"></div>
-                    <div class="showcase-card" style="background-image: url('assets/prev_screen_1780767147349.png');"></div>
-                    <div class="showcase-card" style="background-image: url('assets/hero_mockup_screens.png');"></div>
-                    <div class="showcase-card" style="background-image: url('assets/immersive_mockup.png');"></div>
-                    <div class="showcase-card" style="background-image: url('assets/educaa_mockup.png');"></div>
-                    <div class="showcase-card" style="background-image: url('assets/prev_screen_1780767147349.png');"></div>
-                    <div class="showcase-card" style="background-image: url('assets/hero_mockup_screens.png');"></div>
+                
+                <!-- Floating tags -->
+                <div class="champions-tags-cluster">
+                    <span class="champions-tag">UI/UX Design</span>
+                    <span class="champions-tag">Frontend Dev</span>
+                    <span class="champions-tag">Prototyping</span>
+                    <span class="champions-tag">Creative Strategy</span>
+                    <span class="champions-tag">Web Animations</span>
+                </div>
+                
+                <!-- Trademark -->
+                <div class="champions-trademark">
+                    &reg; Registered Trademark
                 </div>
             </div>
-            -->
-            <style>
-                @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
-                .about-ticker-container {
-                     --hero-text-title: #ffffff;
-                     --hero-text-desc: rgba(255, 255, 255, 0.9);
-                     --hero-text-muted: rgba(255, 255, 255, 0.65);
-                     --hero-border: rgba(255, 255, 255, 0.25);
-                     --hero-overlay: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.45) 100%);
-                     --card-bg: rgba(255, 255, 255, 0.95);
-                     --card-text-primary: #111111;
-                     --card-text-secondary: #555555;
-                     --ticker-bg: rgba(0, 0, 0, 0.45);
-                     --ticker-border: rgba(255, 255, 255, 0.15);
-                     --ticker-text: #ffffff;
- 
-                     /* CSS variables for new profile card component */
-                     --studio-accent: #c4f042;
-                     --border: rgba(255, 255, 255, 0.12);
-                     --card: rgba(13, 20, 35, 0.75);
-                     --muted: rgba(255, 255, 255, 0.08);
-                     --muted-foreground: rgba(255, 255, 255, 0.5);
-                     --foreground: #ffffff;
- 
-                     /* Layout: flex-column so footer-bar + ticker stay pinned to bottom */
-                     display: flex;
-                     flex-direction: column;
-                     justify-content: space-between;
-                     height: 90vh;
-                     min-height: 600px;
-                     width: 100%;
-                     box-sizing: border-box;
-                     position: relative;
-                     background-image: url('assets/resume_hero_bg.jpg');
-                     background-size: cover;
-                     background-position: center;
-                     background-repeat: no-repeat;
-                     overflow: hidden;
-                     /* No top padding here — content handles it via its own padding */
-                     font-family: 'Inter', sans-serif;
-                 }
+            
+            <!-- Bottom giant watermark -->
+            <div class="champions-watermark">
+                DINDA
+            </div>
 
-                /* Utility styles for Tom's card */
-                .about-hero-right .group {
-                    background-color: #111111;
-                    border: 1px solid #222222 !important;
-                    border-radius: 12px;
-                    width: 100%;
-                    max-width: 300px;
-                    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-                    font-family: 'Inter', sans-serif;
-                    overflow: hidden;
-                }
-                body.light-theme .about-hero-right .group {
-                    background-color: #ffffff;
-                    border: 1px solid #e2e8f0 !important;
-                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-                }
-                .about-hero-right .flex-1 p {
-                    margin: 0 !important;
-                }
-                .about-hero-right .flex-1 p:first-child {
-                    font-size: 1.15rem;
-                    font-weight: 500;
-                    letter-spacing: -0.3px;
-                    color: #ffffff;
-                }
-                body.light-theme .about-hero-right .flex-1 p:first-child {
-                    color: #000000;
-                }
-                .about-hero-right .flex-1 p:last-child {
-                    font-size: 0.62rem;
-                    font-weight: 700;
-                    letter-spacing: 1px;
-                    color: #888888;
-                    margin-top: 2px !important;
-                }
-                .about-hero-right .relative.size-11 {
-                    width: 44px;
-                    height: 44px;
-                    border-radius: 50%;
-                    border: 1.5px solid #333333;
-                    overflow: hidden;
+            <style>
+                .champions-hero-container {
                     position: relative;
-                    flex-shrink: 0;
-                }
-                body.light-theme .about-hero-right .relative.size-11 {
-                    border-color: #e2e8f0;
-                }
-                .about-hero-right .relative.size-11 img {
-                    position: absolute !important;
-                    width: 100% !important;
-                    height: 100% !important;
-                    top: 0 !important;
-                    left: 0 !important;
-                    object-fit: cover !important;
-                }
-                .about-hero-right .grid-cols-2 {
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                }
-                .about-hero-right .grid-cols-2 button,
-                .about-hero-right .grid-cols-2 a {
-                    background: none;
-                    border: none;
-                    font-family: 'Inter', sans-serif;
-                    font-size: 0.72rem;
-                    font-weight: 700;
-                    letter-spacing: 1px;
-                    text-transform: uppercase;
-                    color: #ffffff !important;
-                    padding: 10px;
+                    width: 100%;
+                    height: 100vh;
+                    min-height: 800px;
+                    overflow: hidden;
                     display: flex;
                     align-items: center;
-                    justify-content: center;
-                    gap: 4px;
-                    text-decoration: none;
-                    transition: background-color 0.2s;
+                    color: #fff;
+                    font-family: var(--font-heading, 'Inter', sans-serif);
                 }
-                body.light-theme .about-hero-right .grid-cols-2 button,
-                body.light-theme .about-hero-right .grid-cols-2 a {
-                    color: #000000 !important;
-                }
-                .about-hero-right .grid-cols-2 button:hover,
-                .about-hero-right .grid-cols-2 a:hover {
-                    background-color: rgba(255, 255, 255, 0.05);
-                }
-                body.light-theme .about-hero-right .grid-cols-2 button:hover,
-                body.light-theme .about-hero-right .grid-cols-2 a:hover {
-                    background-color: rgba(0, 0, 0, 0.02);
-                }
-                .about-hero-right .border-t,
-                .about-hero-right .border-l {
-                    border-color: #222222 !important;
-                }
-                body.light-theme .about-hero-right .border-t,
-                body.light-theme .about-hero-right .border-l {
-                    border-color: #e2e8f0 !important;
-                }
-
-                body.light-theme .about-ticker-container {
-                    --hero-text-title: #ffffff;
-                    --hero-text-desc: rgba(255, 255, 255, 0.9);
-                    --hero-text-muted: rgba(255, 255, 255, 0.65);
-                    --hero-border: rgba(255, 255, 255, 0.25);
-                    --hero-overlay: linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.5) 100%);
-                    --card-bg: #f0f4f2;
-                    --card-text-primary: #233129;
-                    --card-text-secondary: #475a4e;
- 
-                    --border: rgba(255, 255, 255, 0.15);
-                    --card: rgba(255, 255, 255, 0.85);
-                    --muted: rgba(0, 0, 0, 0.05);
-                    --muted-foreground: rgba(255, 255, 255, 0.6);
-                    --foreground: #ffffff;
-                    --ticker-bg: rgba(0, 0, 0, 0.55);
-                    --ticker-border: rgba(255, 255, 255, 0.2);
-                    --ticker-text: #ffffff;
-                    background-color: transparent;
-                }
-
-                /* Background Video */
-                .hero-bg-video {
-                    position: absolute;
-                    inset: 0;
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    z-index: 0;
-                    opacity: 0.6; /* Adjust opacity as needed */
-                    pointer-events: none;
-                }
-
-                /* Showcase Marquee Container */
-                .dribbble-showcase-bg {
-                    position: absolute;
-                    inset: 0;
-                    width: 100%;
-                    height: 100%;
-                    display: grid;
-                    grid-template-columns: repeat(3, 1fr);
-                    gap: 24px;
-                    transform: rotate(-10deg) scale(1.2);
-                    transform-origin: center center;
-                    opacity: 0.18;
-                    pointer-events: none;
-                    z-index: 0;
-                    transition: opacity 0.3s ease;
-                }
-
-                body.light-theme .dribbble-showcase-bg {
-                    opacity: 0.12;
-                }
-
-                .showcase-column {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 24px;
-                    height: fit-content;
-                }
-
-                .showcase-column:nth-child(1) {
-                    animation: scrollColumnUp 35s linear infinite;
-                }
-
-                .showcase-column:nth-child(2) {
-                    animation: scrollColumnDown 40s linear infinite;
-                }
-
-                .showcase-column:nth-child(3) {
-                    animation: scrollColumnUp 38s linear infinite;
-                }
-
-                .showcase-card {
-                    width: 100%;
-                    aspect-ratio: 16 / 10;
-                    background-size: cover;
-                    background-position: center;
-                    border-radius: 16px;
-                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-                    border: 1px solid rgba(255, 255, 255, 0.08);
-                    flex-shrink: 0;
-                }
-
-                body.light-theme .showcase-card {
-                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-                    border: 1px solid rgba(0, 0, 0, 0.08);
-                }
-
-                @keyframes scrollColumnUp {
-                    0% { transform: translateY(0); }
-                    100% { transform: translateY(-50%); }
-                }
-
-                @keyframes scrollColumnDown {
-                    0% { transform: translateY(-50%); }
-                    100% { transform: translateY(0); }
-                }
-
-                .about-ticker-container::before {
-                    content: '';
+                .champions-hero-bg {
                     position: absolute;
                     top: 0; left: 0; right: 0; bottom: 0;
-                    background: var(--hero-overlay);
-                    z-index: 1;
-                    transition: background 0.3s ease;
+                    background: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+                    z-index: -2;
                 }
-
-                .about-hero-content {
-                    position: relative;
-                    z-index: 5;
-                    width: 90%;
+                .champions-hero-overlay {
+                    position: absolute;
+                    top: 0; left: 0; right: 0; bottom: 0;
+                    background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+                    z-index: -1;
+                }
+                .champions-hero-content {
+                    width: 100%;
                     max-width: 1400px;
                     margin: 0 auto;
-                    display: grid;
-                    grid-template-columns: 1fr;
-                    justify-items: center;
-                    gap: 3rem;
-                    align-items: center;
-                    flex: 1;
-                    min-height: 0;
-                    /* reduced padding to center content vertically */
-                    padding: 60px 0 12px;
-                    box-sizing: border-box;
-                }
-                .about-hero-right {
-                    display: none !important;
-                }
-                .hero-desc-p {
-                    display: none !important;
-                }
-                .profile-photo-wrap {
-                    border-radius: 16px;
-                    overflow: hidden;
-                    border: 2px solid rgba(255,255,255,0.15);
-                }
-                .profile-photo {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    display: block;
-                }
-                .hero-image-wrapper {
-                    width: 100%;
-                    max-width: 450px;
-                    aspect-ratio: 1.1 / 1;
-                    background: #0b0f19;
-                    border: 1px solid rgba(255, 255, 255, 0.1);
-                    border-radius: 16px;
-                    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-                    display: flex;
-                    flex-direction: column;
-                    padding: 0;
-                    overflow: hidden;
+                    padding: 0 5%;
                     position: relative;
-                    box-sizing: border-box;
-                }
-                
-                body.light-theme .hero-image-wrapper {
-                    background: #f8fafc;
-                    border-color: rgba(0, 0, 0, 0.08);
-                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-                }
-
-                .browser-header {
-                    height: 36px;
-                    background: #111827;
-                    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-                    display: flex;
-                    align-items: center;
-                    padding: 0 12px;
-                    position: relative;
-                    flex-shrink: 0;
-                    box-sizing: border-box;
-                    width: 100%;
-                }
-                
-                body.light-theme .browser-header {
-                    background: #e2e8f0;
-                    border-bottom-color: rgba(0, 0, 0, 0.08);
-                }
-
-                .browser-buttons {
-                    display: flex;
-                    gap: 6px;
-                    align-items: center;
-                }
-
-                .browser-dot {
-                    width: 8px;
-                    height: 8px;
-                    border-radius: 50%;
-                }
-                .dot-red { background: #ef4444; }
-                .dot-yellow { background: #eab308; }
-                .dot-green { background: #22c55e; }
-
-                .browser-address {
-                    position: absolute;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    width: 55%;
-                    height: 20px;
-                    background: rgba(255, 255, 255, 0.05);
-                    border-radius: 6px;
-                    font-size: 0.6rem;
-                    color: rgba(255, 255, 255, 0.4);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    border: 1px solid rgba(255, 255, 255, 0.05);
-                    font-family: monospace;
-                    box-sizing: border-box;
-                }
-                
-                body.light-theme .browser-address {
-                    background: rgba(255, 255, 255, 0.8);
-                    color: rgba(0, 0, 0, 0.5);
-                    border-color: rgba(0, 0, 0, 0.06);
-                }
-
-                .browser-body {
-                    flex: 1;
-                    display: flex;
-                    overflow: hidden;
-                    background: #090d16;
-                    box-sizing: border-box;
-                    width: 100%;
-                }
-                
-                body.light-theme .browser-body {
-                    background: #f1f5f9;
-                }
-
-                /* Sidebar Mockup */
-                .mockup-sidebar {
-                    width: 85px;
-                    border-right: 1px solid rgba(255, 255, 255, 0.05);
-                    background: rgba(255, 255, 255, 0.01);
-                    display: flex;
-                    flex-direction: column;
-                    padding: 12px 6px;
-                    flex-shrink: 0;
-                    box-sizing: border-box;
-                }
-                
-                body.light-theme .mockup-sidebar {
-                    border-right-color: rgba(0, 0, 0, 0.05);
-                    background: rgba(0, 0, 0, 0.01);
-                }
-
-                .sidebar-logo {
-                    display: flex;
-                    align-items: center;
-                    gap: 4px;
-                    font-weight: 700;
-                    font-size: 0.65rem;
-                    color: #fff;
-                    margin-bottom: 16px;
-                    padding-left: 4px;
-                }
-                
-                body.light-theme .sidebar-logo {
-                    color: #0f172a;
-                }
-
-                .logo-icon {
-                    font-size: 0.8rem;
-                }
-
-                .sidebar-nav {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 6px;
-                }
-
-                .nav-item {
-                    display: flex;
-                    align-items: center;
-                    gap: 6px;
-                    padding: 6px 8px;
-                    border-radius: 6px;
-                    color: rgba(255, 255, 255, 0.5);
-                    font-size: 0.55rem;
-                    font-weight: 500;
-                    cursor: pointer;
-                    transition: all 0.2s;
-                    box-sizing: border-box;
-                }
-                
-                body.light-theme .nav-item {
-                    color: rgba(15, 23, 42, 0.6);
-                }
-
-                .nav-item.active, .nav-item:hover {
-                    background: rgba(255, 255, 255, 0.08);
-                    color: #fff;
-                }
-                
-                body.light-theme .nav-item.active, body.light-theme .nav-item:hover {
-                    background: rgba(0, 0, 0, 0.05);
-                    color: #0f172a;
-                }
-
-                /* Main Content Mockup */
-                .mockup-main {
-                    flex: 1;
-                    display: flex;
-                    flex-direction: column;
-                    padding: 12px;
-                    overflow: hidden;
-                    position: relative;
-                    box-sizing: border-box;
-                }
-
-                .main-top-bar {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    margin-bottom: 12px;
-                    flex-shrink: 0;
-                    box-sizing: border-box;
+                    height: 100%;
+                    z-index: 2;
                 }
-
-                .user-welcome {
-                    display: flex;
-                    flex-direction: column;
-                    text-align: left;
+                .champions-hero-left {
+                    max-width: 600px;
                 }
-
-                .welcome-title {
-                    font-size: 0.45rem;
-                    color: rgba(255, 255, 255, 0.4);
-                    text-transform: uppercase;
-                    letter-spacing: 0.5px;
-                }
-                
-                body.light-theme .welcome-title {
-                    color: rgba(0, 0, 0, 0.5);
-                }
-
-                .welcome-name {
-                    font-size: 0.75rem;
+                .champions-headline {
+                    font-size: clamp(4rem, 8vw, 8rem);
                     font-weight: 700;
-                    color: #fff;
-                }
-                
-                body.light-theme .welcome-name {
-                    color: #0f172a;
-                }
-
-                .user-avatar {
-                    width: 20px;
-                    height: 20px;
-                    border-radius: 50%;
-                    overflow: hidden;
-                    border: 1px solid rgba(255, 255, 255, 0.1);
-                }
-
-                .user-avatar img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-
-                /* Scrollable Cards Grid Container */
-                .mockup-cards-scroll {
-                    flex: 1;
-                    overflow: hidden;
-                    position: relative;
-                    box-sizing: border-box;
-                    mask-image: linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent);
-                    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent);
-                }
-
-                .mockup-scroll-track {
-                    display: flex;
-                    gap: 8px;
-                    height: 100%;
-                    box-sizing: border-box;
-                }
-
-                .mockup-scroll-column {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 8px;
-                    width: calc(50% - 4px);
-                    flex-shrink: 0;
-                    box-sizing: border-box;
-                }
-
-                .col-up-1 {
-                    animation: appMarqueeUp 14s linear infinite;
-                }
-
-                .col-up-2 {
-                    animation: appMarqueeUp 12s linear infinite;
-                }
-
-                @keyframes appMarqueeUp {
-                    0% { transform: translateY(0); }
-                    100% { transform: translateY(-50%); }
-                }
-
-                /* Cute Colorful App Cards */
-                .app-card {
-                    position: relative;
-                    width: 100%;
-                    height: 90px;
-                    border-radius: 10px;
-                    overflow: hidden;
-                    background-size: cover;
-                    background-position: center;
-                    background-color: #1e293b;
-                    border: 1px solid rgba(255, 255, 255, 0.05);
-                    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-                    flex-shrink: 0;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: flex-end;
-                    padding: 8px;
-                    box-sizing: border-box;
-                }
-
-                .app-card::before {
-                    content: '';
-                    position: absolute;
-                    inset: 0;
-                    background: linear-gradient(to bottom, transparent 30%, rgba(0, 0, 0, 0.8) 100%);
-                    z-index: 1;
-                }
-
-                /* Add specific styling for card with blue/purple tint like Calm */
-                .app-card.card-blue-overlay::before {
-                    background: linear-gradient(to bottom, rgba(59, 130, 246, 0.1) 20%, rgba(30, 58, 138, 0.85) 100%);
-                }
-
-                .app-card-badge {
-                    position: absolute;
-                    top: 6px;
-                    left: 6px;
-                    background: rgba(255, 255, 255, 0.85);
-                    color: #0f172a;
-                    padding: 1px 5px;
-                    border-radius: 50px;
-                    font-size: 0.4rem !important;
-                    font-weight: 700 !important;
-                    text-transform: uppercase;
-                    z-index: 2;
-                }
-
-                .app-card-info {
-                    position: relative;
-                    z-index: 2;
-                    text-align: left;
-                }
-
-                .app-card-title {
-                    font-size: 0.58rem !important;
-                    font-weight: 700 !important;
-                    color: #ffffff !important;
-                    margin: 0 !important;
-                    line-height: 1.2 !important;
-                }
-
-                .app-card-subtitle {
-                    font-size: 0.45rem !important;
-                    color: rgba(255, 255, 255, 0.6) !important;
-                    margin: 1px 0 0 0 !important;
-                }
-
-                /* Left Side */
-                .about-hero-left {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 1rem;
-                    align-items: center;
-                    text-align: center;
-                }
-                
-                .hero-resume-tag {
-                    font-family: var(--font-heading);
-                    font-size: 0.8rem;
-                    font-weight: 800;
-                    letter-spacing: 1.5px;
-                    color: var(--hero-text-muted);
-                    text-transform: uppercase;
-                    margin: 0;
-                }
-                
-                .hero-resume-name {
-                    font-family: var(--font-heading);
-                    font-size: clamp(2.5rem, 6vw, 4.5rem);
-                    font-weight: 900;
+                    line-height: 1;
                     letter-spacing: -2px;
-                    color: var(--hero-text-title);
-                    margin: 0;
-                    line-height: 1.0;
-                    text-transform: uppercase;
-                }
-                
-                .hero-pills-row {
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 8px;
-                    margin-top: 0.25rem;
-                }
-                
-                /* Concept Sticker/Typo Layout matching Reference Image */
-                .hero-sticker-layout {
-                    position: relative;
-                    padding: 2.5rem 1.5rem;
-                    display: inline-block;
                     margin-bottom: 2rem;
-                    width: 100%;
-                    max-width: 550px;
-                    box-sizing: border-box;
+                    color: #ffffff;
                 }
-                .sticker-main-title {
-                    font-family: 'VT323', monospace;
-                    font-weight: 400; /* VT323 usually only has 400 */
-                    font-size: clamp(4rem, 10vw, 7.5rem);
-                    color: #ffffff; /* Make it white based on the image */
-                    line-height: 0.82;
-                    text-transform: uppercase;
-                    letter-spacing: 2px; /* Pixel fonts need a bit of spacing */
-                    margin: 0;
-                    text-shadow: 2px 2px 0px rgba(0,0,0,0.2); /* optional slight shadow for blockiness */
-                }
-                .sticker-smiley {
-                    position: absolute;
-                    top: -20px;
-                    left: -50px;
-                    transform: rotate(-10deg);
-                    display: inline-block;
-                    z-index: 3;
-                }
-                .sticker-badge {
-                    background-color: #ffb8d9; /* Pink solid background */
-                    color: #111111 !important;
-                    font-family: var(--font-heading);
-                    font-weight: 900;
-                    font-size: 1.05rem;
-                    padding: 6px 14px;
-                    position: absolute;
-                    white-space: nowrap;
-                    text-transform: uppercase;
-                    letter-spacing: 0.5px;
-                    border-radius: 4px;
-                    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-                    z-index: 2;
-                    display: inline-flex;
-                    align-items: center;
-                    gap: 8px;
-                    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s ease, box-shadow 0.3s ease;
-                }
-                .sticker-badge .pixel-icon {
-                    flex-shrink: 0;
-                    image-rendering: pixelated;
-                    image-rendering: crisp-edges;
-                }
-                .sticker-badge:hover {
-                    background-color: #e6fa50; /* Changes to neon yellow on hover */
-                    color: #000000 !important;
-                    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-                    cursor: pointer;
-                }
-                .sticker-badge.b1 {
-                    top: 45px;
-                    right: -10px;
-                    transform: rotate(5deg);
-                }
-                .sticker-badge.b1:hover {
-                    transform: scale(1.15) rotate(0deg);
-                }
-                .sticker-badge.b2 {
-                    top: 110px;
-                    left: -35px;
-                    transform: rotate(-6deg);
-                }
-                .sticker-badge.b2:hover {
-                    transform: scale(1.15) rotate(0deg);
-                }
-                .sticker-badge.b3 {
-                    bottom: 95px;
-                    right: -30px;
-                    transform: rotate(4deg);
-                }
-                .sticker-badge.b3:hover {
-                    transform: scale(1.15) rotate(0deg);
-                }
-                .sticker-badge.b4 {
-                    bottom: -15px;
-                    left: 45%;
-                    transform: translateX(-50%) rotate(-3deg);
-                }
-                .sticker-badge.b4:hover {
-                    transform: translateX(-50%) scale(1.15) rotate(0deg);
-                }
-                
-                .hero-stats-row {
-                    display: flex;
-                    gap: 3rem;
-                    margin-top: 1.25rem;
-                    flex-wrap: wrap;
-                    justify-content: center;
-                }
-                
-                .hero-stat-col {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 0.25rem;
-                    align-items: center;
-                }
-                
-                .hero-stat-num {
-                    font-family: var(--font-heading);
-                    font-size: clamp(3.2rem, 8vw, 4.8rem);
-                    font-weight: 900;
-                    color: var(--resume-accent, #c4f042);
-                    line-height: 0.95;
-                    letter-spacing: -2px;
-                }
-                
-                .hero-stat-label {
-                    font-family: var(--font-heading);
-                    font-weight: 700;
-                    font-size: 0.85rem;
-                    color: var(--hero-text-title);
-                }
-
-                .hero-quote-box {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 0.8rem;
-                    align-items: flex-start;
-                }
-
-                .np-avatars {
-                    display: flex;
-                }
-
-                .np-avatars img {
-                    width: 36px;
-                    height: 36px;
-                    border-radius: 50%;
-                    border: 2px solid var(--card-bg);
-                    margin-left: -12px;
-                    object-fit: cover;
-                    transition: border-color 0.3s ease;
-                }
-
-                .np-avatars img:first-child {
-                    margin-left: 0;
-                }
-
-                .hero-quote-box p {
-                    font-size: 1.05rem;
-                    color: var(--hero-text-desc);
-                    line-height: 1.5;
-                    max-width: 340px;
-                    margin: 0;
-                    font-weight: 500;
-                    transition: color 0.3s ease;
-                }
-
-                .hero-main-heading {
-                    font-size: clamp(2rem, 4vw, 3.4rem);
-                    font-weight: 800;
-                    line-height: 1.1;
-                    color: var(--hero-text-title);
-                    letter-spacing: -1.5px;
-                    margin: 0;
-                    transition: color 0.3s ease;
-                }
-
-                /* Right Side */
-                .about-hero-right {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: flex-start;
-                    gap: 0.8rem;
-                }
-
-                .brutal-typo {
-                    display: flex;
-                    flex-direction: column;
-                    line-height: 0.9;
-                    text-transform: uppercase;
-                    width: 100%;
-                }
-
-                .b-row {
-                    display: flex;
-                    align-items: flex-end;
-                    margin-bottom: 0.4rem;
-                    flex-wrap: wrap;
-                }
-                
-                .b-large {
-                    font-family: var(--font-heading);
-                    font-weight: 900;
-                    font-size: clamp(1.8rem, 3.2vw, 3.2rem);
-                    letter-spacing: -2px;
-                    color: var(--hero-text-title);
-                    margin: 0;
-                    padding: 0;
-                    line-height: 0.9;
-                    transition: color 0.3s ease;
-                }
-
-                .b-large.pixel {
-                    font-family: 'Courier New', Courier, monospace;
-                    font-weight: bold;
-                    letter-spacing: -3px;
-                    text-shadow: 2px 2px 0px rgba(100,100,100,0.3);
-                }
-
-                .b-small {
-                    font-weight: 700;
-                    font-size: 0.7rem;
-                    letter-spacing: 1px;
-                    color: var(--hero-text-title);
-                    max-width: 150px;
-                    line-height: 1.3;
-                    margin: 0 1rem 0.5rem;
-                    transition: color 0.3s ease;
-                }
-
-                .hero-desc-p {
-                    font-size: 1rem;
+                .champions-desc {
+                    font-size: 1.25rem;
                     line-height: 1.6;
-                    color: var(--hero-text-desc);
-                    max-width: 480px;
-                    margin-top: 1rem;
-                    font-weight: 400;
-                    transition: color 0.3s ease;
+                    margin-bottom: 3rem;
+                    color: rgba(255, 255, 255, 0.9);
+                    max-width: 500px;
                 }
-
-                .hero-actions-card {
-                    display: none !important;
-                    flex-direction: column;
-                    gap: 0.9rem;
-                    width: 100%;
-                    margin-top: 0.2rem;
-                }
-
-                .hero-capsule-btn {
-                    display: inline-flex;
-                    align-items: center;
-                    background: #527506;
-                    color: #ffffff !important;
-                    padding: 8px 8px 8px 22px;
-                    border-radius: 50px;
-                    font-weight: 700;
-                    font-size: 1rem;
-                    text-decoration: none;
-                    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
-                    align-self: flex-start;
-                }
-
-                .hero-capsule-btn:hover {
-                    transform: translateY(-3px);
-                    background: #618907;
-                }
-
-                .hero-capsule-btn .arrow-circle {
-                    background: #ffffff;
-                    width: 36px;
-                    height: 36px;
+                .champions-actions {
                     display: flex;
                     align-items: center;
-                    justify-content: center;
-                    border-radius: 50%;
-                    margin-left: 15px;
-                    font-size: 1.1rem;
-                    color: #111;
-                    font-weight: bold;
+                    gap: 1rem;
+                }
+                .champions-btn {
+                    background: #ffffff;
+                    color: #000000;
+                    padding: 1rem 2rem;
+                    border-radius: 50px;
+                    font-weight: 600;
+                    text-decoration: none;
                     transition: transform 0.3s ease;
                 }
-
-                .hero-capsule-btn:hover .arrow-circle {
-                    transform: rotate(45deg);
+                .champions-btn:hover {
+                    transform: scale(1.05);
                 }
-
-                .hero-stat-card {
-                    display: none !important;
-                    background: var(--card-bg);
-                    border-radius: 24px;
-                    padding: 20px;
-                    gap: 20px;
-                    color: var(--card-text-primary);
-                    width: 100%;
-                    max-width: 450px;
-                    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
-                    align-items: center;
-                    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-                }
-
-                .hero-stat-card:hover {
-                    transform: translateY(-5px);
-                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
-                }
-
-                .hero-stat-card-left {
-                    flex: 1;
+                .champions-circle-btn {
+                    width: 56px;
+                    height: 56px;
+                    background: #ffffff;
+                    color: #000000;
+                    border-radius: 50%;
                     display: flex;
-                    flex-direction: column;
+                    align-items: center;
                     justify-content: center;
-                    gap: 0.2rem;
+                    text-decoration: none;
+                    transition: transform 0.3s ease;
                 }
-
-                .hero-stat-card-left h2 {
-                    font-size: 3rem;
-                    font-weight: 800;
-                    line-height: 1;
-                    margin: 0;
-                    color: var(--card-text-primary);
-                    transition: color 0.3s ease;
+                .champions-circle-btn:hover {
+                    transform: scale(1.1);
                 }
-
-                .hero-stat-card-left p {
-                    font-size: 0.9rem;
-                    color: var(--card-text-secondary);
-                    margin: 0;
-                    font-weight: 500;
-                    transition: color 0.3s ease;
+                
+                .champions-hero-right {
+                    position: relative;
+                    height: 100%;
+                    width: 400px;
                 }
-
-                .hero-stat-card-left .np-avatars {
-                    margin-top: 0.6rem;
-                }
-
-                .hero-stat-card-right {
-                    width: 110px;
-                    height: 115px;
-                    border-radius: 14px;
-                    background-image: url('assets/champ_small_1780765834180.png');
-                    background-size: cover;
-                    background-position: center;
-                }
-
-                /* App Store Style Card */
-                .app-store-card {
+                .champions-glass-card {
+                    position: absolute;
+                    top: 150px;
+                    right: 0;
+                    background: rgba(255, 255, 255, 0.15);
+                    backdrop-filter: blur(12px);
+                    -webkit-backdrop-filter: blur(12px);
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                    border-radius: 16px;
+                    padding: 16px;
                     display: flex;
                     align-items: center;
-                    background-color: #000000;
-                    border: 1px solid rgba(255, 255, 255, 0.15);
-                    border-radius: 24px;
-                    padding: 16px 20px;
                     gap: 16px;
-                    width: 100%;
-                    max-width: 420px;
-                    box-sizing: border-box;
-                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-                    margin-top: 1.5rem;
-                    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+                    max-width: 380px;
+                    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
                 }
-                .app-store-card:hover {
-                    transform: translateY(-3px);
-                    border-color: rgba(255, 255, 255, 0.3);
-                }
-                .app-logo {
-                    width: 60px;
+                .champions-card-media {
+                    position: relative;
+                    width: 80px;
                     height: 60px;
+                    border-radius: 8px;
+                    overflow: hidden;
                     flex-shrink: 0;
                 }
-                .app-logo svg {
+                .champions-card-media img {
                     width: 100%;
                     height: 100%;
-                    display: block;
+                    object-fit: cover;
                 }
-                .app-info {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 2px;
-                    flex-grow: 1;
-                    text-align: left;
+                .play-icon {
+                    position: absolute;
+                    top: 50%; left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: rgba(255,255,255,0.8);
+                    color: #000;
+                    width: 24px; height: 24px;
+                    border-radius: 50%;
+                    display: flex; align-items: center; justify-content: center;
+                    font-size: 10px;
+                    padding-left: 2px;
                 }
-                .app-title {
-                    font-size: 1.05rem;
-                    font-weight: 700;
-                    color: #ffffff !important;
-                    margin: 0 !important;
-                    line-height: 1.2;
-                }
-                .app-subtitle {
-                    font-size: 0.8rem;
-                    color: rgba(255, 255, 255, 0.5) !important;
-                    margin: 0 0 6px 0 !important;
-                    font-weight: 400;
-                    line-height: 1.2;
-                }
-                .app-btn-get {
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
-                    background-color: #1e82f6;
-                    color: #ffffff !important;
-                    font-size: 0.75rem;
-                    font-weight: 700;
-                    padding: 5px 18px;
-                    border-radius: 20px;
-                    width: fit-content;
-                    text-transform: uppercase;
-                    transition: background-color 0.2s ease;
-                }
-                .app-btn-get:hover {
-                    background-color: #146cc5;
-                }
-
-                /* Footer Bar */
-                .hero-footer-bar {
-                    width: 90%;
-                    max-width: 1400px;
-                    margin: 0 auto;
-                    display: flex;
-                    justify-content: space-between;
-                    border-top: 1px solid var(--hero-border);
-                    padding: 8px 0;
-                    font-size: 0.75rem;
-                    color: var(--hero-text-muted);
-                    z-index: 5;
-                    position: relative;
-                    letter-spacing: 1px;
-                    text-transform: uppercase;
-                    transition: border-top 0.3s ease, color 0.3s ease;
-                    flex-shrink: 0;
-                }
-
-                .hero-footer-bar span {
-                    font-weight: 600;
-                }
-
-                /* Ticker strip */
-                .about-ticker-container .aceup-ticker-wrap {
-                    width: 100%;
-                    background-color: var(--ticker-bg);
-                    height: 46px;
-                    flex-shrink: 0;
-                    box-sizing: border-box;
-                    display: flex;
-                    align-items: center;
-                    overflow: hidden;
-                    position: relative;
-                    border-top: 1px solid var(--ticker-border);
-                    z-index: 5;
-                    transition: background-color 0.3s ease, border-top 0.3s ease;
-                }
-
-                .about-ticker-container .ticker-item {
-                    color: var(--ticker-text);
+                .champions-card-text {
                     font-size: 1rem;
-                    font-weight: 800;
-                    letter-spacing: -0.5px;
-                    transition: color 0.3s ease;
+                    line-height: 1.4;
+                    font-weight: 500;
                 }
-
-                .about-ticker-container .ticker-sep {
-                    color: #84b026;
-                    font-size: 0.75rem;
+                
+                .champions-tags-cluster {
+                    position: absolute;
+                    bottom: 25%;
+                    right: 5%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    max-width: 400px;
+                    justify-content: flex-end;
                 }
-
-                /* Responsive Layout */
+                .champions-tag {
+                    background: rgba(255, 255, 255, 0.2);
+                    backdrop-filter: blur(8px);
+                    -webkit-backdrop-filter: blur(8px);
+                    padding: 8px 16px;
+                    border-radius: 50px;
+                    font-size: 0.85rem;
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                }
+                
+                .champions-trademark {
+                    position: absolute;
+                    bottom: 20%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    font-size: 1rem;
+                    font-weight: 500;
+                    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+                }
+                
+                .champions-watermark {
+                    position: absolute;
+                    bottom: -5vh;
+                    left: 0;
+                    width: 100%;
+                    text-align: center;
+                    font-size: 35vw;
+                    font-weight: 900;
+                    color: rgba(255, 255, 255, 0.4);
+                    line-height: 0.75;
+                    white-space: nowrap;
+                    z-index: 1;
+                    pointer-events: none;
+                    mix-blend-mode: overlay;
+                }
+                
                 @media (max-width: 1024px) {
-                    .about-ticker-container {
-                        height: auto;
-                        min-height: 90vh;
-                        padding-top: 0;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: space-between;
-                    }
-                    .about-hero-content {
-                        grid-template-columns: 1fr 1.2fr;
-                        gap: 1.5rem;
-                        padding: 120px 0 16px;
-                        flex: 1;
-                    }
-                    .about-hero-right {
-                        max-width: 100%;
-                    }
-                    .hero-image-wrapper {
-                        display: none !important;
-                    }
-                    .hero-stat-card {
-                        max-width: 450px;
-                    }
-                }
-
-                @media (max-width: 768px) {
-                    .about-hero-content {
-                        gap: 1.2rem;
-                        padding: 110px 0 12px;
-                    }
-                    .hero-main-heading {
-                        font-size: 2rem;
-                    }
-                    .hero-desc-p {
-                        font-size: 0.9rem;
-                        margin-top: 0.4rem;
-                    }
-                    .b-large {
-                        font-size: clamp(1.4rem, 6vw, 2.2rem);
-                    }
-                    .hero-stat-card {
-                        max-width: 100%;
-                    }
-                    .hero-footer-bar {
-                        flex-direction: column;
-                        gap: 0.3rem;
-                        align-items: flex-start;
-                    }
-                    .hero-stat-card-left h2 { font-size: 2.2rem; }
-                    .hero-stat-card-right { width: 90px; height: 100px; }
+                    .champions-headline { font-size: clamp(3rem, 10vw, 5rem); }
+                    .champions-watermark { font-size: 40vw; }
+                    .champions-glass-card { top: 100px; }
+                    .champions-tags-cluster { right: auto; left: 5%; bottom: 15%; justify-content: flex-start; }
+                    .champions-trademark { bottom: 35%; left: 5%; transform: none; }
                 }
             </style>
-
-            <!-- Main Content -->
-            <div class="about-hero-content">
-                <!-- Left Column (Mockup Quote & Sports Headline) -->
-                <div class="about-hero-left">
-                    <p class="hero-resume-tag">Resume 2025</p>
-                    <!-- Concept Sticker/Typo Layout matching Reference Image -->
-                    <div class="hero-sticker-layout">
-                        <!-- Noto Emoji Wink decoration -->
-                        <span class="sticker-smiley">
-                            <picture>
-                                <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f609/512.webp" type="image/webp">
-                                <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f609/512.gif" alt="😉" width="60" height="60" style="display: block;">
-                            </picture>
-                        </span>
-
-                        <!-- Main Big Text: Dinda Hwan -->
-                        <h1 class="sticker-main-title">
-                            Dinda<br>Hwan
-                        </h1>
-
-                        <!-- Blue Badges -->
-                        <div class="sticker-badge b1">
-                            <svg class="headspace-badge-icon" width="16" height="16" viewBox="0 0 24 24" style="margin-right: 6px; flex-shrink: 0;">
-                                <circle cx="12" cy="12" r="10" fill="#ffca28"/>
-                                <path d="M9 11 Q 10.5 12.5 12 11" stroke="#263238" stroke-width="2" fill="none" stroke-linecap="round"/>
-                                <path d="M14 11 Q 15.5 12.5 17 11" stroke="#263238" stroke-width="2" fill="none" stroke-linecap="round"/>
-                                <path d="M10 15 Q 12 18 14 15" stroke="#263238" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                            </svg>
-                            UI/UX
-                        </div>
-                        <div class="sticker-badge b2">
-                            <svg class="headspace-badge-icon" width="16" height="16" viewBox="0 0 24 24" style="margin-right: 6px; flex-shrink: 0;">
-                                <circle cx="12" cy="12" r="10" fill="#ab47bc"/>
-                                <path d="M8.5 12 Q 10 10.5 11.5 12" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round"/>
-                                <path d="M14.5 12 Q 16 10.5 17.5 12" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round"/>
-                                <path d="M10 16 Q 12 18 14 16" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                            </svg>
-                            PROGRAMMER
-                        </div>
-                        <div class="sticker-badge b3">
-                            <svg class="headspace-badge-icon" width="16" height="16" viewBox="0 0 24 24" style="margin-right: 6px; flex-shrink: 0;">
-                                <path d="M7 16 A 4.5 4.5 0 0 1 8.5 8 A 6 6 0 0 1 17.5 8 A 4.5 4.5 0 0 1 19 16 Z" fill="#29b6f6"/>
-                                <path d="M10 11.5 Q 11 12.5 12 11.5" stroke="#263238" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-                                <path d="M14 11.5 Q 15 12.5 16 11.5" stroke="#263238" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-                                <path d="M11 14 Q 12.5 15.5 14 14" stroke="#263238" stroke-width="2" fill="none" stroke-linecap="round"/>
-                            </svg>
-                            MARKETING
-                        </div>
-                        <div class="sticker-badge b4">
-                            <svg class="headspace-badge-icon" width="16" height="16" viewBox="0 0 24 24" style="margin-right: 6px; flex-shrink: 0;">
-                                <circle cx="12" cy="12" r="10" fill="#00e676"/>
-                                <path d="M9 11 Q 10.5 12.5 12 11" stroke="#263238" stroke-width="2" fill="none" stroke-linecap="round"/>
-                                <circle cx="15.5" cy="11" r="1.5" fill="#263238"/>
-                                <path d="M10 15 Q 12 17.5 14 15" stroke="#263238" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-                            </svg>
-                            JAKARTA
-                        </div>
-                    </div>
-
-                    <!-- Statistics section -->
-                    <div class="hero-stats-row">
-                        <div class="hero-stat-col">
-                            <span class="hero-stat-num">8+</span>
-                            <span class="hero-stat-label">Years Experience</span>
-                        </div>
-                        <div class="hero-stat-col">
-                            <span class="hero-stat-num">25+</span>
-                            <span class="hero-stat-label">Happy Clients</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Column (Description, Action & Statistics Card) -->
-                <div class="about-hero-right">
-                    <p class="hero-desc-p" data-i18n="res_about_p1">👋 Halo! Saya seorang desainer yang bisa coding — tenaga kreatif hibrida dengan pengalaman hampir satu dekade dalam menciptakan pengalaman digital yang elegan dan bermakna.</p>
-                    
-                    <div class="hero-image-wrapper">
-                        <!-- Browser Header -->
-                        <div class="browser-header">
-                            <div class="browser-buttons">
-                                <span class="browser-dot dot-red"></span>
-                                <span class="browser-dot dot-yellow"></span>
-                                <span class="browser-dot dot-green"></span>
-                            </div>
-                            <div class="browser-address">dinda.dev/mindfulness-app</div>
-                        </div>
-                        
-                        <!-- Browser Window Body -->
-                        <div class="browser-body">
-                            <!-- Sidebar -->
-                            <div class="mockup-sidebar">
-                                <div class="sidebar-logo">
-                                    <span class="logo-icon">🧘</span>
-                                    <span class="logo-text">Mindful</span>
-                                </div>
-                                <nav class="sidebar-nav">
-                                    <div class="nav-item active"><span class="nav-icon">🏠</span> <span class="nav-label">Home</span></div>
-                                    <div class="nav-item"><span class="nav-icon">🍃</span> <span class="nav-label">Meditate</span></div>
-                                    <div class="nav-item"><span class="nav-icon">🌙</span> <span class="nav-label">Sleep</span></div>
-                                    <div class="nav-item"><span class="nav-icon">🎵</span> <span class="nav-label">Focus</span></div>
-                                </nav>
-                            </div>
-                            
-                            <!-- Main Content Area -->
-                            <div class="mockup-main">
-                                <div class="main-top-bar">
-                                    <div class="user-welcome">
-                                        <span class="welcome-title">Good Morning</span>
-                                        <span class="welcome-name">Dinda</span>
-                                    </div>
-                                    <div class="user-avatar">
-                                        <img src="assets/dinda.png" alt="Dinda" onerror="this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&auto=format&fit=crop&q=80'">
-                                    </div>
-                                </div>
-                                
-                                <!-- Scrolling Cards Container -->
-                                <div class="mockup-cards-scroll">
-                                    <div class="mockup-scroll-track">
-                                        <!-- Column 1 -->
-                                        <div class="mockup-scroll-column col-up-1">
-                                            <!-- Card: Overcome Anxiety -->
-                                            <div class="app-card card-blue-overlay" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=80');">
-                                                <span class="app-card-badge">Anxiety</span>
-                                                <div class="app-card-info">
-                                                    <h5 class="app-card-title">Overcome Stress</h5>
-                                                    <p class="app-card-subtitle">Dr. Julie Smith</p>
-                                                </div>
-                                            </div>
-                                            <!-- Card: Relax Your Mind -->
-                                            <div class="app-card" style="background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=200&auto=format&fit=crop&q=80');">
-                                                <span class="app-card-badge">Relax</span>
-                                                <div class="app-card-info">
-                                                    <h5 class="app-card-title">Relax Your Mind</h5>
-                                                    <p class="app-card-subtitle">Jeff Warren</p>
-                                                </div>
-                                            </div>
-                                            <!-- Card: Ground Yourself -->
-                                            <div class="app-card" style="background-image: url('https://images.unsplash.com/photo-1512438248247-f0f2a5a8b7f0?w=200&auto=format&fit=crop&q=80');">
-                                                <span class="app-card-badge">Ground</span>
-                                                <div class="app-card-info">
-                                                    <h5 class="app-card-title">Ground Yourself</h5>
-                                                    <p class="app-card-subtitle">Jay Shetty</p>
-                                                </div>
-                                            </div>
-                                            
-                                            <!-- Duplicates for continuous loop -->
-                                            <div class="app-card card-blue-overlay" style="background-image: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop&q=80');">
-                                                <span class="app-card-badge">Anxiety</span>
-                                                <div class="app-card-info">
-                                                    <h5 class="app-card-title">Overcome Stress</h5>
-                                                    <p class="app-card-subtitle">Dr. Julie Smith</p>
-                                                </div>
-                                            </div>
-                                            <div class="app-card" style="background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=200&auto=format&fit=crop&q=80');">
-                                                <span class="app-card-badge">Relax</span>
-                                                <div class="app-card-info">
-                                                    <h5 class="app-card-title">Relax Your Mind</h5>
-                                                    <p class="app-card-subtitle">Jeff Warren</p>
-                                                </div>
-                                            </div>
-                                            <div class="app-card" style="background-image: url('https://images.unsplash.com/photo-1512438248247-f0f2a5a8b7f0?w=200&auto=format&fit=crop&q=80');">
-                                                <span class="app-card-badge">Ground</span>
-                                                <div class="app-card-info">
-                                                    <h5 class="app-card-title">Ground Yourself</h5>
-                                                    <p class="app-card-subtitle">Jay Shetty</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Column 2 -->
-                                        <div class="mockup-scroll-column col-up-2">
-                                            <!-- Card: Mindfulness Tools -->
-                                            <div class="app-card" style="background-image: url('https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=200&auto=format&fit=crop&q=80');">
-                                                <span class="app-card-badge">Tools</span>
-                                                <div class="app-card-info">
-                                                    <h5 class="app-card-title">Mindfulness Tools</h5>
-                                                    <p class="app-card-subtitle">Dr. Vivek Murthy</p>
-                                                </div>
-                                            </div>
-                                            <!-- Card: Daily Move -->
-                                            <div class="app-card" style="background-image: url('https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&auto=format&fit=crop&q=80');">
-                                                <span class="app-card-badge">Daily</span>
-                                                <div class="app-card-info">
-                                                    <h5 class="app-card-title">Daily Move</h5>
-                                                    <p class="app-card-subtitle">Calm Session</p>
-                                                </div>
-                                            </div>
-                                            <!-- Card: ADHD Support -->
-                                            <div class="app-card" style="background-image: url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=200&auto=format&fit=crop&q=80');">
-                                                <span class="app-card-badge">ADHD</span>
-                                                <div class="app-card-info">
-                                                    <h5 class="app-card-title">ADHD Support</h5>
-                                                    <p class="app-card-subtitle">Calm Series</p>
-                                                </div>
-                                            </div>
-                                            
-                                            <!-- Duplicates for continuous loop -->
-                                            <div class="app-card" style="background-image: url('https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=200&auto=format&fit=crop&q=80');">
-                                                <span class="app-card-badge">Tools</span>
-                                                <div class="app-card-info">
-                                                    <h5 class="app-card-title">Mindfulness Tools</h5>
-                                                    <p class="app-card-subtitle">Dr. Vivek Murthy</p>
-                                                </div>
-                                            </div>
-                                            <div class="app-card" style="background-image: url('https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&auto=format&fit=crop&q=80');">
-                                                <span class="app-card-badge">Daily</span>
-                                                <div class="app-card-info">
-                                                    <h5 class="app-card-title">Daily Move</h5>
-                                                    <p class="app-card-subtitle">Calm Session</p>
-                                                </div>
-                                            </div>
-                                            <div class="app-card" style="background-image: url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=200&auto=format&fit=crop&q=80');">
-                                                <span class="app-card-badge">ADHD</span>
-                                                <div class="app-card-info">
-                                                    <h5 class="app-card-title">ADHD Support</h5>
-                                                    <p class="app-card-subtitle">Calm Series</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="hero-actions-card">
-                        <a href="index.html#contact" class="hero-capsule-btn">
-                            <span data-i18n="hero_book_now">Book Now</span>
-                            <span class="arrow-circle">→</span>
-                        </a>
-                        <div class="hero-stat-card">
-                            <div class="hero-stat-card-left">
-                                <h2>100+</h2>
-                                <p data-i18n="res_success_projects">Successful Projects</p>
-                                <div class="np-avatars">
-                                    <img src="https://i.pravatar.cc/100?img=4" alt="avatar">
-                                    <img src="https://i.pravatar.cc/100?img=5" alt="avatar">
-                                    <img src="https://i.pravatar.cc/100?img=6" alt="avatar">
-                                </div>
-                            </div>
-                            <div class="hero-stat-card-right"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Footer Location/Time Bar -->
-            <div class="hero-footer-bar">
-                <span data-i18n="res_location">BASED IN JAKARTA, INDONESIA</span>
-                <span id="hero-user-info">YOUR LOCAL TIME: 00:00 | WEATHER: ACCESS DENIED</span>
-            </div>
-
-            <!-- Scrolling Ticker -->
-            <div class="aceup-ticker-wrap">
-                <div class="aceup-ticker">
-                    <div class="ticker-item">UI/UX Design</div>
-                    <div class="ticker-sep">&gt;&lt;</div>
-                    <div class="ticker-item">Web Development</div>
-                    <div class="ticker-sep">&gt;&lt;</div>
-                    <div class="ticker-item">Branding</div>
-                    <div class="ticker-sep">&gt;&lt;</div>
-                    <div class="ticker-item">System Architecture</div>
-                    <div class="ticker-sep">&gt;&lt;</div>
-                    <div class="ticker-item">Prototyping</div>
-                    <div class="ticker-sep">&gt;&lt;</div>
-                    <div class="ticker-item">User Research</div>
-                    <div class="ticker-sep">&gt;&lt;</div>
-                </div>
-                <div class="aceup-ticker" aria-hidden="true">
-                    <div class="ticker-item">UI/UX Design</div>
-                    <div class="ticker-sep">&gt;&lt;</div>
-                    <div class="ticker-item">Web Development</div>
-                    <div class="ticker-sep">&gt;&lt;</div>
-                    <div class="ticker-item">Branding</div>
-                    <div class="ticker-sep">&gt;&lt;</div>
-                    <div class="ticker-item">System Architecture</div>
-                    <div class="ticker-sep">&gt;&lt;</div>
-                    <div class="ticker-item">Prototyping</div>
-                    <div class="ticker-sep">&gt;&lt;</div>
-                    <div class="ticker-item">User Research</div>
-                    <div class="ticker-sep">&gt;&lt;</div>
-                </div>
-            </div>
         </div>
-
-        <!-- New Intro Section (Added before Background) -->
+<!-- New Intro Section (Added before Background) -->
 
     <main class="resume-main">
             <style>
