@@ -3401,10 +3401,10 @@ body.light-theme .editorial-sparkle {
 
 /* Modern Social-Themed Footer Styles */
 .modern-footer {
-    background: #1c1c1c;
-    border-radius: 40px;
-    padding: 60px 4% 40px;
-    color: #ffffff;
+    background: linear-gradient(180deg, transparent 0%, #ffbaba 12%, #ffbaba 100%);
+    border-radius: 0;
+    padding: 140px 4% 40px;
+    color: #111111;
     overflow: hidden;
     position: relative;
     box-sizing: border-box;
@@ -3673,7 +3673,47 @@ body.light-theme .editorial-sparkle {
 
 /* Light Theme overrides for Footer to keep it beautiful */
 body.light-theme .modern-footer {
-    background: #181818;
+    background: linear-gradient(180deg, transparent 0%, #ffbaba 12%, #ffbaba 100%);
+}
+
+/* Override text colors for pink footer */
+.modern-footer .footer-headline,
+.modern-footer .footer-col h3,
+.modern-footer .footer-col ul li a,
+.modern-footer .footer-social-links a,
+.modern-footer .footer-bottom-text,
+.modern-footer .footer-bottom-sublinks a {
+    color: #111111 !important;
+}
+
+.modern-footer .footer-subtitle {
+    color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.modern-footer .footer-social-links a {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+.modern-footer .footer-social-links a:hover {
+    background: #111111;
+    color: #ffbaba !important;
+}
+
+.modern-footer .cookie-pref-btn {
+    background: #111111;
+    color: #ffbaba;
+}
+
+.modern-footer .cookie-pref-btn:hover {
+    background: #333333;
+}
+
+.modern-footer .footer-bottom-bar {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.modern-footer .feed-tag {
+    color: #ffffff !important; /* Keep feed tags white for contrast */
 }
 
 /* Mobile Responsive */
