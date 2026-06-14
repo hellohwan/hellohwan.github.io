@@ -1,4 +1,4 @@
-const CACHE_NAME = 'hellohwan-cache-v5';
+const CACHE_NAME = 'hellohwan-cache-v6';
 const urlsToCache = [
   '/',
   '/index.html',
