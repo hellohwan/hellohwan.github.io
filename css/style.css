@@ -5571,6 +5571,10 @@ body:not(.light-theme) .side-panel-footer { color: #666; }
     overflow-x: hidden;
 }
 
+.blog-page h1, .blog-page h2, .blog-page h3, .blog-page h4, .blog-page h5, .blog-page h6 {
+    font-family: 'Outfit', sans-serif;
+}
+
 /* Announcement Bar */
 .blog-announcement {
     background-color: #545b4c; /* Olive green */
